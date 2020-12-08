@@ -35,5 +35,9 @@ lnnew pre-commit ./.git/hooks/pre-commit
 
 lnnew .bash_aliases ~/.bash_aliases
 
+lnnew .inputrc ~/.inputrc
+
+lnnew .gitconfig ~/.gitconfig
+
 echo "You might want to run the following to update"
 echo "  bash"

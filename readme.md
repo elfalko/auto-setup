@@ -5,6 +5,7 @@ My requirements:
 * neovim with config
 * tmux with config
 * `.bash_aliases`
+* fancy git aliases
 * some basics installed
 
 ## features
@@ -13,6 +14,7 @@ My requirements:
 * pre-commit hook gets the latest of these files before a commit
 
 ## todo
-* .inputrc
-* .bashrc
-* .git stuff
+* git hook the following:
+    * .inputrc
+    * .bashrc
+    * .git stuff
