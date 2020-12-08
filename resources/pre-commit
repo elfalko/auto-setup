@@ -1,4 +1,16 @@
 #!/bin/sh
-cp ~/.config/nvim/init.vim ./resources/init.vim
-cp ~/.config/tmux/tmux.conf ./resources/tmux.conf
+
+cpnonlinks(){
+    if [ -L "$1" ]; then
+        echo "$1 is a link, not copying"
+    else
+        cp "$1" "$2"
+    fi
+}
+
+cpnonlinks ~/.config/nvim/init.vim ./resources/init.vim
+cpnonlinks ~/.config/tmux/tmux.conf ./resources/tmux.conf
+cpnonlinks ~/.bash_aliases ./resources/.bash_aliases
+cpnonlinks ./.git/hooks/pre-commit ./resources/pre-commit
+
 exec git add ./resources

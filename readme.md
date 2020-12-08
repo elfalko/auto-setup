@@ -11,3 +11,8 @@ My requirements:
 * `t` starts tmux with config in `~/.config/tmux/tmux.conf`
 * `v` starts nvim with config in `~/.config/nvim/init.vim` (which auto downloads plugins if curl is installed)
 * pre-commit hook gets the latest of these files before a commit
+
+## todo
+* .inputrc
+* .bashrc
+* .git stuff
