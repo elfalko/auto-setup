@@ -1,0 +1,4 @@
+#!/bin/sh
+cp ~/.config/nvim/init.vim ./resources/init.vim
+cp ~/.config/tmux/tmux.conf ./resources/tmux.conf
+exec git add ./resources
