@@ -40,7 +40,9 @@ alias vim="nvim -O"
 
 # tmux
 alias t="tmux -f ~/.config/tmux/tmux.conf"
+alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 alias ta="tmux -f ~/.config/tmux/tmux.conf attach"
+alias tmc="nvim ~/.config/tmux/tmux.conf"
 
 # git - works on top of git config
 alias g='git'
