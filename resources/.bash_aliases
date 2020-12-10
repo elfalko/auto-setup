@@ -1,6 +1,5 @@
 # General
 alias ali="nvim ~/.bash_aliases; bash"
-alias alii="nvim ~/.bash_individual_aliases; bash"
 
 # long, all, human readable, extended
 alias l="ls -lahF"
@@ -10,6 +9,8 @@ export PS1="\[\033[1m\]\u:\W \[\033[0m\]"
 
 # set -o vi
 
+# each workplace will have their own stuff, so drop that in here
+alias alii="nvim ~/.bash_individual_aliases; bash"
 if [ -f ~/.bash_individual_aliases ]; then
     . ~/.bash_individual_aliases
 fi
@@ -23,6 +24,9 @@ fi
 
 # Regolith
 alias i3c="nvim ~/.config/regolith/i3/config"
+
+# regolith-auto
+alias ras="cd ~/regolith-auto-setup/"
 
 # nvim
 export EDITOR=nvim
@@ -70,5 +74,3 @@ mkcd(){
 
 # devices
 alias wlsusb="watch -n 0.5 lsusb"
-
-

@@ -9,7 +9,11 @@ echo "Getting dependencies"
 # sudo apt install git neovim tmux curl
 
 # actual setup
-echo "Setting up"
+echo "Setting up files"
+
+# links to a resource file 
+# $1: link target in resources ./resource/$1
+# $2: name of link
 lnnew(){
     echo ""
     if [ -f "$2" ]; then
@@ -39,5 +43,18 @@ lnnew .inputrc ~/.inputrc
 
 lnnew .gitconfig ~/.gitconfig
 
-echo "You might want to run the following to update"
-echo "  bash"
+lnnew .Xmodmap ~/.Xmodmap
+lnnew .Xresources ~/.config/regolith/Xresources
+
+echo ""
+echo "Adding user $(whoami) to vboxsf for shared folder access:"
+# add user to group able to access shared folders
+if groups $(whoami) | grep -q "\bvboxsf\b"; then
+    echo "  $(whoami) is already in vboxsf"
+else
+    sudo usermod -aG vboxsf $(whoami) 
+fi
+echo ""
+
+echo "You might want to restart to allow the full config to take effect"
+
