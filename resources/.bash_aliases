@@ -74,3 +74,8 @@ mkcd(){
 
 # devices
 alias wlsusb="watch -n 0.5 lsusb"
+
+# man
+export MANPAGER='nvim +Man!'
+# gO
+
