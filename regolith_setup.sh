@@ -1,5 +1,7 @@
 #!/bin/bash
 
+./scripts/ubuntu-basics.sh
+
 # actual setup
 echo "Setting up files"
 
@@ -37,9 +39,8 @@ lnnew .gitconfig ~/.gitconfig
 
 lnnew .Xmodmap ~/.Xmodmap
 
-# lnnew .Xresources ~/.config/regolith/Xresources
+lnnew .Xresources ~/.config/regolith/Xresources
 
 echo ""
 
-echo "You might want to restart to allow the full config to take effect"
-
+./scripts/vbox.sh
