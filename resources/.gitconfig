@@ -1,6 +1,5 @@
 [user]
-	email = falk.schoenfeld@tum.de
-	name = Falk Fairfield
+	name = Falk Schönfeld
 [credential]
 	helper = cache --timeout 3600
 [color]
@@ -133,4 +132,8 @@
 [pull]
 	rebase = false
 [core]
+<<<<<<< HEAD
     autocrlf = input
+=======
+	autocrlf = input
+>>>>>>> d5cbdc028a548c081bb3f0b40ee1d9410e12fe67

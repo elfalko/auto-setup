@@ -15,6 +15,12 @@ if [ -f ~/.bash_individual_aliases ]; then
     . ~/.bash_individual_aliases
 fi
 
+
+if [ -d /home/f/bin ]; then
+    PATH+="$PATH:/home/f/bin"
+fi
+
+
 # sources all files in .falk/bash if they exist
 # for file in ~/.bash/*; do
 #   if [ -f "$file" ] ; then
@@ -36,7 +42,6 @@ alias nvc="nvim ~/.config/nvim/init.vim"
 
 alias v="nvim -O"
 alias vi="nvim -O"
-alias vim="nvim -O"
 
 # tmux
 alias t="tmux -f ~/.config/tmux/tmux.conf"
@@ -73,6 +78,7 @@ alias nethelp='echo "ip addr; route -n; sudo dhclient"'
 mkcd(){
     mkdir -p "$1" && cd -P "$1"
 }
+alias sshc="nvim ~/.ssh/config"
 
 # devices
 alias wlsusb="watch -n 0.5 lsusb"
@@ -81,3 +87,4 @@ alias wlsusb="watch -n 0.5 lsusb"
 export MANPAGER='nvim +Man!'
 # gO
 
+alias m="make"
