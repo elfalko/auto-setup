@@ -31,9 +31,14 @@
         nnoremap <Leader>init :tabedit /home/f/.falk/nvim/init.vim<CR>
 " MOVEMENT
     " remap escape
-        inoremap jk <esc>
         inoremap jj <esc>
         inoremap Jk <esc>
+
+    " remap autocomplete
+        inoremap kk <C-n>
+        inoremap kj <C-x>
+        inoremap jk <C-f> 
+        
 
     " moves lines around [2]
         nnoremap <C-j> :m .+1<CR>==
@@ -168,6 +173,7 @@
     nnoremap <Leader>mm :make<CR> 
     "buffer nav
     nnoremap <leader>j :ls<CR>:b<space>
+    nnoremap <leader>jj :b#<CR>
 
     "mutt
     map <leader>kq G?><CR>d?>--<CR>
