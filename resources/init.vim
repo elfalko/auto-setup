@@ -165,9 +165,10 @@
     nnoremap <Leader>nn :set nu!<CR> 
     "make
     nnoremap <Leader>m :make >/dev/null 2>&1<CR>
-    nnoremap <Leader>mm :make<CR> 
+    nnoremap <Leader>mm :make
     "buffer nav
     nnoremap <leader>j :ls<CR>:b<space>
+    nnoremap <leader>jj :b#<CR>
 
     "mutt
     map <leader>kq G?><CR>d?>--<CR>
@@ -224,8 +225,13 @@
         Plug 'relastle/bluewery.vim' " [15]
 
         Plug 'unblevable/quick-scope' " [21]
+
+        "Plug 'jiangmiao/auto-pairs' " [22]
+
+        Plug 'mg979/vim-visual-multi', {'branch': 'master'} " [23]
         " Initialize plugin system
         " :PlugInstall
+        
     call plug#end()
 
     nnoremap <Leader>c1 :colorscheme gotham<CR>:hi! Comment guifg=#0b6e8a<CR>:hi! CursorLine guibg=#103040<CR>
@@ -282,4 +288,7 @@
     " [19] https://www.freecodecamp.org/news/learn-linux-vim-basic-features-19134461ab85/
     " [20] https://www.youtube.com/watch?v=Gs1VDYnS-Ac
     " [21] https://github.com/unblevable/quick-scope
+    " [22] https://github.com/jiangmiao/auto-pairs
+    " [22] https://github.com/mg979/vim-visual-multi
+
 

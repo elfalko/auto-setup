@@ -1,6 +1,6 @@
 [user]
-	email = falk.schoenfeld@tum.de
-	name = Falk Fairfield
+	email = falk.schoenfeld@blickfeld.com
+	name = Falk Schönfeld
 [credential]
 	helper = cache --timeout 3600
 [color]
@@ -132,3 +132,5 @@
   l = !git l1
 [pull]
 	rebase = false
+[core]
+	autocrlf = input
