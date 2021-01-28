@@ -132,3 +132,5 @@
   l = !git l1
 [pull]
 	rebase = false
+[core]
+    autocrlf = input
