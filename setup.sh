@@ -20,6 +20,10 @@ $linkcmd .gitconfig ~/.gitconfig
 
 $linkcmd .Xmodmap ~/.Xmodmap
 
+$linkcmd .vimrc ~/.vimrc
+
+sudo $linkcmd .vimrc /root/.vimrc
+
 echo ""
 
 echo "You might want to restart to allow the full config to take effect"
