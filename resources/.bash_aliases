@@ -28,20 +28,18 @@ fi
 #   fi
 # done
 
-# Regolith
-alias i3c="nvim ~/.config/regolith/i3/config"
-
-# regolith-auto
-alias ras="cd ~/regolith-auto-setup/"
-
 # nvim
-export EDITOR=nvim
+if [ -f /bin/nvim ] ; then
+    export EDITOR=nvim
+
+    alias nvc="nvim ~/.config/nvim/init.vim"
+
+    alias v="nvim -O"
+    alias vi="nvim -O"
+else
+    export EDITOR=vim
+fi
 export VISUAL=$EDITOR 
-
-alias nvc="nvim ~/.config/nvim/init.vim"
-
-alias v="nvim -O"
-alias vi="nvim -O"
 
 # tmux
 alias t="tmux -f ~/.config/tmux/tmux.conf"
@@ -78,13 +76,19 @@ alias nethelp='echo "ip addr; route -n; sudo dhclient"'
 mkcd(){
     mkdir -p "$1" && cd -P "$1"
 }
-alias sshc="nvim ~/.ssh/config"
+alias sshc="$EDITOR ~/.ssh/config"
 
 # devices
 alias wlsusb="watch -n 0.5 lsusb"
 
 # man
-export MANPAGER='nvim +Man!'
+export MANPAGER="$EDITOR +Man!"
 # gO
 
 alias m="make"
+
+# Regolith
+alias i3c="$EDITOR ~/.config/regolith/i3/config"
+
+# regolith-auto
+alias ras="cd ~/regolith-auto-setup/"
