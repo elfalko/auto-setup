@@ -1,5 +1,3 @@
-# General
-alias ali="nvim ~/.bash_aliases; bash"
 
 # long, all, human readable, extended
 alias l="ls -lahF"
@@ -8,12 +6,6 @@ alias ll="ls -lahF"
 export PS1="\[\033[1m\]\u:\W \[\033[0m\]"
 
 # set -o vi
-
-# each workplace will have their own stuff, so drop that in here
-alias alii="nvim ~/.bash_individual_aliases; bash"
-if [ -f ~/.bash_individual_aliases ]; then
-    . ~/.bash_individual_aliases
-fi
 
 
 if [ -d /home/f/bin ]; then
@@ -34,12 +26,22 @@ if [ -f /bin/nvim ] ; then
 
     alias nvc="nvim ~/.config/nvim/init.vim"
 
-    alias v="nvim -O"
-    alias vi="nvim -O"
 else
     export EDITOR=vim
 fi
 export VISUAL=$EDITOR 
+
+alias v="$EDITOR -O"
+alias vi="$EDITOR -O"
+
+# General
+alias ali="$EDITOR ~/.bash_aliases; bash"
+# each workplace will have their own stuff, so drop that in here
+alias alii="$EDITOR ~/.bash_individual_aliases; bash"
+if [ -f ~/.bash_individual_aliases ]; then
+    . ~/.bash_individual_aliases
+fi
+
 
 # tmux
 alias t="tmux -f ~/.config/tmux/tmux.conf"
