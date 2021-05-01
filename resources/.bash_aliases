@@ -26,6 +26,8 @@ if [ -f /bin/nvim ] ; then
 
     alias nvc="nvim ~/.config/nvim/init.vim"
 
+    # man
+    export MANPAGER="$EDITOR +Man!"
 else
     export EDITOR=vim
 fi
@@ -47,7 +49,7 @@ fi
 alias t="tmux -f ~/.config/tmux/tmux.conf"
 alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 alias ta="tmux -f ~/.config/tmux/tmux.conf attach"
-alias tmc="nvim ~/.config/tmux/tmux.conf"
+alias tmc="$EDITOR ~/.config/tmux/tmux.conf"
 
 # git - works on top of git config
 alias g='git'
@@ -83,8 +85,6 @@ alias sshc="$EDITOR ~/.ssh/config"
 # devices
 alias wlsusb="watch -n 0.5 lsusb"
 
-# man
-export MANPAGER="$EDITOR +Man!"
 # gO
 
 alias m="make"
