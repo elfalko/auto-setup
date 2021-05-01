@@ -24,7 +24,6 @@ fi
 if [ -f /bin/nvim ] ; then
     export EDITOR=nvim
 
-    alias nvc="nvim ~/.config/nvim/init.vim"
 
     # man
     export MANPAGER="$EDITOR +Man!"
@@ -32,6 +31,7 @@ else
     export EDITOR=vim
 fi
 export VISUAL=$EDITOR 
+alias nvc="$EDITOR ~/.config/nvim/init.vim"
 
 alias v="$EDITOR -O"
 alias vi="$EDITOR -O"
