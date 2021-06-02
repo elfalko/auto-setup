@@ -44,6 +44,9 @@ if [ -f ~/.bash_individual_aliases ]; then
     . ~/.bash_individual_aliases
 fi
 
+if [ -f ~/regolith-auto-setup/scripts/get_latest_download.sh ]; then
+    alias gld="/bin/bash ~/regolith-auto-setup/scripts/get_latest_download.sh"
+fi
 
 # tmux
 alias t="tmux -f ~/.config/tmux/tmux.conf"
