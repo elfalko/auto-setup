@@ -88,3 +88,6 @@ export MANPAGER='nvim +Man!'
 # gO
 
 alias m="make"
+
+# weather
+alias wttr="curl v2.wttr.in/munich"

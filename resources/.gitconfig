@@ -1,4 +1,5 @@
 [user]
+	email = falk.schoenfeld@blickfeld.com
 	name = Falk Schönfeld
 [credential]
 	helper = cache --timeout 3600
@@ -132,8 +133,4 @@
 [pull]
 	rebase = false
 [core]
-<<<<<<< HEAD
     autocrlf = input
-=======
-	autocrlf = input
->>>>>>> d5cbdc028a548c081bb3f0b40ee1d9410e12fe67
