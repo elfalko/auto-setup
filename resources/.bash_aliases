@@ -1,5 +1,3 @@
-# General
-alias ali="nvim ~/.bash_aliases; bash"
 
 # long, all, human readable, extended
 alias l="ls -lahF"
@@ -8,12 +6,6 @@ alias ll="ls -lahF"
 export PS1="\[\033[1m\]\u:\W \[\033[0m\]"
 
 # set -o vi
-
-# each workplace will have their own stuff, so drop that in here
-alias alii="nvim ~/.bash_individual_aliases; bash"
-if [ -f ~/.bash_individual_aliases ]; then
-    . ~/.bash_individual_aliases
-fi
 
 
 if [ -d /home/f/bin ]; then
@@ -28,26 +20,36 @@ fi
 #   fi
 # done
 
-# Regolith
-alias i3c="nvim ~/.config/regolith/i3/config"
-
-# regolith-auto
-alias ras="cd ~/regolith-auto-setup/"
-
 # nvim
-export EDITOR=nvim
+if [ -f /bin/nvim ] ; then
+    export EDITOR=nvim
+
+
+    # man
+    export MANPAGER="$EDITOR +Man!"
+else
+    export EDITOR=vim
+fi
 export VISUAL=$EDITOR 
+alias nvc="$EDITOR ~/.config/nvim/init.vim"
 
-alias nvc="nvim ~/.config/nvim/init.vim"
+alias v="$EDITOR -O"
+alias vi="$EDITOR -O"
 
-alias v="nvim -O"
-alias vi="nvim -O"
+# General
+alias ali="$EDITOR ~/.bash_aliases; bash"
+# each workplace will have their own stuff, so drop that in here
+alias alii="$EDITOR ~/.bash_individual_aliases; bash"
+if [ -f ~/.bash_individual_aliases ]; then
+    . ~/.bash_individual_aliases
+fi
+
 
 # tmux
 alias t="tmux -f ~/.config/tmux/tmux.conf"
 alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 alias ta="tmux -f ~/.config/tmux/tmux.conf attach"
-alias tmc="nvim ~/.config/tmux/tmux.conf"
+alias tmc="$EDITOR ~/.config/tmux/tmux.conf"
 
 # git - works on top of git config
 alias g='git'
@@ -78,16 +80,20 @@ alias nethelp='echo "ip addr; route -n; sudo dhclient"'
 mkcd(){
     mkdir -p "$1" && cd -P "$1"
 }
-alias sshc="nvim ~/.ssh/config"
+alias sshc="$EDITOR ~/.ssh/config"
 
 # devices
 alias wlsusb="watch -n 0.5 lsusb"
 
-# man
-export MANPAGER='nvim +Man!'
 # gO
 
 alias m="make"
 
 # weather
 alias wttr="curl v2.wttr.in/munich"
+
+# Regolith
+alias i3c="$EDITOR ~/.config/regolith/i3/config"
+
+# regolith-auto
+alias ras="cd ~/regolith-auto-setup/"

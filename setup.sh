@@ -10,6 +10,10 @@ $linkcmd tmux.conf ~/.config/tmux/tmux.conf
 mkdir -p ~/.config/nvim
 $linkcmd init.vim ~/.config/nvim/init.vim
 
+$linkcmd init.vim ~/.vimrc
+
+sudo $linkcmd init.vim /root/.vimrc
+
 $linkcmd pre-commit ./.git/hooks/pre-commit
 
 $linkcmd .bash_aliases ~/.bash_aliases
