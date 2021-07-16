@@ -26,9 +26,13 @@
 
         set formatoptions+=j " Delete comment character when joining commented lines [4]
 
+    " files
+        set fileformat=unix
+
     " open my vimnotes
         nnoremap <Leader>hhh :tabedit /home/f/.falk/nvim/notes<CR>
         nnoremap <Leader>init :tabedit /home/f/.falk/nvim/init.vim<CR>
+        
 " MOVEMENT
     " remap escape
         inoremap jj <esc>
@@ -36,7 +40,7 @@
 
     " remap autocomplete
         inoremap kk <C-n>
-        inoremap kj <C-x>
+        inoremap ii <C-x>
         inoremap jk <C-f> 
         
 
@@ -54,6 +58,9 @@
 
     " Allow backspacing over autoindent, line breaks and start of insert action
         set backspace=indent,eol,start
+
+    " keep off the upper/lower edges
+        set scrolloff=5
 
 " DISPLAY
     " alternate folding
@@ -155,8 +162,6 @@
           set wildignore+=*.aux
 
 " TAG JUMPING [1]
-    " Create the `tags` file (may need to install ctags first)
-    command! MakeTags !ctags -R .
 
 " some security fix [3]
     set modelines=0
@@ -176,6 +181,9 @@
     "buffer nav
     nnoremap <leader>j :ls<CR>:b<space>
     nnoremap <leader>jj :b#<CR>
+    "open new files in new buffer
+    nnoremap gn :tabedit <cfile><CR>
+    nnoremap <leader>rr :source $MYVIMRC<CR>
 
     "mutt
     map <leader>kq G?><CR>d?>--<CR>
@@ -189,6 +197,8 @@
         nnoremap <Leader>l[ :-1read ${HOME}/.falk/templates/latex/bracket<CR>2ei
         nnoremap <Leader>l{ :-1read ${HOME}/.falk/templates/latex/brace<CR>2ei
         nnoremap <Leader>l( :-1read ${HOME}/.falk/templates/latex/parenthesis<CR>2ei
+    "MA
+        nnoremap <Leader>lid \gls{lidar} 
 
 " PLUGINS
     " Install Vim Plug if not installed
@@ -242,6 +252,11 @@
 
         "Plug 'jiangmiao/auto-pairs' " [22]
 
+        " color hex codes
+        " Plug 'norcalli/nvim-colorizer.lua'
+
+        Plug 'Vimjas/vim-python-pep8-indent'
+
         Plug 'mg979/vim-visual-multi', {'branch': 'master'} " [23]
         " Initialize plugin system
         " :PlugInstall
@@ -263,6 +278,8 @@
     autocmd FileType h set tabstop=2 shiftwidth=2
     autocmd FileType cpp set tabstop=2 shiftwidth=2
     autocmd FileType c set tabstop=2 shiftwidth=2
+    autocmd FileType py set tabstop=4 shiftwidth=4
+    autocmd FileType tex set spell! spelllang=en_us
 
 "    autocmd BufWritePost *.tex silent! execute "![ -z $(ps h -C $PDFVIEWER) ] || make >/dev/null 2>&1 &" | redraw! 
 "    autocmd BufWritePost *.ms silent! execute "![ -z $(ps h -C $PDFVIEWER) ] || make -B @% >/dev/null 2>&1" | redraw!

@@ -26,7 +26,7 @@ if [ -f /bin/nvim ] ; then
 
 
     # man
-    export MANPAGER="$EDITOR +Man!"
+    # export MANPAGER="$EDITOR +Man!"
 else
     export EDITOR=vim
 fi
