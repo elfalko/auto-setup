@@ -6,6 +6,11 @@ CapsLock & Enter::
 run chrome.exe
 return
 
+; Launch programs
+CapsLock & c::
+run chrome.exe cube-system-test-1 cube-system-test-2 cube-system-test-3 cube-system-test-4 cube-system-test-5
+return
+
 CapsLock & Space::
 run wt.exe
 return
@@ -28,42 +33,43 @@ CapsLock & l::
 Send, #{Right}
 return
 
+CapsLock & q:: Send !{f4}
+
 ; Quickly switch windows
 CapsLock & j::AltTab
 CapsLock & k::ShiftAltTab
 
 CapsLock & r::Reload  ; Assign Ctrl-Alt-R as a hotkey to restart the script.
 
-Alt & j::
+ralt & j::
 Send, {Down} 
 return
 
-Alt & k::
+ralt & k::
 Send, {Up}  
 return
 
 ; Easier brackets
-Alt & e::
+ralt & e::
 Send, {{}
 return
 
-Alt & r::
+ralt & r::
 Send, {}}
 return
 
-Alt & d::
+ralt & d::
 Send, {(}
 return
 
-Alt & f::
+ralt & f::
 Send, {)}
 return
 
-Alt & c::
+ralt & c::
 Send, {[}
 return
 
-Alt & v::
+ralt & v::
 Send, {]}
 return
-
