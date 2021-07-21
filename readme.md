@@ -15,6 +15,17 @@ My requirements:
 * AHK file for windows
 * somewhat modular setup scripts
 
+## setup
+1. Clone to home
+2. Run correct install script
+3. Add the following to your `~/.bashrc`
+
+```
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+```
+
 ## todo
 * git hook the following:
     * .inputrc
@@ -23,3 +34,4 @@ My requirements:
 * export the lnnew command from somewhere for more modularity
 * arch: setup trizen
 * arch: x config stuff
+

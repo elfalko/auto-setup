@@ -3,7 +3,10 @@
 alias l="ls -lahF"
 alias ll="ls -lahF"
 
-export PS1="\[\033[1m\]\u:\W \[\033[0m\]"
+
+# ${debian_chroot:+($debian_chroot)}\u@\h:\w\$ 
+
+export PS1="\[\033[1m\]\u:\w \[\033[0m\]"
 
 # set -o vi
 
@@ -99,4 +102,6 @@ alias wttr="curl v2.wttr.in/munich"
 alias i3c="$EDITOR ~/.config/regolith/i3/config"
 
 # regolith-auto
-alias ras="cd ~/regolith-auto-setup/"
+alias cdas="cd ~/auto-setup/"
+
+alias xx="xmodmap ~/.Xmodmap"

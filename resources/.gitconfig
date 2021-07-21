@@ -1,6 +1,6 @@
 [user]
-	email = falk.schoenfeld@blickfeld.com
-	name = Falk Schönfeld
+	email = schoenfeld@magazino.eu
+	name = Falk Schoenfeld
 [credential]
 	helper = cache --timeout 3600
 [color]
