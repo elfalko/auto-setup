@@ -11,8 +11,11 @@ export PS1="\[\033[1m\]\u:\w \[\033[0m\]"
 # set -o vi
 
 
-if [ -d /home/f/bin ]; then
-    PATH+="$PATH:/home/f/bin"
+if [ -d /home/$USER/bin ]; then
+    PATH+="$PATH:/home/$USER/bin"
+fi
+if [ -d /home/$USER/.local/bin ]; then
+    PATH+="$PATH:/home/$USER/.local/bin"
 fi
 
 
@@ -100,6 +103,7 @@ alias wttr="curl v2.wttr.in/munich"
 
 # Regolith
 alias i3c="$EDITOR ~/.config/regolith/i3/config"
+alias swc="$EDITOR ~/.config/sway/config"
 
 # regolith-auto
 alias cdas="cd ~/auto-setup/"

@@ -1,0 +1,250 @@
+# Default config for sway
+# Read `man 5 sway` for a complete reference.
+
+################################################################################
+# Cheat sheet
+################################################################################
+# 
+# TODO Caps - Mod
+#
+# key   +mod   	    +mod+shift  +mod+ctrl   +mod+shift+ctl  +nothing (only if key itself was overwritten) 
+#
+# q     layout 	    kill window -           -               
+# w     jump urgent -           life stats  -                
+# e     mnt dev     umnt dev    -           -               
+# r     -      	    reload i3   -           -               
+# t     tunes  	    mv tunes    -           -               
+#
+# y     windows	    mv windows  -           -               
+# u     ranger 	    filebrowser -           -               
+# i     -	        -           -           -              
+# o     -      	    -           -           -              
+# p     -    	    -           -           -              
+#
+# a     parent 	    child       -           -              
+# s     sticky 	    corner mode -           -              
+# d     -           -           -           -              
+# f     fullscreen  focus       tgl float   -              
+# g     rss[rip]    -           -           -              
+#
+# h     focus <     mv <        resize <    -
+# j     focus \/    mv \/       resize \/   -     
+# k     focus /\    mv /\       resize /\   -
+# l     focus >     mv >        resize >    -      
+# ;     telegram    qr          -           -               
+#
+# z     background  safe bg     gif         -               
+# x     -           -           -           -               
+# c     screenshot  see shots   -           -               
+# v     scratch     mv scratch  -           -               
+# b     bluetooth   exit 3i     -           -               
+
+# n     mail        mv mail     neomutt     -               
+# m     monitors    reset mon   -           -               
+# ,     -           -           -           -               
+# .     -           -           -           -               
+#
+# space context     dmenu       -           -               
+# enter terminal    browser     -           -               
+# esc   keepass     -           -           -               
+# mute  pavuctl     -           -           -
+# Print -           -           -           -               screenkey
+
+################################################################################
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+set $next n
+set $prev p
+# Your preferred terminal emulator
+set $term x-terminal-emulator
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $menu dmenu_path | dmenu | xargs swaymsg exec --
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Idle configuration
+#
+# Example configuration:
+#
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' \
+              resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+    bindsym $mod+Shift+Return exec firefox
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+
+    # resize with ctrl
+    bindsym $mod+Ctrl+$left resize shrink width 10px
+    bindsym $mod+Ctrl+$down resize grow height 10px
+    bindsym $mod+Ctrl+$up resize shrink height 10px
+    bindsym $mod+Ctrl+$right resize grow width 10px
+# Workspaces:
+#
+    bindsym $mod+$next workspace next 
+    bindsym $mod+$prev workspace prev
+    # Switch to workspace
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+#
+# Layout stuff:
+#
+    workspace_auto_back_and_forth yes
+    hide_edge_borders smart
+    default_border pixel 1
+    default_floating_border pixel 1
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+minus scratchpad show
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    position top
+
+    hidden_state hide
+    mode hide
+    modifier $mod
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    # status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    status_command while /bin/bash ~/auto-setup/scripts/statusbar.sh; do sleep 1; done 
+
+    font pango:DejaVu Sans Mono 10
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
+
+# https://github.com/francma/wob
+
+#https://wiki.archlinux.org/title/Sway#Graphical_indicator_bars
+#also xkeyboard-config(7) l. 1100+ and sway-input(5)
+input * {
+    xkb_layout "us,de"
+    xkb_options "grp:win_space_toggle, caps:hyper, compose:rctrl"
+}
+
+# input <identifier> xkb_model "pc101"
+
+
+exec autotiling
+exec teams
+include /etc/sway/config.d/*
