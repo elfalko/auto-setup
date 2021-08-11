@@ -50,8 +50,8 @@ if [ -f ~/.bash_individual_aliases ]; then
     . ~/.bash_individual_aliases
 fi
 
-if [ -f ~/regolith-auto-setup/scripts/get_latest_download.sh ]; then
-    alias gld="/bin/bash ~/regolith-auto-setup/scripts/get_latest_download.sh"
+if [ -f ~/auto-setup/scripts/get_latest_download.sh ]; then
+    alias gld="/bin/bash ~/auto-setup/scripts/get_latest_download.sh"
 fi
 
 # tmux
@@ -62,6 +62,9 @@ alias tmc="$EDITOR ~/.config/tmux/tmux.conf"
 
 # git - works on top of git config
 alias g='git'
+alias gic='$EDITOR ~/.gitconfig'
+
+alias gbl='git branch --list'
 
 alias gf='git fetch'
 alias gi="git i"
@@ -101,11 +104,15 @@ alias m="make"
 # weather
 alias wttr="curl v2.wttr.in/munich"
 
-# Regolith
+# wms
 alias i3c="$EDITOR ~/.config/regolith/i3/config"
 alias swc="$EDITOR ~/.config/sway/config"
+
 
 # regolith-auto
 alias cdas="cd ~/auto-setup/"
 
 alias xx="xmodmap ~/.Xmodmap"
+
+#python
+alias p="python3"
