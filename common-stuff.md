@@ -15,3 +15,6 @@ ssh -T git@bitbucket.com
 ## Windows
 
 Win+r > `shell:startup` to drag in desktop symbols to run at startup
+
+Access WSL2 file system from windows: File explorer > `\\wsl$` - [explanation](https://devblogs.microsoft.com/commandline/access-linux-filesystems-in-windows-and-wsl-2/)
+
