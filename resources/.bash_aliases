@@ -71,12 +71,15 @@ alias gi="git i"
 alias gii="git ii"
 
 alias ga="git add"
-alias gd="git diff"
+alias gd="git diff --minimal"
+alias gdc="git diff --compact-summary"
+alias gdf="git diff --name-only"
 alias gitco='git commit -m '
 alias gl='git l'
 alias gco='git checkout'
 alias gcd='git checkout develop; git fetch'
 alias gcm='git checkout master; git fetch'
+alias gcom='git checkout master'
 alias gc='git commit'
 alias gfp='git pull'
 alias gp='git push'
