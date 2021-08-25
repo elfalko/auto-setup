@@ -1,6 +1,5 @@
 # Default config for sway
 # Read `man 5 sway` for a complete reference.
-
 ################################################################################
 # Cheat sheet
 ################################################################################
@@ -15,7 +14,7 @@
 #
 # y     windows	    mv windows  -           -               
 # u     ranger 	    filebrowser -           -               
-# i     nm-editor   -           -           -              
+# i     vscode      nm-editor   -           -           
 # o     -      	    -           -           -              
 # p     -    	    -           -           -              
 #
@@ -62,6 +61,7 @@ set $next n
 set $prev p
 # Your preferred terminal emulator
 set $term x-terminal-emulator
+set $code code
 
 set $lock swaylock -f -c 000000 
 # Your preferred application launcher
@@ -87,7 +87,7 @@ output HDMI-A-1 position 0 0
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaylock -f -c 000000' \
          timeout 600 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
@@ -126,13 +126,16 @@ input * {
     # Start a terminal
     bindsym $mod+Return exec $term
     bindsym $mod+Shift+Return exec firefox
-    bindsym $mod+i exec $inetedit 
+    bindsym $mod+Shift+i exec $inetedit 
 
     # Kill focused window
     bindsym $mod+Shift+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    # Start VSCode
+    bindsym $mod+i exec $code
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -161,13 +164,18 @@ input * {
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
 
-    
-
     # resize with ctrl
     bindsym $mod+Ctrl+$left resize shrink width 10px
     bindsym $mod+Ctrl+$down resize grow height 10px
     bindsym $mod+Ctrl+$up resize shrink height 10px
     bindsym $mod+Ctrl+$right resize grow width 10px
+
+    # move workspaces between outputs with Ctrl+Shift
+    bindsym $mod+Control+Shift+$right move workspace to output right
+    bindsym $mod+Control+Shift+$left move workspace to output left
+    bindsym $mod+Control+Shift+$down move workspace to output down
+    bindsym $mod+Control+Shift+$up move workspace to output up
+#
 # Workspaces:
 #
     bindsym $mod+$next workspace next 
