@@ -36,8 +36,8 @@
 # v     scratch     mv scratch  -           -               
 # b     bluetooth   exit i3     -           -               
 
-# n     mail        mv mail     neomutt     -               
-# m     monitors    reset mon   -           -               
+# n     -           -           -           -               
+# m     -           -           -           -               
 # ,     -           -           -           -               
 # .     -           -           -           -               
 #
@@ -69,6 +69,7 @@ set $lock swaylock -f -c 000000
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $inetedit nm-connection-editor
+set $screenshot /bin/bash ~/auto-setup/scripts/simple_grimshot.sh
 
 ### Output configuration
 #
@@ -136,6 +137,9 @@ input * {
 
     # Start VSCode
     bindsym $mod+i exec $code
+
+    # screenshot area
+    bindsym $mod+c exec $screenshot
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -239,10 +243,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -qc 1 sset Master 5%-
 bindsym XF86AudioMute exec --no-startup-id amixer -qc 1 sset Master toggle && amixer -qc 1 sset Headphone unmute
 
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
+# Status Bar: see `man 5 sway-bar` 
 bar {
     position top
 
@@ -267,4 +268,5 @@ bar {
 exec autotiling
 exec nm-applet
 exec teams
+exec firefox https://outlook.office.com https://magazino.atlassian.net/plugins/servlet/ac/io.tempo.jira/tempo-app#!/my-work/week
 include /etc/sway/config.d/*
