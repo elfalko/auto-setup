@@ -85,14 +85,13 @@ alias gfp='git pull'
 alias gp='git push'
 alias gpu='git push -u origin '
 
-gtfo(){
-    eval 'ssh-agent'
-    ssh-add ~/.ssh/id_ed25519
-    ssh -T git@bitbucket.com
-    ssh -T git@github.com
-    ssh -T git@gitlab.com
-}
-
+# gtfo(){
+#     eval 'ssh-agent'
+#     ssh-add ~/.ssh/id_ed25519
+#     ssh -T git@bitbucket.com
+#     ssh -T git@github.com
+#     ssh -T git@gitlab.com
+# }
 
 # history - ignore duplicates
 export HISTCONTROL=ignoredups

@@ -87,6 +87,7 @@
 
   # Push (p)
   p=push
+  pu=push --set-upstream
   pf=push --force-with-lease
   pa=push --all
   pt=push --tags
