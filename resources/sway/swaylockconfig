@@ -1,0 +1,11 @@
+color=000000
+image=/usr/share/backgrounds/mag_Topshot_final.jpg
+indicator-caps-lock
+scaling=fill
+indicator-radius=60
+indicator-thickness=15
+inside-color=00000000
+inside-ver-color=eeeeeeee
+key-hl-color=cccccc
+line-color=dddddd
+layout-bg-color=ffffff00

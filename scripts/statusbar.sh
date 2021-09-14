@@ -28,7 +28,8 @@ battery_level=$(grep "percentage" <<< "$battery_info" | awk '{print $2}')
 # is muted or not.
 # "tr -d []" removes brackets around the volume.
 # Adapted from https://bbs.archlinux.org/viewtopic.php?id=89648
-audio_volume=$(amixer -c 1 get Master | awk '/Mono.+/ {print $6=="[off]" ? "🔇 "$4: "🔊 "$4}' | tr -d [])
+audio_volume=$(amixer -c 1 get Master | awk '/Mono.+/ {print $6=="[off]" ? "🔇 ": "🔊 "$4}' | tr -d [])
+mic_volume=$(amixer -c 1 get Mic | awk '/Front.Left:.+/ {print $7=="[off]" ? "🎤MUTE ": "🎤 "$5}' | tr -d [])
 
 # get with
 # swaymsg -t get_inputs | grep "identifier"
@@ -40,4 +41,4 @@ kbdlayout=$(swaymsg -t get_inputs | jq -r '.[] |
 # Audio: 🔈 🔉 🎧 🎶 🎵 🎤
 # Separators: \| ❘ ❙ ❚
 # Misc: 🐧 💎 💻 💡 ⭐ 📁 ↑ ↓ ✉ ✅ ❎
-echo $kbdlayout $audio_volume $battery_state$battery_level $date_formatted
+echo $kbdlayout $mic_volume $audio_volume $battery_state$battery_level $date_formatted
