@@ -18,3 +18,4 @@ Win+r > `shell:startup` to drag in desktop symbols to run at startup
 
 Access WSL2 file system from windows: File explorer > `\\wsl$` - [explanation](https://devblogs.microsoft.com/commandline/access-linux-filesystems-in-windows-and-wsl-2/)
 
+Reset WSL2 user pw if you forgot it: boot into root using `wsl --user root` and `passwd <user>`
