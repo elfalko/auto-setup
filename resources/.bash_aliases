@@ -94,7 +94,6 @@ alias gpu='git push -u origin '
 #     ssh -T git@gitlab.com
 # }
 
-
 # history - ignore duplicates
 export HISTCONTROL=ignoredups
 
