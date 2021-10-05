@@ -2,6 +2,8 @@
 alias l="ls -lahF"
 alias ll="ls -lahF"
 
+alias tf="tail -f"
+
 
 # ${debian_chroot:+($debian_chroot)}\u@\h:\w\$ 
 
@@ -84,13 +86,13 @@ alias gfp='git pull'
 alias gp='git push'
 alias gpu='git push -u origin '
 
-gtfo(){
-    eval 'ssh-agent'
-    ssh-add ~/.ssh/id_ed25519
-    ssh -T git@bitbucket.com
-    ssh -T git@github.com
-    ssh -T git@gitlab.com
-}
+# gtfo(){
+#     eval 'ssh-agent'
+#     ssh-add ~/.ssh/id_ed25519
+#     ssh -T git@bitbucket.com
+#     ssh -T git@github.com
+#     ssh -T git@gitlab.com
+# }
 
 
 # history - ignore duplicates
@@ -112,13 +114,8 @@ alias wlsusb="watch -n 0.5 lsusb"
 
 alias m="make"
 
-# weather
-alias wttr="curl v2.wttr.in/munich"
-
-# wms
-alias i3c="$EDITOR ~/.config/regolith/i3/config"
-alias swc="$EDITOR ~/.config/sway/config"
-
+# jupyter
+# alias jnc="jupyter nbconvert --to script"
 
 # regolith-auto
 alias cdas="cd ~/auto-setup/"
@@ -140,4 +137,13 @@ alias p="python3"
 #
 # https://medium.com/javarevisited/using-wsl-2-with-x-server-linux-on-windows-a372263533c3
 # https://www.shogan.co.uk/how-tos/wsl2-gui-x-server-using-vcxsrv/
+
+# wms
+alias i3c="$EDITOR ~/.config/regolith/i3/config"
+alias swc="$EDITOR ~/.config/sway/config"
+alias sgo="swaymsg -t get_outputs"
+alias sgi="swaymsg -t get_inputs"
+
+# weather
+alias wttr="curl v2.wttr.in/munich"
 
