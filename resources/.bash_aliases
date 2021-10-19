@@ -1,3 +1,5 @@
+source ~/auto-setup/bash/env_variables.sh
+
 # long, all, human readable, extended
 alias l="ls -lahF"
 alias ll="ls -lahF"
