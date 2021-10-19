@@ -4,6 +4,7 @@ alias ll="ls -lahF"
 
 alias tf="tail -f"
 
+alias agi="ag --ignore *.svg --ignore"
 
 # ${debian_chroot:+($debian_chroot)}\u@\h:\w\$ 
 
