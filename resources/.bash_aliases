@@ -48,6 +48,7 @@ alias vi="$EDITOR -O"
 alias ali="$EDITOR ~/.bash_aliases; bash"
 # each workplace will have their own stuff, so drop that in here
 alias alii="$EDITOR ~/.bash_individual_aliases; bash"
+
 if [ -f ~/.bash_individual_aliases ]; then
     . ~/.bash_individual_aliases
 fi
@@ -56,44 +57,8 @@ if [ -f ~/auto-setup/scripts/get_latest_download.sh ]; then
     alias gld="/bin/bash ~/auto-setup/scripts/get_latest_download.sh"
 fi
 
-# tmux
-alias t="tmux -f ~/.config/tmux/tmux.conf"
-alias tmux="tmux -f ~/.config/tmux/tmux.conf"
-alias ta="tmux -f ~/.config/tmux/tmux.conf attach"
-alias tmc="$EDITOR ~/.config/tmux/tmux.conf"
-
-# git - works on top of git config
-alias g='git'
-alias gic='$EDITOR ~/.gitconfig'
-
-alias gbl='git branch --list'
-
-alias gf='git fetch'
-alias gi="git i"
-alias gii="git ii"
-
-alias ga="git add"
-alias gd="git diff --minimal"
-alias gdc="git diff --compact-summary"
-alias gdf="git diff --name-only"
-alias gitco='git commit -m '
-alias gl='git l'
-alias gco='git checkout'
-alias gcd='git checkout develop; git fetch'
-alias gcm='git checkout master; git fetch'
-alias gcom='git checkout master'
-alias gc='git commit'
-alias gfp='git pull'
-alias gp='git push'
-alias gpu='git push -u origin '
-
-# gtfo(){
-#     eval 'ssh-agent'
-#     ssh-add ~/.ssh/id_ed25519
-#     ssh -T git@bitbucket.com
-#     ssh -T git@github.com
-#     ssh -T git@gitlab.com
-# }
+source $FAUTOSETUP/bash/tmux.sh
+source $FAUTOSETUP/bash/git.sh
 
 # history - ignore duplicates
 export HISTCONTROL=ignoredups
@@ -118,14 +83,16 @@ alias m="make"
 # alias jnc="jupyter nbconvert --to script"
 
 # regolith-auto
-alias cdas="cd ~/auto-setup/"
+alias cdas="cd $FAUTOSETUP"
 
 alias xx="xmodmap ~/.Xmodmap"
 
-#python
+# python
 alias p="python3"
 
-#WSL 2
+source $FAUTOSETUP/bash/feh.sh
+
+# WSL 2
 # export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0
 # https://sourceforge.net/projects/vcxsrv/files/latest/download
 # "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl -dpi auto
