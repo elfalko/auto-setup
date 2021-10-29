@@ -95,7 +95,11 @@ alias p="python3"
 source $FAUTOSETUP/bash/feh.sh
 
 # WSL 2
-# export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0
+if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+    # echo "Windows 10 Bash"
+    export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0
+fi
+
 # https://sourceforge.net/projects/vcxsrv/files/latest/download
 # "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl -dpi auto
 # netstat -abno|findstr 6000 (admin Powershell)
