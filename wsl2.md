@@ -25,7 +25,7 @@ https://github.com/microsoft/WSL/issues/4246
 
 ---
 
-Original resoltuion:
+Original resolution:
 
 1. Create a file: /etc/wsl.conf.
 2. Put the following lines in the file in order to ensure the your DNS changes do not get blown away
