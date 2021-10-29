@@ -116,3 +116,9 @@ alias sgi="swaymsg -t get_inputs"
 # weather
 alias wttr="curl v2.wttr.in/munich"
 
+# ubuntu
+# TODO check with lsb_release -i
+source /home/schoenfeld//auto-setup/bash/ubuntu_aliases.sh
+
+alias sn="sudo shutdown now"
+
