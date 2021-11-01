@@ -83,7 +83,12 @@
 ################################################################################
 # cmds
     set $term terminator
-    set $Locker exec betterlockscreen -l dim -t "↑↑↓↓←→←→BA " --off 10 && sleep 1
+    # set $Locker exec betterlockscreen -l dim -t "↑↑↓↓←→←→BA " --off 10 && sleep 1
+    set $Locker exec i3lock --greeter-text="↑↑↓↓←→←→BA" --wrong-text="FAIL" -i ~/pics/wallpapers/bounty_hunters_by_wojtekfus-dar6xah.png -F --keylayout 0 -f --pass-media-keys --pass-screen-keys --pass-volume-keys -e --greeter-color=ffffffff && sleep 1
+    set $backgroundscript exec ~/projects/fehmods/feh_multiscreen_background.sh
+    set $safebackgroundscript exec ~/projects/fehmods/feh_safe_backgrounds.sh
+    set $gifbackgroundscript exec ~/projects/xwinwrap/playvids.sh ~/projects/xwinwrap/slowsun.mp4
+    # set $Locker exec betterlockscreen -l dim --off 10 -- --greeter-text="↑↑↓↓←→←→BA" && sleep 1
     set $muttcmd layout tabbed, exec urxvt -e mbsync -a & urxvt -e neomutt -F ~/.falk/mutt/muttrc, layout splith 
     set $querymutt layout tabbed, exec [ $(ps h -C neomutt | wc -l) = 0 ] && urxvt -e mbsync -a & [ $(ps h -C neomutt | wc -l) = 0 ] &&  urxvt -e neomutt -F ~/.falk/mutt/muttrc, layout splith
 
@@ -437,7 +442,7 @@ bar {
 
   position top 
   tray_output primary
-  status_command i3blocks
+  status_command i3blocks -c $HOME/.config/i3/i3blocksconfig
 }
 
 # network manager
