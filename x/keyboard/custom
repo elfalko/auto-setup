@@ -1,0 +1,62 @@
+default alphanumeric_keys modifier_keys
+xkb_symbols "basic" {
+    include "de(us)"
+    include "custom(home_row_arrows)"
+    include "custom(caps_mod3)"
+    include "custom(circ_degree)"
+    include "custom(better_brackets)"
+    include "custom(spacecmd)"
+    include "custom(outerkeys)"
+
+    name[Group1]="German (US, customized)";
+};
+
+partial alphanumeric_keys
+xkb_symbols "home_row_arrows" {
+    key <AC06> { [NoSymbol, NoSymbol, Left, Left] };
+    key <AC07> { [NoSymbol, NoSymbol, Down, Down] };
+    key <AC08> { [NoSymbol, NoSymbol, Up, Up] };
+    key <AC09> { [NoSymbol, NoSymbol, Right, Right] };
+};
+
+partial modifier_keys
+xkb_symbols "caps_mod3"{
+    replace key <CAPS> {
+        [ VoidSymbol, VoidSymbol ]
+    };
+    modifier_map Mod3 { <CAPS> };
+};
+
+partial alphanumeric_keys
+xkb_symbols "circ_degree" {
+    key <TLDE> { [    NoSymbol,	NoSymbol, asciicircum, degree	]};
+};
+
+partial alphanumeric_keys
+xkb_symbols "better_brackets" {
+    key <AD03> { [ NoSymbol, NoSymbol, braceleft, EuroSign ] };
+    key <AD04> { [ NoSymbol, NoSymbol, braceright, NoSymbol ] };
+    key <AC03> { [ NoSymbol, NoSymbol, parenleft, NoSymbol ] };
+    key <AC04> { [ NoSymbol, NoSymbol, parenright, NoSymbol ] };
+    key <AB03> { [ NoSymbol, NoSymbol, bracketleft, NoSymbol ] };
+    key <AB04> { [ NoSymbol, NoSymbol, bracketright, NoSymbol ] };
+};
+
+partial alphanumeric_keys
+xkb_symbols "spacecmd" {
+    key <SPCE> { [ NoSymbol, NoSymbol, Return, Escape] };
+    key <AB08>	{ [ NoSymbol, NoSymbol, BackSpace, NoSymbol ]	};
+    key <AB09>	{ [ NoSymbol, NoSymbol, Delete, NoSymbol ]	};
+};
+
+partial alphanumeric_keys
+xkb_symbols "outerkeys" {
+    key <AC05>	{[NoSymbol, NoSymbol, minus, underscore]};
+    key <AB05> {[NoSymbol, NoSymbol, backslash, bar]	};
+    key <AD05> {[NoSymbol, NoSymbol, asciitilde, grave]	};
+};
+
+partial modifier_keys alphanumeric_keys
+xkb_symbols "middlemouse" {
+    key <MENU>	{[XF86Memo, XF86Memo]};
+};
