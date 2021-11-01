@@ -1,18 +1,10 @@
+#!/bin/bash
 source ~/auto-setup/bash/env_variables.sh
-
-# long, all, human readable, extended
-alias l="ls -lahF"
-alias ll="ls -lahF"
-
-alias tf="tail -f"
-
-alias agi="ag --ignore *.svg --ignore"
+source $FAUTOSETUP/bash/general.sh
 
 # ${debian_chroot:+($debian_chroot)}\u@\h:\w\$ 
 
 export PS1="\[\033[1m\]\u:\w \[\033[0m\]"
-
-# set -o vi
 
 
 if [ -d /home/$USER/bin ]; then
@@ -30,24 +22,10 @@ fi
 #   fi
 # done
 
-# nvim
-if [ -f /bin/nvim ] ; then
-    export EDITOR=nvim
-
-
-    # man
-    # export MANPAGER="$EDITOR +Man!"
-else
-    export EDITOR=vim
-fi
-export VISUAL=$EDITOR 
-alias nvc="$EDITOR ~/.config/nvim/init.vim"
-
-alias v="$EDITOR -O"
-alias vi="$EDITOR -O"
+source $FAUTOSETUP/bash/editors.sh
 
 # General
-alias ali="$EDITOR ~/.bash_aliases; bash"
+alias ali="$EDITOR $FAUTOSETUP/bash/bashrc; bash"
 # each workplace will have their own stuff, so drop that in here
 alias alii="$EDITOR ~/.bash_individual_aliases; bash"
 
@@ -65,13 +43,7 @@ source $FAUTOSETUP/bash/git.sh
 # history - ignore duplicates
 export HISTCONTROL=ignoredups
 
-# network
-alias nethelp='echo "ip addr; route -n; sudo dhclient"'
 
-# files
-mkcd(){
-    mkdir -p "$1" && cd -P "$1"
-}
 alias sshc="$EDITOR ~/.ssh/config"
 
 # devices
@@ -79,7 +51,6 @@ alias wlsusb="watch -n 0.5 lsusb"
 
 # gO
 
-alias m="make"
 
 # jupyter
 # alias jnc="jupyter nbconvert --to script"
@@ -122,7 +93,6 @@ alias wttr="curl v2.wttr.in/munich"
 
 # ubuntu
 # TODO check with lsb_release -i
-source /home/schoenfeld//auto-setup/bash/ubuntu_aliases.sh
+source $FAUTOSETUP/bash/ubuntu_aliases.sh
 
-alias sn="sudo shutdown now"
 
