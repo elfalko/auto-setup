@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOWNLOADDIR="$HOME/whome/Downloads"
+DOWNLOADDIR="$HOME/Downloads"
 LATEST="$(ls -t $DOWNLOADDIR | head -n1)"
 echo "Getting $LATEST"
 mv "$DOWNLOADDIR/$LATEST" .

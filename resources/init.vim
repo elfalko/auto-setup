@@ -189,16 +189,14 @@
     map <leader>kq G?><CR>d?>--<CR>
 
 " SNIPPETS
-    nnoremap <Leader>bash :-1read ${HOME}/.falk/templates/bashscriptheader<CR>
+    nnoremap <Leader>ba i#!/bin/bash<CR><CR>
 
     " LATEX
-        nnoremap <Leader>li :-1read ${HOME}/.falk/templates/latex/itemize<CR>jA
-        nnoremap <Leader>lt :-1read ${HOME}/.falk/templates/latex/tabular<CR>2jA
-        nnoremap <Leader>l[ :-1read ${HOME}/.falk/templates/latex/bracket<CR>2ei
-        nnoremap <Leader>l{ :-1read ${HOME}/.falk/templates/latex/brace<CR>2ei
-        nnoremap <Leader>l( :-1read ${HOME}/.falk/templates/latex/parenthesis<CR>2ei
-    "MA
-        nnoremap <Leader>lid \gls{lidar} 
+        " nnoremap <Leader>li :-1read ${HOME}/.falk/templates/latex/itemize<CR>jA
+        " nnoremap <Leader>lt :-1read ${HOME}/.falk/templates/latex/tabular<CR>2jA
+        " nnoremap <Leader>l[ :-1read ${HOME}/.falk/templates/latex/bracket<CR>2ei
+        " nnoremap <Leader>l{ :-1read ${HOME}/.falk/templates/latex/brace<CR>2ei
+        " nnoremap <Leader>l( :-1read ${HOME}/.falk/templates/latex/parenthesis<CR>2ei
 
 " PLUGINS
     " Install Vim Plug if not installed
@@ -258,10 +256,39 @@
         Plug 'Vimjas/vim-python-pep8-indent'
 
         Plug 'mg979/vim-visual-multi', {'branch': 'master'} " [23]
-        " Initialize plugin system
-        " :PlugInstall
-        
+
+        " [25]
+        if has('nvim')
+          Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+        else
+          Plug 'Shougo/deoplete.nvim'
+          Plug 'roxma/nvim-yarp'
+          Plug 'roxma/vim-hug-neovim-rpc'
+        endif
+        let g:deoplete#enable_at_startup = 1
+
+        Plug 'deoplete-plugins/deoplete-clang'
+
+        Plug 'dense-analysis/ale'
+
+        let g:ale_linters = {
+            \ 'python': ['pylint'],
+            \ 'vim': ['vint'],
+            \ 'cpp': ['clang'],
+            \ 'c': ['clang']
+        \}
+
+        " custom setting for clangformat
+        let g:neoformat_cpp_clangformat = {
+            \ 'exe': 'clang-format',
+            \ 'args': ['--style="{IndentWidth: 4}"']
+        \}
+        let g:neoformat_enabled_cpp = ['clangformat']
+        let g:neoformat_enabled_c = ['clangformat']
+                            
     call plug#end()
+    " Initialize plugin system
+    " :PlugInstall
 
     nnoremap <Leader>c1 :colorscheme gotham<CR>:hi! Comment guifg=#0b6e8a<CR>:hi! CursorLine guibg=#103040<CR>
     nnoremap <Leader>c2 :colorscheme iceberg<CR>
@@ -320,6 +347,8 @@
     " [20] https://www.youtube.com/watch?v=Gs1VDYnS-Ac
     " [21] https://github.com/unblevable/quick-scope
     " [22] https://github.com/jiangmiao/auto-pairs
-    " [22] https://github.com/mg979/vim-visual-multi
+    " [23] https://github.com/mg979/vim-visual-multi
+    " [24] https://github.com/Shougo/ddc.vim  TODO requires nvim 5+
+    " [25] https://github.com/Shougo/deoplete.nvim
 
 
