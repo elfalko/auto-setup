@@ -89,6 +89,13 @@ disable all setxkbmap options
 query current
     setxkbmap -query
 
+## add to e.g. GNOME
+[reddit post](https://www.reddit.com/r/gnome/comments/b5o6tx/comment/ejepzkl/?utm_source=share&utm_medium=web2x&context=3)
+edit /usr/share/X11/xkb/rules/base.xml
+find <layoutlist>
+copy variant
+
+[custom keyboard layouts haiti style](https://help.ubuntu.com/community/Custom%20keyboard%20layout%20definitions)
 
 ## Building a custom keymap 
 __Only necessary if the tty keymap needs changing__
