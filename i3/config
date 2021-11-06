@@ -442,7 +442,9 @@ bar {
 
   position top 
   tray_output primary
-  status_command i3blocks -c $HOME/.config/i3/i3blocksconfig
+  # status_command i3blocks -c $HOME/.config/i3/i3blocksconfig
+  status_command i3blocks 
+  # status_command ~/auto-setup/scripts/statusbar.sh 
 }
 
 # network manager

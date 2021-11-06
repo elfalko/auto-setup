@@ -83,10 +83,15 @@ fi
 # https://www.shogan.co.uk/how-tos/wsl2-gui-x-server-using-vcxsrv/
 
 # wms
-alias i3c="$EDITOR ~/.config/regolith/i3/config"
+if [ -f /bin/i3 ]; then
+alias i3c="$EDITOR ~/.config/i3/config"
+fi
+
+if [ -f /bin/sway ]; then
 alias swc="$EDITOR ~/.config/sway/config"
 alias sgo="swaymsg -t get_outputs"
 alias sgi="swaymsg -t get_inputs"
+fi
 
 # weather
 alias wttr="curl v2.wttr.in/munich"
