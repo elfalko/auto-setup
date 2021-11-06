@@ -43,22 +43,16 @@ source $FAUTOSETUP/bash/git.sh
 # history - ignore duplicates
 export HISTCONTROL=ignoredups
 
-
 alias sshc="$EDITOR ~/.ssh/config"
 
 # devices
 alias wlsusb="watch -n 0.5 lsusb"
-
-# gO
-
 
 # jupyter
 # alias jnc="jupyter nbconvert --to script"
 
 # regolith-auto
 alias cdas="cd $FAUTOSETUP"
-
-alias xx="xmodmap ~/.Xmodmap"
 
 # python
 alias p="python3"
@@ -70,6 +64,8 @@ if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
     # echo "Windows 10 Bash"
     export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0
 fi
+
+source $FAUTOSETUP/bash/aliases_x.sh
 
 # https://sourceforge.net/projects/vcxsrv/files/latest/download
 # "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl -dpi auto
@@ -89,9 +85,11 @@ fi
 
 if [ -f /bin/sway ]; then
 alias swc="$EDITOR ~/.config/sway/config"
-alias sgo="swaymsg -t get_outputs"
+alias sgo="swaymsg -t get_outputs | jq '.[] | .name,.rect'"
 alias sgi="swaymsg -t get_inputs"
 fi
+
+source $FAUTOSETUP/bash/aliases_regolith.sh
 
 # weather
 alias wttr="curl v2.wttr.in/munich"

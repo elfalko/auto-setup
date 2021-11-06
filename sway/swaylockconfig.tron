@@ -1,0 +1,16 @@
+ignore-empty-password
+scaling=fill
+
+indicator-thickness=12
+
+inside-color=000000
+ring-color=12dbe1
+key-hl-color=fcab1b
+
+inside-ver-color=12dbe1aa
+line-ver-color=000000
+ring-ver-color=fcab1b
+
+inside-wrong-color=d11107aa
+line-wrong-color=000000
+ring-wrong-color=d11107

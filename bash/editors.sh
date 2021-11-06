@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# source $FAUTOSETUP/bash/nvim_c_stuff.sh
 # nvim
 if [ -f /bin/nvim ] ; then
     export EDITOR=nvim

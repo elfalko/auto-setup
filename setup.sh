@@ -16,7 +16,7 @@ sudo $linkcmd init.vim /root/.vimrc
 
 $linkcmd pre-commit ./.git/hooks/pre-commit
 
-$linkcmd .bash_aliases ~/.bash_aliases
+# linkcmd .bash_aliases ~/.bash_aliases
 
 $linkcmd .inputrc ~/.inputrc
 
