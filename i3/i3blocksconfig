@@ -13,7 +13,7 @@ label=🖵
 # interval=10
 
 [volume-pulseaudio]
-command=/home/f/.falk/scripts/i3blocks/volume-pulseaudio.sh
+command=$FAUTOSETUP/i3/i3blocks/volume-pulseaudio.sh
 interval=once
 signal=1
 
@@ -36,24 +36,24 @@ signal=1
 #SUBSCRIBE=0
 
 [network]
-command=/home/f/.falk/scripts/i3blocks/network.sh
+command=$FAUTOSETUP/i3/i3blocks/network.sh
 interval=10
 
 [iface]
-command=/home/f/.falk/scripts/i3blocks/iface.sh
+command=$FAUTOSETUP/i3/i3blocks/iface.sh
 interval=10
 
 # [bandwidth]
-# command=/home/f/.falk/scripts/i3blocks/bandwidth.sh
+# command=$FAUTOSETUP/i3/i3blocks/bandwidth.sh
 # interval=5
 
 [memory]
-command=/home/f/.falk/scripts/i3blocks/memory.sh
+command=$FAUTOSETUP/i3/i3blocks/memory.sh
 label=MEM
 interval=5
 
 [battery]
-command=/home/f/.falk/scripts/i3blocks/battery.sh
+command=$FAUTOSETUP/i3/i3blocks/battery.sh
 interval=30
 
 [time]
