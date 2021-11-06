@@ -3,6 +3,6 @@
 MYKBD="custom"
 
 #moves file from this folder into system keyboard layouts
-setxkbmap -v $MYKBD terminate:ctrl_alt_bksp
+setxkbmap -v $MYKBD -option terminate:ctrl_alt_bksp
 
 
