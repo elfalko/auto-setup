@@ -7,7 +7,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $browser
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r exec /bin/bash ~/auto-setup/i3/build_i3_config.sh && i3-msg restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+b exit
