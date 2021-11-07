@@ -1,0 +1,48 @@
+################################################################################
+# Cheat sheet
+################################################################################
+# Caps - Mod
+#
+# keyref:
+# key   +mod   	    +mod+shift  +mod+ctrl   +mod+shift+ctl  +nothing (only if key itself was overwritten) 
+#
+# q     layout 	    kill window -           -               
+# w     jump urgent -           life stats  -                
+# e     mnt dev     umnt dev    -           -               
+# r     -      	    reload i3   -           -               
+# t     tunes  	    mv tunes    -           -               
+#
+# y     windows	    mv windows  -           -               
+# u     ranger 	    filebrowser -           -               
+# i     firefox	    browser     -           -              
+# o     -      	    -           -           -              
+# p     p3d    	    mv p3d      -           -              
+#
+# a     parent 	    child       -           -              
+# s     sticky 	    corner mode -           -              
+# d     -           -           -           -              
+# f     fullscreen  focus       tgl float   -              
+# g     rss[rip]    -           -           -              
+#
+# h     focus <     mv <        resize <    -
+# j     focus v     mv v        resize v    -     
+# k     focus ^     mv ^        resize ^    -
+# l     focus >     mv >        resize >    -      
+# ;     telegram    qr          -           -               
+#
+# z     background  safe bg     gif         -               
+# x     -           -           -           -               
+# c     screenshot  see shots   -           -               
+# v     scratch     mv scratch  -           -               
+# b     bluetooth   exit 3i     -           -               
+
+# n     mail        mv mail     neomutt     -               
+# m     monitors    reset mon   -           -               
+# ,     -           -           -           -               
+# .     -           -           -           -               
+#
+# space context     dmenu       -           -               
+# enter terminal    browser     -           -               
+# esc   keepass     -           -           -               
+# mute  pavuctl     -           -           -
+# Print -           -           -           -               screenkey

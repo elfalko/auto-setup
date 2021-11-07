@@ -1,0 +1,29 @@
+################################################################################
+# commands
+# idea: 
+# bind the command to a variable
+# bind key to a variable
+# bind abstract to abstract
+
+set $term terminator
+# set $Locker exec betterlockscreen -l dim -t "↑↑↓↓←→←→BA " --off 10 && sleep 1
+set $Locker exec i3lock --greeter-text="↑↑↓↓←→←→BA" --wrong-text="FAIL" -i ~/pics/wallpapers/bounty_hunters_by_wojtekfus-dar6xah.png -F --keylayout 0 -f --pass-media-keys --pass-screen-keys --pass-volume-keys -e --greeter-color=ffffffff && sleep 1
+set $backgroundscript exec ~/projects/fehmods/feh_multiscreen_background.sh
+set $safebackgroundscript exec ~/projects/fehmods/feh_safe_backgrounds.sh
+set $gifbackgroundscript exec ~/projects/xwinwrap/playvids.sh ~/projects/xwinwrap/slowsun.mp4
+# set $Locker exec betterlockscreen -l dim --off 10 -- --greeter-text="↑↑↓↓←→←→BA" && sleep 1
+set $muttcmd layout tabbed, exec urxvt -e mbsync -a & urxvt -e neomutt -F ~/.falk/mutt/muttrc, layout splith 
+set $querymutt layout tabbed, exec [ $(ps h -C neomutt | wc -l) = 0 ] && urxvt -e mbsync -a & [ $(ps h -C neomutt | wc -l) = 0 ] &&  urxvt -e neomutt -F ~/.falk/mutt/muttrc, layout splith
+
+set $screenkeycmd exec --no-startup-id "killall screenkey || screenkey -s small --mods-mode tux --bg-color '#022260'"
+set $keepasscmd exec keepassx2 ~/keepass.kdbx 
+set $lfcmd exec urxvt -e lf
+set $rangercmd exec urxvt -e ranger 
+
+set $monitorscript exec ~/.falk/scripts/i3/monitor_setup.sh
+set $backgroundscript exec ~/projects/fehmods/feh_multiscreen_background.sh
+set $safebackgroundscript exec ~/projects/fehmods/feh_safe_backgrounds.sh
+set $gifbackgroundscript exec ~/projects/xwinwrap/playvids.sh ~/projects/xwinwrap/slowsun.mp4
+## TODO doesn't work as intended
+# set $kmonadcmd exec --no-startup-id "killall kmonad && notify-send 'Kmonad stopped' || kmonad $HOME/projects/kmonad/homerowmods.kbd && notify-send 'Kmonad started'"
+

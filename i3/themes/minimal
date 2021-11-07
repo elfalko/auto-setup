@@ -1,0 +1,20 @@
+################################################################################
+# everything related to visuals
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+font pango:DejaVu Sans Mono 10
+
+#hides vertival with single window but not with multiples
+hide_edge_borders smart
+#TODO
+hide_edge_borders both
+
+#colors
+# super nice configurator from 
+# https://thomashunter.name/i3-configurator/
+# class                 border  backgr. text    indicator child_border
+client.urgent           #2F343A #ED6700 #FFFFFF #ED6700   #ED6700
+
+# hides header
+new_window pixel 1

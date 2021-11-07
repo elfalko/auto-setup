@@ -1,0 +1,13 @@
+config.disclaimer
+cheatsheet
+bindings/general
+bindings/cmds
+bindings/volumemount
+bindings/mobileconnection
+bindings/windownavigation
+bindings/workspaces.normal
+bindings/workspaces.special
+bindings/wmcontrol
+themes/minimal
+behavior
+config.old
