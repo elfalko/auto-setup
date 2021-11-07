@@ -10,4 +10,4 @@
 IN=$1
 OUT=$2
 
-cat -v $(cat $IN | grep -v "#") > "$OUT"
+cat -v $(cat $IN | grep -vE "(#|/\*)") > "$OUT"

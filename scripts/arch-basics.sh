@@ -4,4 +4,5 @@ echo "Getting system up to date"
 pacman -Syu
 
 echo "Getting dependencies"
-pacman -Sy git neovim tmux curl trizen
+pacman -Sy git neovim tmux curl \
+    trizen base-devel # AUR stuff

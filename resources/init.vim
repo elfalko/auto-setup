@@ -190,6 +190,7 @@
 
 " SNIPPETS
     nnoremap <Leader>ba i#!/bin/bash<CR><CR>
+    nnoremap <Leader>## 80i#<Esc>
 
     " LATEX
         " nnoremap <Leader>li :-1read ${HOME}/.falk/templates/latex/itemize<CR>jA

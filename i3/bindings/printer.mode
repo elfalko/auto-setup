@@ -1,0 +1,15 @@
+################################################################################
+# only linked on $ws3dp
+
+set $mode_3dp (c)ura (p)ronsole (o)penscad (r)eset screensaver
+mode "$mode_3dp" {
+    bindsym r exec xset s 600 600, mode "default"
+    bindsym c exec urxvt -e xset s off -dpms && cura, mode "default"
+    bindsym p exec pronsole.py, mode "default"
+    bindsym o exec openscad, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym $mod+Ctrl+p mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}

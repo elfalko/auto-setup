@@ -4,6 +4,9 @@
 
 echo "Setting up files"
 
+# packages to install
+# i3 i3blocks i3lock-color
+
 # mkdir -p ~/.config/i3
 # $linkcmd i3/i3config ~/.config/i3/config
 
