@@ -59,6 +59,12 @@ alias p="python3"
 
 source $FAUTOSETUP/bash/feh.sh
 
+#todo 
+if [ -f /usr/bin/td ]; then
+    alias tdi="td -i"
+fi
+
+
 # WSL 2
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
     # echo "Windows 10 Bash"
