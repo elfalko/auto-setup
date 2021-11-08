@@ -1,0 +1,11 @@
+################################################################################
+# behavior
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+#double clicking workspace brings you back. Yeah!!
+workspace_auto_back_and_forth yes
+
+#popup_during_fullscreen smart|ignore|leave_fullscreen
+popup_during_fullscreen smart

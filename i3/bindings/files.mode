@@ -1,0 +1,13 @@
+################################################################################
+set $mode_filebrowsers (t)hunar (r)anger (l)f
+mode "$mode_filebrowsers" {
+    bindsym r $rangercmd, mode "default"
+    bindsym t exec thunar, mode "default"
+    bindsym l $lfcmd, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym $mod+Ctrl+u mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Ctrl+u mode "$mode_filebrowsers"

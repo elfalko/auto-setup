@@ -1,0 +1,11 @@
+################################################################################
+# change volume or toggle mute
+# bindsym Shift+XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 150% && pkill -RTMIN+1 i3blocks 
+
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
+bindsym Ctrl+XF86AudioMute exec pavucontrol
+
+bindsym $mod+XF86AudioMute exec pavucontrol 
+bindsym $mod+b exec bluetoothctl power on && blueman-manager 

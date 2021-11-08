@@ -1,0 +1,14 @@
+set $mod mod3 
+
+set $key_fullscreen f
+set $key_float f
+
+set $key_files u
+
+set $key_screenshot c
+
+set $key_bg z
+
+set $key_scratchpad v
+set $key_sticky s
+

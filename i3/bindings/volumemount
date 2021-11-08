@@ -1,0 +1,11 @@
+################################################################################
+# volumemount - externals
+
+# needs dmenu
+# needs scripts in TODO
+
+set $mntcmd exec ~/.falk/scripts/dmenumount.sh
+set $umntcmd exec ~/.falk/scripts/dmenuunmount.sh
+
+bindsym $mod+e $mntcmd
+bindsym $mod+shift+e $umntcmd

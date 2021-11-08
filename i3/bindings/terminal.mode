@@ -1,0 +1,15 @@
+################################################################################
+# terminal selector mode
+
+set $mode_terminal (a)lacritty (d) urxvt (s) terminator
+mode "$mode_terminal" {
+    bindsym a exec alacritty, mode "default"
+    bindsym d exec urxvt, mode "default"
+    bindsym s exec terminator, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym $mod+Ctrl+Return mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Ctrl+Return mode "$mode_terminal"

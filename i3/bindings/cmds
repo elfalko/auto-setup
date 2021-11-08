@@ -1,0 +1,24 @@
+################################################################################
+# commands
+# idea: 
+# bind the command to a variable
+# bind key to a variable
+# bind abstract to abstract
+
+set $term terminator
+set $browser firefox
+# set $Locker exec betterlockscreen -l dim -t "↑↑↓↓←→←→BA " --off 10 && sleep 1
+# set $Locker exec betterlockscreen -l dim --off 10 -- --greeter-text="↑↑↓↓←→←→BA" && sleep 1
+set $locker exec /bin/bash ~/auto-setup/i3/i3lock.sh && sleep 1
+
+set $muttcmd layout tabbed, exec urxvt -e mbsync -a & urxvt -e neomutt -F ~/.falk/mutt/muttrc, layout splith 
+set $querymutt layout tabbed, exec [ $(ps h -C neomutt | wc -l) = 0 ] && urxvt -e mbsync -a & [ $(ps h -C neomutt | wc -l) = 0 ] &&  urxvt -e neomutt -F ~/.falk/mutt/muttrc, layout splith
+
+set $screenkeycmd exec --no-startup-id "killall screenkey || screenkey -s small --mods-mode tux --bg-color '#022260'"
+set $keepasscmd exec keepassx2 ~/keepass.kdbx 
+set $lfcmd exec urxvt -e lf
+set $rangercmd exec urxvt -e ranger 
+
+## TODO doesn't work as intended
+# set $kmonadcmd exec --no-startup-id "killall kmonad && notify-send 'Kmonad stopped' || kmonad $HOME/projects/kmonad/homerowmods.kbd && notify-send 'Kmonad started'"
+

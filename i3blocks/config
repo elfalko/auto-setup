@@ -1,0 +1,61 @@
+# Guess the weather hourly
+[weather]
+command=curl -Ss 'https://wttr.in/Munich?0&T&Q' | cut -c 16- | head -2 | xargs echo
+interval=3600
+
+#[monitors]
+#command=cat /tmp/monitor_mode.dat 2>/dev/null || echo ""
+#interval=1
+#label=🖵
+
+## [LAMP]
+## command=/home/f/.falk/scripts/i3blocks/xampp.sh
+## interval=10
+
+[volume-pulseaudio]
+command=~/.config/i3blocks/volume-pulseaudio.sh
+interval=once
+signal=1
+
+##MIXER=[determined automatically]
+##SCONTROL=[determined automatically]
+###exposed format variables: ${SYMB}, ${VOL}, ${INDEX}, ${NAME}
+##LONG_FORMAT="${SYMB} ${VOL}% [${INDEX}:${NAME}]"
+##SHORT_FORMAT="${SYMB} ${VOL}% [${INDEX}]"
+##AUDIO_HIGH_SYMBOL='  '
+##AUDIO_MED_THRESH=50
+##AUDIO_MED_SYMBOL='  '
+##AUDIO_LOW_THRESH=0
+##AUDIO_LOW_SYMBOL='  '
+##AUDIO_DELTA=5
+##DEFAULT_COLOR="#ffffff"
+##MUTED_COLOR="#a0a0a0"
+##USE_ALSA_NAME=0
+##USE_DESCRIPTION=0
+### SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
+##SUBSCRIBE=0
+
+[network]
+command=~/.config/i3blocks/network.sh
+interval=10
+
+[iface]
+command=~/.config/i3blocks/iface.sh
+interval=10
+
+# [bandwidth]
+# command=~/.config/i3blocks/bandwidth.sh
+# interval=5
+
+[memory]
+command=~/.config/i3blocks/memory.sh
+label=MEM
+interval=5
+
+[battery]
+command=~/.config/i3blocks/battery.sh
+interval=30
+
+[time]
+command=date +%a\ %d%b%y\ %H:%M
+interval=30

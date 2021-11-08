@@ -1,0 +1,4 @@
+bindsym $mod+Ctrl+g exec ~/.falk/scripts/rss_cycle.sh 
+bindsym $mod+Ctrl+w exec libreoffice ~/projects/life.ods
+bindsym $mod+Ctrl+n $muttcmd
+bindsym $mod+Escape $keepasscmd

@@ -1,0 +1,18 @@
+################################################################################
+
+# change container layout (stacked, tabbed, toggle split)
+set $mode_layout Layout norm(a)l (s)tacking tabbe(d) (f)vertical (i)n (o)ut
+mode "$mode_layout" {
+    bindsym a layout splith, focus child, mode "default"
+    bindsym s layout stacking, focus child, mode "default"
+    bindsym d layout tabbed, focus child, mode "default"
+    bindsym f layout splitv, focus child, mode "default"
+    
+    bindsym i focus child
+    bindsym o focus parent 
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+q focus parent, mode "$mode_layout"

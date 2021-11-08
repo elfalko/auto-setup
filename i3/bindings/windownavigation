@@ -1,0 +1,42 @@
+################################################################################
+# navigation 
+
+# TODO abstract keys away
+bindsym $mod+w [urgent=latest] focus
+
+## directions
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window (or floating by 30)
+bindsym $mod+Shift+h move left 30
+bindsym $mod+Shift+j move down 30
+bindsym $mod+Shift+k move up 30
+bindsym $mod+Shift+l move right 30
+
+bindsym $mod+Ctrl+h resize shrink width 10 px or 10 ppt
+bindsym $mod+Ctrl+j resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+k resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+l resize grow width 10 px or 10 ppt
+
+# sadly does not work
+# bindsym $mod+Shift+Ctrl+h move workspace to output left
+# bindsym $mod+Shift+Ctrl+j move workspace to output down 
+# bindsym $mod+Shift+Ctrl+k move workspace to output up 
+# bindsym $mod+Shift+Ctrl+l move workspace to output right 
+#
+
+# enter fullscreen mode for the focused container
+bindsym $mod+$key_fullscreen fullscreen toggle
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+## floating
+# change focus between tiling / floating windows
+bindsym $mod+shift+$key_float focus mode_toggle
+# toggle tiling / floating
+bindsym $mod+Ctrl+$key_float floating toggle
+
