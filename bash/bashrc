@@ -51,7 +51,7 @@ alias wlsusb="watch -n 0.5 lsusb"
 # jupyter
 # alias jnc="jupyter nbconvert --to script"
 
-# regolith-auto
+alias cdd="cd ~/Downloads"
 alias cdas="cd $FAUTOSETUP"
 
 # python
