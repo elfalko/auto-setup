@@ -89,12 +89,8 @@ if [ -f /bin/i3 ]; then
 alias i3c="$EDITOR ~/.config/i3/config"
 fi
 
-if [ -f /bin/sway ]; then
-alias swc="$EDITOR ~/.config/sway/config"
-alias sgo="swaymsg -t get_outputs | jq '.[] | .name,.rect'"
-alias sgi="swaymsg -t get_inputs"
-fi
 
+source $FAUTOSETUP/bash/aliases_sway.sh
 source $FAUTOSETUP/bash/aliases_regolith.sh
 
 # weather
