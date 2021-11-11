@@ -259,33 +259,41 @@
         Plug 'mg979/vim-visual-multi', {'branch': 'master'} " [23]
 
         " [25]
-        if has('nvim')
-          Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-        else
-          Plug 'Shougo/deoplete.nvim'
-          Plug 'roxma/nvim-yarp'
-          Plug 'roxma/vim-hug-neovim-rpc'
-        endif
-        let g:deoplete#enable_at_startup = 1
+        " if has('nvim')
+        "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+        " else
+        "   Plug 'Shougo/deoplete.nvim'
+        "   Plug 'roxma/nvim-yarp'
+        "   Plug 'roxma/vim-hug-neovim-rpc'
+        " endif
 
-        Plug 'deoplete-plugins/deoplete-clang'
+        " let g:deoplete#enable_at_startup = 1
 
-        Plug 'dense-analysis/ale'
+        " Plug 'deoplete-plugins/deoplete-clang'
 
-        let g:ale_linters = {
-            \ 'python': ['pylint'],
-            \ 'vim': ['vint'],
-            \ 'cpp': ['clang'],
-            \ 'c': ['clang']
-        \}
+        " Plug 'dense-analysis/ale'
 
-        " custom setting for clangformat
-        let g:neoformat_cpp_clangformat = {
-            \ 'exe': 'clang-format',
-            \ 'args': ['--style="{IndentWidth: 4}"']
-        \}
-        let g:neoformat_enabled_cpp = ['clangformat']
-        let g:neoformat_enabled_c = ['clangformat']
+        " let g:ale_linters = {
+        "     \ 'python': ['pylint'],
+        "     \ 'vim': ['vint'],
+        "     \ 'cpp': ['clang'],
+        "     \ 'c': ['clang']
+        " \}
+
+        " " custom setting for clangformat
+        " let g:neoformat_cpp_clangformat = {
+        "     \ 'exe': 'clang-format',
+        "     \ 'args': ['--style="{IndentWidth: 4}"']
+        " \}
+        " let g:neoformat_enabled_cpp = ['clangformat']
+        " let g:neoformat_enabled_c = ['clangformat']
+        "
+        " Conquer of Completion
+        " Use release branch (recommend)
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+        let g:coc_global_extensions = [ 'coc-json', 'coc-git', 'coc-prettier' ]
+
+
                             
     call plug#end()
     " Initialize plugin system
