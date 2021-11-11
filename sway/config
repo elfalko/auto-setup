@@ -41,6 +41,9 @@
 # ,     -           -           -           -               
 # .     -           -           -           -               
 #
+# 1-10  ws switch   mv window   resize win  mv ws to output
+# `     <same but comm ws>
+#
 # space app launcher-           -           -               
 # enter terminal    browser     -           -               
 # esc   -           -           -           -               
@@ -53,12 +56,14 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod3
 # Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-set $next n
-set $prev p
+set $key_left h
+set $key_down j
+set $key_up k
+set $key_right l
+set $key_comms grave
+set $key_next n
+set $key_prev p
+
 # Your preferred terminal emulator
 set $term x-terminal-emulator
 set $code code
@@ -96,7 +101,7 @@ exec swayidle -w \
          timeout 600 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
-#
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -164,58 +169,104 @@ input * {
 # Moving around:
 #
     # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
+    bindsym $mod+$key_left focus left
+    bindsym $mod+$key_down focus down
+    bindsym $mod+$key_up focus up
+    bindsym $mod+$key_right focus right
 
     # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
+    bindsym $mod+Shift+$key_left move left
+    bindsym $mod+Shift+$key_down move down
+    bindsym $mod+Shift+$key_up move up
+    bindsym $mod+Shift+$key_right move right
 
     # resize with ctrl
-    bindsym $mod+Ctrl+$left resize shrink width 10px
-    bindsym $mod+Ctrl+$down resize grow height 10px
-    bindsym $mod+Ctrl+$up resize shrink height 10px
-    bindsym $mod+Ctrl+$right resize grow width 10px
+    bindsym $mod+Ctrl+$key_left resize shrink width 10px
+    bindsym $mod+Ctrl+$key_down resize grow height 10px
+    bindsym $mod+Ctrl+$key_up resize shrink height 10px
+    bindsym $mod+Ctrl+$key_right resize grow width 10px
 
     # move workspaces between outputs with Ctrl+Shift
-    bindsym $mod+Control+Shift+$right move workspace to output right
-    bindsym $mod+Control+Shift+$left move workspace to output left
-    bindsym $mod+Control+Shift+$down move workspace to output down
-    bindsym $mod+Control+Shift+$up move workspace to output up
+    bindsym $mod+Control+Shift+$key_right move workspace to output right
+    bindsym $mod+Control+Shift+$key_left move workspace to output left
+    bindsym $mod+Control+Shift+$key_down move workspace to output down
+    bindsym $mod+Control+Shift+$key_up move workspace to output up
 #
 # Workspaces:
 #
-    bindsym $mod+$next workspace next 
-    bindsym $mod+$prev workspace prev
+    bindsym $mod+$key_next workspace next 
+    bindsym $mod+$key_prev workspace prev
     # Switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
+    bindsym $mod+1 workspace  1-1; workspace  1-2
+    bindsym $mod+2 workspace  2-1; workspace  2-2
+    bindsym $mod+3 workspace  3-1; workspace  3-2
+    bindsym $mod+4 workspace  4-1; workspace  4-2
+    bindsym $mod+5 workspace  5-1; workspace  5-2
+    bindsym $mod+6 workspace  6-1; workspace  6-2
+    bindsym $mod+7 workspace  7-1; workspace  7-2
+    bindsym $mod+8 workspace  8-1; workspace  8-2
+    bindsym $mod+9 workspace  9-1; workspace  9-2
+    bindsym $mod+0 workspace 10-1; workspace 10-2
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace 1
-    bindsym $mod+Shift+2 move container to workspace 2
-    bindsym $mod+Shift+3 move container to workspace 3
-    bindsym $mod+Shift+4 move container to workspace 4
-    bindsym $mod+Shift+5 move container to workspace 5
-    bindsym $mod+Shift+6 move container to workspace 6
-    bindsym $mod+Shift+7 move container to workspace 7
-    bindsym $mod+Shift+8 move container to workspace 8
-    bindsym $mod+Shift+9 move container to workspace 9
-    bindsym $mod+Shift+0 move container to workspace 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-#
+    bindsym $mod+Shift+1 move container to workspace  1-1
+    bindsym $mod+Shift+2 move container to workspace  2-1
+    bindsym $mod+Shift+3 move container to workspace  3-1
+    bindsym $mod+Shift+4 move container to workspace  4-1
+    bindsym $mod+Shift+5 move container to workspace  5-1
+    bindsym $mod+Shift+6 move container to workspace  6-1
+    bindsym $mod+Shift+7 move container to workspace  7-1
+    bindsym $mod+Shift+8 move container to workspace  8-1
+    bindsym $mod+Shift+9 move container to workspace  9-1
+    bindsym $mod+Shift+0 move container to workspace 10-1
+
+    bindsym $mod+ctrl+1 move container to workspace  1-2
+    bindsym $mod+ctrl+2 move container to workspace  2-2
+    bindsym $mod+ctrl+3 move container to workspace  3-2
+    bindsym $mod+ctrl+4 move container to workspace  4-2
+    bindsym $mod+ctrl+5 move container to workspace  5-2
+    bindsym $mod+ctrl+6 move container to workspace  6-2
+    bindsym $mod+ctrl+7 move container to workspace  7-2
+    bindsym $mod+ctrl+8 move container to workspace  8-2
+    bindsym $mod+ctrl+9 move container to workspace  9-2
+    bindsym $mod+ctrl+0 move container to workspace 10-2
+
+
+    #TODO for dual monitors only
+    workspace 1-1 output $o-left
+    workspace 2-1 output $o-left
+    workspace 3-1 output $o-left
+    workspace 4-1 output $o-left
+    workspace 5-1 output $o-left
+    workspace 6-1 output $o-left
+    workspace 7-1 output $o-left
+    workspace 8-1 output $o-left
+    workspace 9-1 output $o-left
+    workspace 10-1 output $o-left
+
+    workspace 1-2 output $o-right
+    workspace 2-2 output $o-right
+    workspace 3-2 output $o-right
+    workspace 4-2 output $o-right
+    workspace 5-2 output $o-right
+    workspace 6-2 output $o-right
+    workspace 7-2 output $o-right
+    workspace 8-2 output $o-right
+    workspace 9-2 output $o-right
+    workspace 10-2 output $o-right
+
+    set $ws_comms_1 com1
+    set $ws_comms_2 com2
+
+    bindsym $mod+$key_comms workspace $ws_comms_1; workspace $ws_comms_2
+    bindsym $mod+Shift+$key_comms move container to workspace $ws_comms_1
+    bindsym $mod+ctrj+$key_comms move container to workspace $ws_comms_2
+
+    workspace $ws_comms_1 output $o-left
+    workspace $ws_comms_2 output $o-right
+
+    for_window [class="Mattermost"] move container to workspace $ws_comms_1
+    for_window [class="Thunderbird"] floating disable; move container to workspace $ws_comms_2
+
 # Layout stuff:
 #
     workspace_auto_back_and_forth yes
@@ -278,7 +329,7 @@ bar {
 
 exec autotiling
 exec nm-applet
-# exec teams
 exec mattermost-desktop
+exec thunderbird
 # exec firefox https://outlook.office.com https://magazino.atlassian.net/plugins/servlet/ac/io.tempo.jira/tempo-app#!/my-work/week
 include /etc/sway/config.d/*
