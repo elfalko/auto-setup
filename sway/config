@@ -70,22 +70,23 @@ set $term x-terminal-emulator
 set $code code
 set $mail thunderbird
 
-set $o-left HDMI-A-1
+set $o-left  HDMI-A-1
 set $o-right DP-1
-set $bg-left ~/auto-setup/wallpapers/left/tron_homemode_w1920_cw1920_ch1080_cx0_cy0.jpg 
+set $bg-left  ~/auto-setup/wallpapers/left/tron_homemode_w1920_cw1920_ch1080_cx0_cy0.jpg 
 set $bg-right ~/auto-setup/wallpapers/right/tron_homemode_w1920_cw1920_ch1080_cx1920_cy0.jpg
 
 set $lock swaylock -f -i $o-left:$bg-left -i $o-right:$bg-right -C ~/.config/sway/swaylockconfig
-set $timelock 30
-set $timescreenoff 300
+set $timelock      300
+set $timescreenoff 600
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $inetedit nm-connection-editor
-set $screenshot /bin/bash ~/auto-setup/scripts/simple_grimshot.sh
-set $cmd_vm virtualboxvm --seamless --startvm vm
+set $menu                 dmenu_path | dmenu | xargs swaymsg exec --
+set $inetedit             nm-connection-editor
+set $screenshot           /bin/bash ~/auto-setup/scripts/simple_grimshot.sh
+set $cmd_vm               virtualboxvm --startvm vm
+set $cmd_switch_multihead /bin/bash ~/auto-setup/sway/switch_multihead.sh
 
 ### Output configuration
 #
@@ -199,16 +200,16 @@ input * {
     bindsym $mod+$key_next workspace next 
     bindsym $mod+$key_prev workspace prev
     # Switch to workspace
-    bindsym $mod+1 workspace  1-1; workspace  1-2
-    bindsym $mod+2 workspace  2-1; workspace  2-2
-    bindsym $mod+3 workspace  3-1; workspace  3-2
-    bindsym $mod+4 workspace  4-1; workspace  4-2
-    bindsym $mod+5 workspace  5-1; workspace  5-2
-    bindsym $mod+6 workspace  6-1; workspace  6-2
-    bindsym $mod+7 workspace  7-1; workspace  7-2
-    bindsym $mod+8 workspace  8-1; workspace  8-2
-    bindsym $mod+9 workspace  9-1; workspace  9-2
-    bindsym $mod+0 workspace 10-1; workspace 10-2
+    bindsym $mod+1 exec $cmd_switch_multihead 1
+    bindsym $mod+2 exec $cmd_switch_multihead 2
+    bindsym $mod+3 exec $cmd_switch_multihead 3
+    bindsym $mod+4 exec $cmd_switch_multihead 4
+    bindsym $mod+5 exec $cmd_switch_multihead 5
+    bindsym $mod+6 exec $cmd_switch_multihead 6
+    bindsym $mod+7 exec $cmd_switch_multihead 7
+    bindsym $mod+8 exec $cmd_switch_multihead 8
+    bindsym $mod+9 exec $cmd_switch_multihead 9
+    bindsym $mod+0 exec $cmd_switch_multihead 10
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace  1-1
     bindsym $mod+Shift+2 move container to workspace  2-1
@@ -256,12 +257,12 @@ input * {
     workspace 9-2 output $o-right
     workspace 10-2 output $o-right
 
-    set $ws_comms_1 com1
-    set $ws_comms_2 com2
+    set $ws_comms_1 com-1
+    set $ws_comms_2 com-2
 
-    bindsym $mod+$key_comms workspace $ws_comms_1; workspace $ws_comms_2
+    bindsym $mod+$key_comms exec $cmd_switch_multihead "com"
     bindsym $mod+Shift+$key_comms move container to workspace $ws_comms_1
-    bindsym $mod+ctrl+$key_comms move container to workspace $ws_comms_2
+    bindsym $mod+ctrl+$key_comms move container to wkrkspace $ws_comms_2
 
     workspace $ws_comms_1 output $o-left
     workspace $ws_comms_2 output $o-right
@@ -329,6 +330,7 @@ bar {
     }
 }
 
+exec wl-paste -t text --watch clipman store --no-persist
 
 exec autotiling
 exec nm-applet
