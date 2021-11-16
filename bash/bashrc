@@ -15,12 +15,6 @@ if [ -d /home/$USER/.local/bin ]; then
 fi
 
 
-# sources all files in .falk/bash if they exist
-# for file in ~/.bash/*; do
-#   if [ -f "$file" ] ; then
-#     . "$file"
-#   fi
-# done
 
 source $FAUTOSETUP/bash/editors.sh
 
@@ -29,9 +23,18 @@ alias ali="$EDITOR $FAUTOSETUP/bash/bashrc; bash"
 # each workplace will have their own stuff, so drop that in here
 alias alii="$EDITOR ~/.bash_individual_aliases; bash"
 
-if [ -f ~/.bash_individual_aliases ]; then
-    . ~/.bash_individual_aliases
+# sources all files if they exist
+if [ -d ~/.bash_individual_aliases ]; then
+for file in ~/.bash_individual_aliases/*; do
+  if [ -f "$file" ] ; then
+    . "$file"
+  fi
+done
 fi
+
+# if [ -f ~/.bash_individual_aliases ]; then
+#     . ~/.bash_individual_aliases
+# fi
 
 if [ -f ~/auto-setup/scripts/get_latest_download.sh ]; then
     alias gld="/bin/bash ~/auto-setup/scripts/get_latest_download.sh"
@@ -39,6 +42,7 @@ fi
 
 source $FAUTOSETUP/bash/tmux.sh
 source $FAUTOSETUP/bash/git.sh
+source $FAUTOSETUP/bash/jvm.sh
 
 # history - ignore duplicates
 export HISTCONTROL=ignoredups
@@ -51,8 +55,7 @@ alias wlsusb="watch -n 0.5 lsusb"
 # jupyter
 # alias jnc="jupyter nbconvert --to script"
 
-alias cdd="cd ~/Downloads"
-alias cdas="cd $FAUTOSETUP"
+source $FAUTOSETUP/bash/aliases_convenience.sh
 
 # python
 alias p="python3"
