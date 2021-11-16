@@ -66,7 +66,7 @@ set $key_prev p
 set $key_vm t
 
 # Your preferred terminal emulator
-set $term x-terminal-emulator
+set $term [ -f /usr/bin/alacritty ] && alacritty || x-terminal-emulator
 set $code code
 set $mail thunderbird
 
@@ -257,18 +257,18 @@ input * {
     workspace 9-2 output $o-right
     workspace 10-2 output $o-right
 
-    set $ws_comms_1 com-1
-    set $ws_comms_2 com-2
+    set $ws_com_1 com-1
+    set $ws_com_2 com-2
 
     bindsym $mod+$key_comms exec $cmd_switch_multihead "com"
-    bindsym $mod+Shift+$key_comms move container to workspace $ws_comms_1
-    bindsym $mod+ctrl+$key_comms move container to wkrkspace $ws_comms_2
+    bindsym $mod+Shift+$key_comms move container to workspace $ws_com_1
+    bindsym $mod+ctrl+$key_comms move container to workspace $ws_com_2
 
-    workspace $ws_comms_1 output $o-left
-    workspace $ws_comms_2 output $o-right
+    workspace $ws_com_1 output $o-left
+    workspace $ws_com_2 output $o-right
 
-    for_window [class="Mattermost"] move container to workspace $ws_comms_1
-    for_window [class="Thunderbird"] floating disable; move container to workspace $ws_comms_2
+    for_window [class="Mattermost"] move container to workspace $ws_com_1
+    for_window [class="Thunderbird"] floating disable; move container to workspace $ws_com_2
 
 # Layout stuff:
 #
@@ -331,10 +331,14 @@ bar {
 }
 
 exec wl-paste -t text --watch clipman store --no-persist
+bindsym $mod+g exec  clipman  pick
 
+# pip install autotiling
 exec autotiling
 exec nm-applet
 exec mattermost-desktop
 exec thunderbird
+exec mako
+
 # exec firefox https://outlook.office.com https://magazino.atlassian.net/plugins/servlet/ac/io.tempo.jira/tempo-app#!/my-work/week
 include /etc/sway/config.d/*
