@@ -7,7 +7,9 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $browser
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec /bin/bash ~/auto-setup/i3/build_i3_config.sh && i3-msg restart
+# doesn't work because of missing $FAUTOSETUP var, also causes lots of trouble
+# bindsym $mod+Shift+r exec /bin/bash ~/auto-setup/i3/build_i3_config.sh && i3-msg restart
+bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+b exit
@@ -15,7 +17,8 @@ bindsym $mod+Shift+b exit
 bindsym $mod+Escape $locker 
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec dmenu_run
+# script runs workplace specific mode/command, defaults to i3-dmenu-desktop
+bindsym $mod+space exec $custom_launcher || $cmd_launcher
 
 # Usage
 bindsym $mod+$key_files $rangercmd
