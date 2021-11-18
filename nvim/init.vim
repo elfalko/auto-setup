@@ -235,6 +235,8 @@
 
         Plug 'tpope/vim-surround' "[6]
 
+        Plug 'tpope/vim-repeat' "supports vim-surround
+
         Plug 'slim-template/vim-slim' "[10]
 
         Plug 'sirtaj/vim-openscad' "[11]
