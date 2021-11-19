@@ -251,9 +251,6 @@
 
         "Plug 'jiangmiao/auto-pairs' " [22]
 
-        " color hex codes
-        " Plug 'norcalli/nvim-colorizer.lua'
-
         Plug 'Vimjas/vim-python-pep8-indent'
 
         Plug 'mg979/vim-visual-multi', {'branch': 'master'} " [23]
@@ -415,8 +412,7 @@
         " Resume latest coc list
         nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-
-
+        Plug 'norcalli/nvim-colorizer.lua'
                             
     call plug#end()
     " Initialize plugin system
