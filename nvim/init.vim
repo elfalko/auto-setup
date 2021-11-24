@@ -254,9 +254,6 @@
 
         "Plug 'jiangmiao/auto-pairs' " [22]
 
-        " color hex codes
-        " Plug 'norcalli/nvim-colorizer.lua'
-
         Plug 'Vimjas/vim-python-pep8-indent'
 
         Plug 'mg979/vim-visual-multi', {'branch': 'master'} " [23]
@@ -421,6 +418,7 @@
 
         "COC-GIT
         " set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
+        Plug 'norcalli/nvim-colorizer.lua'
                             
     call plug#end()
     " Initialize plugin system
