@@ -14,8 +14,6 @@ if [ -d /home/$USER/.local/bin ]; then
     PATH+="$PATH:/home/$USER/.local/bin"
 fi
 
-
-
 source $FAUTOSETUP/bash/editors.sh
 
 # General
@@ -75,6 +73,7 @@ if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
 fi
 
 source $FAUTOSETUP/bash/aliases_x.sh
+source $FAUTOSETUP/bash/aliases_serial.sh
 
 # https://sourceforge.net/projects/vcxsrv/files/latest/download
 # "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl -dpi auto
