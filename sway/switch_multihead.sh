@@ -7,10 +7,7 @@
 
 # DEBUG_MODE=true
 
-SEPARATOR="-"
-PRIMARY="-1"
-SECONDARY="-2"
-TMPFILE=~/.swaywsstuff
+source ~/auto-setup/sway/ws_config.sh
 
 AUTO_BACK_AND_FORTH=true
 
