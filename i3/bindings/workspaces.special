@@ -25,5 +25,4 @@ bindsym $mod+Shift+p move container to workspace $ws3dp
 assign [class="Thunderbird"] $wsmail
 assign [class="Oracle"] $wswin
 
-# script runs workplace specific mode/command, defaults to i3-dmenu-desktop
-bindsym $mod+space exec /home/f/projects/i3/workspace_specific_cmds.sh
+

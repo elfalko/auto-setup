@@ -19,4 +19,5 @@ export VISUAL=$EDITOR
 alias v="$EDITOR -O"
 alias vi="$EDITOR -O"
 alias nvc="$EDITOR ~/.config/nvim/init.vim"
-# set -o vi
+
+set -o vi

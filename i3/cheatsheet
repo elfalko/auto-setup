@@ -43,6 +43,6 @@
 #
 # space context     dmenu       -           -               
 # enter terminal    browser     -           -               
-# esc   keepass     -           -           -               
+# esc   lock        keepass     -           -           -               
 # mute  pavuctl     -           -           -
 # Print -           -           -           -               screenkey

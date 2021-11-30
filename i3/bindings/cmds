@@ -18,6 +18,8 @@ set $screenkeycmd exec --no-startup-id "killall screenkey || screenkey -s small 
 set $keepasscmd exec keepassx2 ~/keepass.kdbx 
 set $lfcmd exec urxvt -e lf
 set $rangercmd exec urxvt -e ranger 
+set $cmd_launcher dmenu_run
+set $custom_launcher [ -f ~/auto-setup/i3/workspace_specific_cmds.sh ] && /bin/bash ~/auto-setup/i3/workspace_specific_cmds.sh
 
 ## TODO doesn't work as intended
 # set $kmonadcmd exec --no-startup-id "killall kmonad && notify-send 'Kmonad stopped' || kmonad $HOME/projects/kmonad/homerowmods.kbd && notify-send 'Kmonad started'"

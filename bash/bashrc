@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
 source ~/auto-setup/bash/env_variables.sh
 source $FAUTOSETUP/bash/general.sh
 
@@ -14,14 +14,6 @@ if [ -d /home/$USER/.local/bin ]; then
     PATH+="$PATH:/home/$USER/.local/bin"
 fi
 
-
-# sources all files in .falk/bash if they exist
-# for file in ~/.bash/*; do
-#   if [ -f "$file" ] ; then
-#     . "$file"
-#   fi
-# done
-
 source $FAUTOSETUP/bash/editors.sh
 
 # General
@@ -29,33 +21,30 @@ alias ali="$EDITOR $FAUTOSETUP/bash/bashrc; bash"
 # each workplace will have their own stuff, so drop that in here
 alias alii="$EDITOR ~/.bash_individual_aliases; bash"
 
-if [ -f ~/.bash_individual_aliases ]; then
-    . ~/.bash_individual_aliases
+# sources all files if they exist
+if [ -d ~/.bash_individual_aliases ]; then
+for file in ~/.bash_individual_aliases/*; do
+  if [ -f "$file" ] ; then
+    . "$file"
+  fi
+done
 fi
 
-if [ -f ~/auto-setup/scripts/get_latest_download.sh ]; then
-    alias gld="/bin/bash ~/auto-setup/scripts/get_latest_download.sh"
-fi
+# if [ -f ~/.bash_individual_aliases ]; then
+#     . ~/.bash_individual_aliases
+# fi
 
 source $FAUTOSETUP/bash/tmux.sh
 source $FAUTOSETUP/bash/git.sh
+source $FAUTOSETUP/bash/jvm.sh
 
 # history - ignore duplicates
 export HISTCONTROL=ignoredups
 
-alias sshc="$EDITOR ~/.ssh/config"
-
-# devices
-alias wlsusb="watch -n 0.5 lsusb"
-
 # jupyter
 # alias jnc="jupyter nbconvert --to script"
 
-# regolith-auto
-alias cdas="cd $FAUTOSETUP"
-
-# python
-alias p="python3"
+source $FAUTOSETUP/bash/aliases_convenience.sh
 
 source $FAUTOSETUP/bash/feh.sh
 
@@ -66,6 +55,7 @@ if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
 fi
 
 source $FAUTOSETUP/bash/aliases_x.sh
+source $FAUTOSETUP/bash/aliases_serial.sh
 
 # https://sourceforge.net/projects/vcxsrv/files/latest/download
 # "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl -dpi auto
@@ -83,16 +73,8 @@ if [ -f /bin/i3 ]; then
 alias i3c="$EDITOR ~/.config/i3/config"
 fi
 
-if [ -f /bin/sway ]; then
-alias swc="$EDITOR ~/.config/sway/config"
-alias sgo="swaymsg -t get_outputs | jq '.[] | .name,.rect'"
-alias sgi="swaymsg -t get_inputs"
-fi
-
+source $FAUTOSETUP/bash/aliases_sway.sh
 source $FAUTOSETUP/bash/aliases_regolith.sh
-
-# weather
-alias wttr="curl v2.wttr.in/munich"
 
 # ubuntu
 # TODO check with lsb_release -i

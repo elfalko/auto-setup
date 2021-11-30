@@ -30,8 +30,8 @@
         set fileformat=unix
 
     " open my vimnotes
-        nnoremap <Leader>hhh :tabedit /home/f/.falk/nvim/notes<CR>
-        nnoremap <Leader>init :tabedit /home/f/.falk/nvim/init.vim<CR>
+        nnoremap <Leader>hhh :tabedit ~/.config/nvim/notes<CR>
+        nnoremap <Leader>init :tabedit ~/.config/nvim/init.vim<CR>
         
 " MOVEMENT
     " remap escape
@@ -109,12 +109,11 @@
     colorscheme evening 
 
     " figuring out what the color group is [9]
-    function! g:SyntaxGroup() abort
-        let l:s = synID(line('.'), col('.'), 1) 
-        echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
-    endfunction        
-
-    nnoremap <Leader>sg :call SyntaxGroup()<CR> 
+    " function! g:SyntaxGroup() abort
+    "     let l:s = synID(line('.'), col('.'), 1) 
+    "     echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+    " endfunction        
+    " nnoremap <Leader>sg :call SyntaxGroup()<CR> 
 
 " SEARCHING
     "immediately start searching
@@ -157,7 +156,7 @@
 
     " cleaner file suggestions
         " list the following files last
-          set suffixes+=.pdf,.stl
+          set suffixes+=.pdf,.stl,.svg,.o
         " never show the following
           set wildignore+=*.aux
 
@@ -185,7 +184,7 @@
     nnoremap gn :tabedit <cfile><CR>
     nnoremap <leader>rr :source $MYVIMRC<CR>
 
-    "mutt
+" mutt
     map <leader>kq G?><CR>d?>--<CR>
 
 " SNIPPETS
@@ -235,6 +234,10 @@
 
         Plug 'tpope/vim-surround' "[6]
 
+        Plug 'tpope/vim-repeat' "supports vim-surround
+
+        Plug 'tpope/vim-fugitive'
+
         Plug 'slim-template/vim-slim' "[10]
 
         Plug 'sirtaj/vim-openscad' "[11]
@@ -250,9 +253,6 @@
         Plug 'unblevable/quick-scope' " [21]
 
         "Plug 'jiangmiao/auto-pairs' " [22]
-
-        " color hex codes
-        " Plug 'norcalli/nvim-colorizer.lua'
 
         Plug 'Vimjas/vim-python-pep8-indent'
 
@@ -291,8 +291,9 @@
         " Conquer of Completion
         " Use release branch (recommend)
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        let g:coc_global_extensions = [ 'coc-json', 'coc-git', 'coc-prettier' ]
+        let g:coc_global_extensions = [ 'coc-json', 'coc-git', 'coc-prettier']
 
+        " Default CoC stuff
         " if hidden is not set, TextEdit might fail.
         set hidden
 
@@ -415,8 +416,9 @@
         " Resume latest coc list
         nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-
-
+        "COC-GIT
+        " set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
+        Plug 'norcalli/nvim-colorizer.lua'
                             
     call plug#end()
     " Initialize plugin system
@@ -428,15 +430,15 @@
     nnoremap <Leader>c4 :colorscheme nord<CR>
     
     "for qmk keymap editing
-    nnoremap <Leader><Leader> cf,_______, <Esc>l
+    " nnoremap <Leader><Leader> cf,_______, <Esc>l
 
     colorscheme falcon 
 
 " TWEAKS [4]
     autocmd FileType yaml set tabstop=2 shiftwidth=2
     autocmd FileType h set tabstop=2 shiftwidth=2
-    autocmd FileType cpp set tabstop=2 shiftwidth=2
-    autocmd FileType c set tabstop=2 shiftwidth=2
+    autocmd FileType cpp set tabstop=4 shiftwidth=4
+    autocmd FileType c set tabstop=4 shiftwidth=4
     autocmd FileType py set tabstop=4 shiftwidth=4
     autocmd FileType tex set spell! spelllang=en_us
 
@@ -450,7 +452,7 @@
     " TODO [4]
     " QuickfixFormatter [7]
     " fix line number color
-    " fix current line highligh color
+    " fix current line highlight color
     " paste mode stuff [18]
     " [20] quickfix error format, include/define, tags
     " majutsushi/tagbar

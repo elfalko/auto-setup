@@ -1,0 +1,30 @@
+config.disclaimer
+cheatsheet
+bindings/general
+bindings/cmds
+bindings/basics
+bindings/mediakeys
+bindings/screenlight
+/* bindings/volumemount */
+/* bindings/mobileconnection */
+/* bindings/terminal.mode */
+/* bindings/browser.mode */
+/* bindings/files.mode */
+/* bindings/printer.mode */
+/* bindings/sysctl.mode */
+bindings/windownavigation
+bindings/windowassignment
+bindings/layout
+bindings/layout.mode
+bindings/workspaces.normal
+/* bindings/workspaces.special */
+/* bindings/floatingvideo */
+/* bindings/monitors */
+/* bindings/backgrounds */
+/* bindings/machines.brightside */
+bindings/screencapture
+bindings/wmcontrol
+themes/minimal
+behavior
+themes/bar
+startup
