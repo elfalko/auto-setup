@@ -9,7 +9,7 @@
 # w     -           -           -           -
 # e     -           -           -           -               
 # r     -      	    reload wm   -           -               
-# t     vm          -           -           -               
+# t     vm          <local vm>  virtualbox  -               
 #
 # y     windows	    mv windows  -           -               
 # u     downloads   -           -           -
@@ -30,7 +30,7 @@
 # ;     -           -           -           -               
 #
 # z     fullscreen  -           -           -               
-# x     -           -           -           -               
+# x     waybar      -           -           -               
 # c     screenshot  see shots   -           -               
 # v     scratch     mv scratch  -           -               
 # b     bluetooth   exit i3     -           -               
@@ -83,6 +83,7 @@ set $inetedit             nm-connection-editor
 set $screenshot           /bin/bash ~/auto-setup/scripts/simple_grimshot.sh
 # assumes vm is called "vm"
 set $cmd_vm               virtualboxvm --startvm vm
+set $cmd_vm_menu          virtualbox
 set $cmd_switch_multihead /bin/bash ~/auto-setup/sway/switch_multihead.sh
 
 ### Output configuration
@@ -135,6 +136,7 @@ input * {
     bindsym $mod+Shift+i exec $inetedit 
 
     bindsym $mod+$key_vm exec $cmd_vm
+    bindsym $mod+ctrl+$key_vm exec $cmd_vm_menu
     # Kill focused window
     bindsym $mod+Shift+q kill
 
@@ -251,10 +253,11 @@ input * {
     workspace 10-2 output $o-right
 
 # COMS
-    set $ws_com_1 com-1
-    set $ws_com_2 com-2
+    set $ws_com   
+    set $ws_com_1 -1
+    set $ws_com_2 -2
 
-    bindsym $mod+$key_comms exec $cmd_switch_multihead "com"
+    bindsym $mod+$key_comms exec $cmd_switch_multihead $ws_com
     bindsym $mod+Shift+$key_comms move container to workspace $ws_com_1
     bindsym $mod+ctrl+$key_comms move container to workspace $ws_com_2
 
@@ -264,10 +267,13 @@ input * {
     for_window [class="Mattermost"] move container to workspace $ws_com_1
     for_window [class="Thunderbird"] floating disable; move container to workspace $ws_com_2
 
-# WM dual screen setup
+# WM screen setup
     for_window [class="VirtualBox*"] floating disable;
+    for_window [class="VirtualBox" title="Add Share"] floating enable;
+    # dual screen 
     for_window [class="VirtualBox Machine" title=".*1"] move container to output $o-left
     for_window [class="VirtualBox Machine" title=".*2"] move container to output $o-right
+
 
 # Wireshark
     for_window [title="Wireshark · Open Capture File"] floating disable
@@ -312,33 +318,17 @@ input * {
     bindsym XF86AudioMicMute exec --no-startup-id amixer -qc 1 sset Mic toggle
 
 # bar config
-bar {
-    position top
-
-    # bar only visible if $mod is pressed
-    hidden_state hide
-    mode hide
-    modifier $mod
-
-    status_command while /bin/bash ~/auto-setup/scripts/statusbar.sh; do sleep 1; done 
-
-    font pango:DejaVu Sans Mono 10
-    colors {
-        # 5 shades of gray :D
-        statusline #ffffff
-        background #323232
-        inactive_workspace #323232 #323232 #5c5c5c
-    }
-}
+include ~/auto-setup/waybar/sway-config
+# include ~/auto-setup/sway/status-config
 
 exec wl-paste -t text --watch clipman store --no-persist
 bindsym $mod+g exec  clipman  pick
 
 # pip install autotiling
-exec autotiling
+exec_always ~/.local/bin/autotiling
 exec nm-applet
 exec mattermost-desktop
 exec thunderbird
 exec mako --default-timeout=4000 --padding=2 --margin=2
 
-include /etc/sway/config.d/*
+include ~/setup/sway/config.d/*
