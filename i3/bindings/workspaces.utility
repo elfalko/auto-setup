@@ -1,0 +1,11 @@
+# switch to next/previous
+bindsym $mod+Prior workspace prev
+bindsym $mod+Next workspace next
+
+# move to next/previous
+bindsym $mod+Shift+Prior move container to workspace prev
+bindsym $mod+Shift+Next move container to workspace next
+
+#scratchpad
+bindsym $mod+$key_scratchpad show
+bindsym $mod+Shift+$key_scratchpad move scratchpad

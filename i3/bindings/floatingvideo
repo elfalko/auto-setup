@@ -3,4 +3,8 @@
 
 #sticky toggle
 bindsym $mod+$key_sticky sticky toggle
-bindsym $mod+Ctrl+$key_sticky floating enable, sticky enable, resize set 590 px 333 px, move window to position 1330 px 723 px
+bindsym $mod+shift+$key_sticky floating enable, sticky enable, resize set 590 px 333 px, move window to position 1330 px 723 px
+bindsym $mod+Ctrl+$key_sticky floating disable, sticky disable
+
+# firefox youtube popout
+assign [class="Toolkit"] floating enable, sticky enable, resize 590 px 333 px

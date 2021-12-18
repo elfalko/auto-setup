@@ -1,18 +1,19 @@
 ################################################################################
 # Internet
 
-bindsym $mod+i exec $browser
+bindsym $mod+$key_browser exec $browser
 
-set $mode_browser (f) firefox (d) firefox dev (j) chromium (k) chrome
+set $mode_browser (q)utebrowser (f)irefox (d)ev (j) chromium (k) chrome
 mode "$mode_browser" {
     bindsym f exec firefox, mode "default"
     bindsym d exec firefox-developer-edition, mode "default"
     bindsym j exec chromium, mode "default"
     bindsym k exec google-chrome-stable, mode "default"
+    bindsym q exec qutebrowser, mode "default"
 
     # back to normal: Enter or Escape
-    bindsym $mod+Shift+i mode "default"
+    bindsym $mod+Shift+$key_browser mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Shift+i mode "$mode_browser"
+bindsym $mod+Shift+$key_browser mode "$mode_browser"

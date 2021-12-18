@@ -2,9 +2,6 @@
 # To find window classes use
 # xprop | grep CLASS
 
-# not sure where this came from
-assign [class="Toolkit"] floating enable, sticky enable, resize 590 px 333 px
-
 # stack inkscape secondary windows
 for_window [class="Inkscape"] layout stacking floating disable
 for_window [window_role="pop-up"] floating enable

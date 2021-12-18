@@ -1,13 +1,14 @@
 ################################################################################
-set $mode_filebrowsers (t)hunar (r)anger (l)f
+set $mode_filebrowsers (t)hunar (r)anger (l)f (d)olphin
 mode "$mode_filebrowsers" {
     bindsym r $rangercmd, mode "default"
+    bindsym d exec dolphin, mode "default"
     bindsym t exec thunar, mode "default"
     bindsym l $lfcmd, mode "default"
 
     # back to normal: Enter or Escape
-    bindsym $mod+Ctrl+u mode "default"
+    bindsym $mod+Ctrl+$key_files mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Ctrl+u mode "$mode_filebrowsers"
+bindsym $mod+Ctrl+$key_files mode "$mode_filebrowsers"
