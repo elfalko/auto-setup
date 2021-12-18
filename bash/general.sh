@@ -10,7 +10,7 @@ alias tf="tail -f"
 
 # silver surfer 
 if [ -f /bin/ag ]; then
-    alias agi="ag --ignore *.svg --ignore"
+    alias agi="ag --ignore \w*\.(hex|svg|o)"
 fi
 
 # files
