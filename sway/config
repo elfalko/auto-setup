@@ -14,7 +14,7 @@
 # y     windows	    mv windows  -           -               
 # u     downloads   -           -           -
 # i     vscode      nm-editor   -           -           
-# o     -      	    -           -           -              
+# o     quadfox	    -           -           -              
 # p     prev ws     -           -           -              
 #
 # a     parent 	    child       -           -              
@@ -23,10 +23,10 @@
 # f     focus       tgl float   -           -
 # g     -           -           -           -              
 #
-# h     focus <     mv <        resize <    -
-# j     focus v     mv v        resize v    -     
-# k     focus ^     mv ^        resize ^    -
-# l     focus >     mv >        resize >    -      
+# h     focus ᐸ     mv ᐸ        resize ᐸ    -
+# j     focus ᐯ     mv ᐯ        resize ᐯ    -     
+# k     focus ᐱ     mv ᐱ        resize ᐱ    -
+# l     focus ᐳ     mv ᐳ        resize ᐳ    -      
 # ;     -           -           -           -               
 #
 # z     fullscreen  -           -           -               
@@ -62,6 +62,7 @@ set $key_comms grave
 set $key_next  n
 set $key_prev  p
 set $key_vm    t
+set $key_qfox  o
 
 # fallback on x-terminal-emulator if there is no alacritty
 set $term [ -f /usr/bin/alacritty ] && alacritty || x-terminal-emulator
@@ -84,7 +85,8 @@ set $screenshot           /bin/bash ~/auto-setup/scripts/simple_grimshot.sh
 # assumes vm is called "vm"
 set $cmd_vm               virtualboxvm --startvm vm
 set $cmd_vm_menu          virtualbox
-set $cmd_switch_multihead /bin/bash ~/auto-setup/sway/switch_multihead.sh
+
+set $cmd_quadfox /bin/bash ~/setup/scripts/quadfox.sh ~/setup/addresslist
 
 ### Output configuration
 # Default wallpaper in /usr/share/backgrounds/
@@ -194,78 +196,9 @@ input * {
 # Workspaces:
     bindsym $mod+$key_next workspace next 
     bindsym $mod+$key_prev workspace prev
-    # Switch to workspace
-    bindsym $mod+1 exec $cmd_switch_multihead 1
-    bindsym $mod+2 exec $cmd_switch_multihead 2
-    bindsym $mod+3 exec $cmd_switch_multihead 3
-    bindsym $mod+4 exec $cmd_switch_multihead 4
-    bindsym $mod+5 exec $cmd_switch_multihead 5
-    bindsym $mod+6 exec $cmd_switch_multihead 6
-    bindsym $mod+7 exec $cmd_switch_multihead 7
-    bindsym $mod+8 exec $cmd_switch_multihead 8
-    bindsym $mod+9 exec $cmd_switch_multihead 9
-    bindsym $mod+0 exec $cmd_switch_multihead 10
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace  1-1
-    bindsym $mod+Shift+2 move container to workspace  2-1
-    bindsym $mod+Shift+3 move container to workspace  3-1
-    bindsym $mod+Shift+4 move container to workspace  4-1
-    bindsym $mod+Shift+5 move container to workspace  5-1
-    bindsym $mod+Shift+6 move container to workspace  6-1
-    bindsym $mod+Shift+7 move container to workspace  7-1
-    bindsym $mod+Shift+8 move container to workspace  8-1
-    bindsym $mod+Shift+9 move container to workspace  9-1
-    bindsym $mod+Shift+0 move container to workspace 10-1
 
-    bindsym $mod+ctrl+1 move container to workspace  1-2
-    bindsym $mod+ctrl+2 move container to workspace  2-2
-    bindsym $mod+ctrl+3 move container to workspace  3-2
-    bindsym $mod+ctrl+4 move container to workspace  4-2
-    bindsym $mod+ctrl+5 move container to workspace  5-2
-    bindsym $mod+ctrl+6 move container to workspace  6-2
-    bindsym $mod+ctrl+7 move container to workspace  7-2
-    bindsym $mod+ctrl+8 move container to workspace  8-2
-    bindsym $mod+ctrl+9 move container to workspace  9-2
-    bindsym $mod+ctrl+0 move container to workspace 10-2
-
-
-    #TODO for dual monitors only
-    workspace 1-1 output $o-left
-    workspace 2-1 output $o-left
-    workspace 3-1 output $o-left
-    workspace 4-1 output $o-left
-    workspace 5-1 output $o-left
-    workspace 6-1 output $o-left
-    workspace 7-1 output $o-left
-    workspace 8-1 output $o-left
-    workspace 9-1 output $o-left
-    workspace 10-1 output $o-left
-
-    workspace 1-2 output $o-right
-    workspace 2-2 output $o-right
-    workspace 3-2 output $o-right
-    workspace 4-2 output $o-right
-    workspace 5-2 output $o-right
-    workspace 6-2 output $o-right
-    workspace 7-2 output $o-right
-    workspace 8-2 output $o-right
-    workspace 9-2 output $o-right
-    workspace 10-2 output $o-right
-
-# COMS
-    set $ws_com   
-    set $ws_com_1 -1
-    set $ws_com_2 -2
-
-    bindsym $mod+$key_comms exec $cmd_switch_multihead $ws_com
-    bindsym $mod+Shift+$key_comms move container to workspace $ws_com_1
-    bindsym $mod+ctrl+$key_comms move container to workspace $ws_com_2
-
-    workspace $ws_com_1 output $o-left
-    workspace $ws_com_2 output $o-right
-
-    for_window [class="Mattermost"] move container to workspace $ws_com_1
-    for_window [class="Thunderbird"] floating disable; move container to workspace $ws_com_2
+include ~/auto-setup/sway/monitor-2.config
+include ~/auto-setup/sway/monitor-2-comms.config
 
 # WM screen setup
     for_window [class="VirtualBox*"] floating disable;
@@ -281,6 +214,9 @@ input * {
 
 # figure out what your window is
 # swaymsg -t get_tree | grep -i <name>
+
+# Quad firefox view for full control
+   bindsym $mod+$key_qfox exec $cmd_quadfox
 
 # Layout stuff:
     # TODO test if this affects the thunderbird thing
