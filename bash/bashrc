@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
 source ~/auto-setup/bash/env_variables.sh
 source $FAUTOSETUP/bash/general.sh
 
@@ -13,8 +13,6 @@ fi
 if [ -d /home/$USER/.local/bin ]; then
     PATH+="$PATH:/home/$USER/.local/bin"
 fi
-
-
 
 source $FAUTOSETUP/bash/editors.sh
 
@@ -36,10 +34,6 @@ fi
 #     . ~/.bash_individual_aliases
 # fi
 
-if [ -f ~/auto-setup/scripts/get_latest_download.sh ]; then
-    alias gld="/bin/bash ~/auto-setup/scripts/get_latest_download.sh"
-fi
-
 source $FAUTOSETUP/bash/tmux.sh
 source $FAUTOSETUP/bash/git.sh
 source $FAUTOSETUP/bash/jvm.sh
@@ -47,26 +41,12 @@ source $FAUTOSETUP/bash/jvm.sh
 # history - ignore duplicates
 export HISTCONTROL=ignoredups
 
-alias sshc="$EDITOR ~/.ssh/config"
-
-# devices
-alias wlsusb="watch -n 0.5 lsusb"
-
 # jupyter
 # alias jnc="jupyter nbconvert --to script"
 
 source $FAUTOSETUP/bash/aliases_convenience.sh
 
-# python
-alias p="python3"
-
 source $FAUTOSETUP/bash/feh.sh
-
-#todo 
-if [ -f /usr/bin/td ]; then
-    alias tdi="td -i"
-fi
-
 
 # WSL 2
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
@@ -75,6 +55,7 @@ if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
 fi
 
 source $FAUTOSETUP/bash/aliases_x.sh
+source $FAUTOSETUP/bash/aliases_serial.sh
 
 # https://sourceforge.net/projects/vcxsrv/files/latest/download
 # "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl -dpi auto
@@ -92,12 +73,8 @@ if [ -f /bin/i3 ]; then
 alias i3c="$EDITOR ~/.config/i3/config"
 fi
 
-
 source $FAUTOSETUP/bash/aliases_sway.sh
 source $FAUTOSETUP/bash/aliases_regolith.sh
-
-# weather
-alias wttr="curl v2.wttr.in/munich"
 
 # ubuntu
 # TODO check with lsb_release -i

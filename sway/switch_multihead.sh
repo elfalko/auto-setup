@@ -6,11 +6,7 @@
 # 
 # requires jq 
 
-SEPARATOR="-"
-PRIMARY="-1"
-SECONDARY="-2"
-TMPDIR=~/.cache/sway
-TMPFILE=$TMPDIR/last_workspace
+source ~/auto-setup/sway/ws_config.sh
 
 AUTO_BACK_AND_FORTH=true
 

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# launches waybar at start
+bar {
+    status_command waybar
+}
+
+# allows toggling 
+bindsym $mod+x exec killall -SIGUSR1 waybar
+exec waybar

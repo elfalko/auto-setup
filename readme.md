@@ -1,36 +1,35 @@
-# Regolith auto setup
-The aim here is to automatically setup a Regolith distro to usable state
-My requirements:
+# auto setup
+
+The aim here is to semi-automatically setup most distros to a usable state I like.
+
+## goals
+
 * `CapsLock` as `super`
 * neovim with config
 * tmux with config
 * `.bash_aliases`
 * fancy git aliases
 * some basics installed
-
-## features
-* `t` starts tmux with config in `~/.config/tmux/tmux.conf`
-* `v` starts nvim with config in `~/.config/nvim/init.vim` (which auto downloads plugins if curl is installed)
-* pre-commit hook gets the latest of these files before a commit
-* AHK file for windows
-* somewhat modular setup scripts
+* if GUI: some tiling wm, currently sway/i3
+* never keep anything personal in there (keys, data, whatever) so it can live on github freely
 
 ## setup
+
 1. Clone to home
 2. Run correct install script
 3. Add the following to your `~/.bashrc`
 
-```
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-```
+    ``` bash
+    if [ -f ~/bash/bashrc ]; then
+        . ~/.bash/bashrc
+    fi
+    ```
+
+4. run some install scripts for the programs you require
 
 ## todo
-* git hook the following:
-    * .inputrc
-    * .bashrc
-    * .git stuff
+
+* dual screen sway: put somescript before dmenu to switch to output with less windows open
 * export the lnnew command from somewhere for more modularity
 * arch: setup trizen
 * arch: x config stuff

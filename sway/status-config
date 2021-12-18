@@ -1,0 +1,20 @@
+#!/bin/bash
+
+bar {
+    position top
+
+    # bar only visible if $mod is pressed
+    hidden_state hide
+    mode hide
+    modifier $mod
+
+    status_command while /bin/bash ~/auto-setup/scripts/statusbar.sh; do sleep 1; done 
+
+    font pango:DejaVu Sans Mono 10
+    colors {
+        # 5 shades of gray :D
+        statusline #ffffff
+        background #323232
+        inactive_workspace #323232 #323232 #5c5c5c
+    }
+}
