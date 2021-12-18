@@ -9,4 +9,4 @@ alias sgtg="swaymsg -t get_tree | grep -i"
 fi
 
 # fix for VMSVGA without cursor
-export WLR_NO_HARDWARE_CURSORS=1
+# export WLR_NO_HARDWARE_CURSORS=1

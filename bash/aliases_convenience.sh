@@ -4,9 +4,10 @@ alias cdas="cd $FAUTOSETUP"
 
 alias cdd="cd ~/Downloads"
 
-# herpderp cd
+# herpderp
 alias cd..="cd .."
 alias cd...="cd ../.."
+alias rmrf="rm -rf"
 
 
 # fancy dmesg

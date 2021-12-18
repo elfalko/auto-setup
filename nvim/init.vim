@@ -185,6 +185,7 @@
     nnoremap <leader>rr :source $MYVIMRC<CR>
 
     nnoremap <Leader>v :vsplit<CR> 
+    nnoremap <leader><space> :Files<CR>
 
 " mutt
     map <leader>kq G?><CR>d?>--<CR>
@@ -229,6 +230,9 @@
         nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
         nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
         nnoremap <silent> <A-;> :TmuxNavigatePrevious<cr>
+
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf.vim'
 
         Plug 'lervag/vimtex'
 

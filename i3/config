@@ -25,10 +25,10 @@
 # f     fullscreen  focus       tgl float   -              
 # g     rss[rip]    -           -           -              
 #
-# h     focus <     mv <        resize <    -
-# j     focus v     mv v        resize v    -     
-# k     focus ^     mv ^        resize ^    -
-# l     focus >     mv >        resize >    -      
+# h     focus ᐸ     mv ᐸ        resize ᐸ    -
+# j     focus ᐯ     mv ᐯ        resize ᐯ    -     
+# k     focus ᐱ     mv ᐱ        resize ᐱ    -
+# l     focus ᐳ     mv ᐳ        resize ᐳ    -      
 # ;     telegram    qr          -           -               
 #
 # z     background  safe bg     gif         -               
@@ -72,6 +72,9 @@ set $key_sticky s
 set $key_vnc XF86Search
 set $key_connect semicolon
 
+set $key_comms grave
+set $o-left   HDMI-A-0
+set $o-right  DisplayPort-0
 
 ################################################################################
 # commands
@@ -124,6 +127,9 @@ include bindings/workspaces.utility
 include bindings/workspaces.normal
 include bindings/workspaces.special
 
+# include ../sway/monitor-2.config
+# include ../sway/monitor-2-comms.config
+
 include bindings/floatingvideo
 include bindings/vnc
 
@@ -131,6 +137,7 @@ include bindings/monitors
 include bindings/backgrounds
 
 include bindings/machines.brightside
+# include bindings/machines.wm390
 
 include bindings/screencapture 
 

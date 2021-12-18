@@ -12,3 +12,4 @@ set $key_bg z
 set $key_scratchpad v
 set $key_sticky s
 
+set $key_comms grave

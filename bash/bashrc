@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 source ~/auto-setup/bash/env_variables.sh
 source $FAUTOSETUP/bash/general.sh
 
@@ -73,8 +73,12 @@ if [ -f /bin/i3 ]; then
 alias i3c="$EDITOR ~/.config/i3/config"
 fi
 
+if [ -f /bin/docker ]; then
+  source $FAUTOSETUP/docker/aliases_docker.sh
+fi
+
 source $FAUTOSETUP/bash/aliases_sway.sh
-source $FAUTOSETUP/bash/aliases_regolith.sh
+# source $FAUTOSETUP/bash/aliases_regolith.sh
 
 # ubuntu
 # TODO check with lsb_release -i
