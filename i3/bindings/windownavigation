@@ -1,32 +1,27 @@
 ################################################################################
 # navigation 
-
-# TODO abstract keys away
-bindsym $mod+w [urgent=latest] focus
-
-## directions
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+$key_left focus left
+bindsym $mod+$key_down focus down
+bindsym $mod+$key_up focus up
+bindsym $mod+$key_right focus right
 
 # move focused window (or floating by 30)
-bindsym $mod+Shift+h move left 30
-bindsym $mod+Shift+j move down 30
-bindsym $mod+Shift+k move up 30
-bindsym $mod+Shift+l move right 30
+bindsym $mod+Shift+$key_left  move left  30
+bindsym $mod+Shift+$key_down  move down  30 
+bindsym $mod+Shift+$key_up    move up    30 
+bindsym $mod+Shift+$key_right move right 30
 
-bindsym $mod+Ctrl+h resize shrink width 10 px or 10 ppt
-bindsym $mod+Ctrl+j resize grow height 10 px or 10 ppt
-bindsym $mod+Ctrl+k resize shrink height 10 px or 10 ppt
-bindsym $mod+Ctrl+l resize grow width 10 px or 10 ppt
+# resize with ctrl
+bindsym $mod+Ctrl+$key_left  resize shrink width  10px or 10 ppt
+bindsym $mod+Ctrl+$key_down  resize grow   height 10px or 10 ppt
+bindsym $mod+Ctrl+$key_up    resize shrink height 10px or 10 ppt
+bindsym $mod+Ctrl+$key_right resize grow   width  10px or 10 ppt
 
-# sadly does not work
-# bindsym $mod+Shift+Ctrl+h move workspace to output left
-# bindsym $mod+Shift+Ctrl+j move workspace to output down 
-# bindsym $mod+Shift+Ctrl+k move workspace to output up 
-# bindsym $mod+Shift+Ctrl+l move workspace to output right 
-#
+# move workspaces between outputs with Ctrl+Shift
+bindsym $mod+Control+Shift+$key_right move workspace to output right
+bindsym $mod+Control+Shift+$key_left  move workspace to output left
+bindsym $mod+Control+Shift+$key_down  move workspace to output down
+bindsym $mod+Control+Shift+$key_up    move workspace to output up
 
 # enter fullscreen mode for the focused container
 bindsym $mod+$key_fullscreen fullscreen toggle
@@ -40,3 +35,4 @@ bindsym $mod+shift+$key_float focus mode_toggle
 # toggle tiling / floating
 bindsym $mod+Ctrl+$key_float floating toggle
 
+bindsym $mod+w [urgent=latest] focus

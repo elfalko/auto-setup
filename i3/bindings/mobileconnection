@@ -7,6 +7,6 @@
 set $qrcmd exec xclip -selection clipboard -o | qrencode -o - | feh -FZ -
 set $tgcmd exec ~/.falk/scripts/tg-test.sh $(xclip -selection clipboard -o) 
 
-bindsym $mod+shift+semicolon $qrcmd
-bindsym $mod+semicolon $tgcmd
+bindsym $mod+shift+$keyconnect $qrcmd
+bindsym $mod+$keyconnect $tgcmd
 

@@ -4,8 +4,7 @@
 # * remembers which side you are currently on
 # * can handle auto-back-and-forth or go to unfocused side on repress
 # 
-
-# DEBUG_MODE=true
+# requires jq 
 
 source ~/auto-setup/sway/ws_config.sh
 
@@ -21,7 +20,10 @@ WS_CURRENT=$($WM_MSG -t get_workspaces | jq --raw-output '.[] | try select(.focu
 WS_CURRENT_SIDE_FOCUSED=$SEPARATOR${WS_CURRENT##*$SEPARATOR}
 WS_CURRENT="${WS_CURRENT%$SEPARATOR*}"
 
-WS_LAST=$(cat $TMPFILE)
+mkdir -p $TMPDIR
+if [ -f $TMPFILE ]; then
+    WS_LAST=$(cat $TMPFILE)
+fi
 
 
 WS_CURRENT_SIDE_UNFOCUSED=$SECONDARY

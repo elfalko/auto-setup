@@ -3,5 +3,5 @@
 SEPARATOR="-"
 PRIMARY="-1"
 SECONDARY="-2"
-TMPFILE=~/.swaywsstuff
-
+TMPDIR=~/.cache/wm
+TMPFILE=$TMPDIR/last_workspace

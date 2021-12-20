@@ -3,7 +3,7 @@
 # wrapper for i3lock-color, which does not accept a config file apparently
 TEXT="↑↑↓↓←→←→BA"
 WRONG="GG EZ"
-BG="~/pics/wallpapers/bounty_hunters_by_wojtekfus-dar6xah.png"
+BG="$HOME/pics/wallpapers/bounty_hunters_by_wojtekfus-dar6xah.png"
 LOCK=i3lock
 
 if [ -f /bin/i3lock-fancy ]; then

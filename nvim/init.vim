@@ -184,6 +184,7 @@
     nnoremap gn :tabedit <cfile><CR>
     nnoremap <leader>rr :source $MYVIMRC<CR>
 
+    nnoremap <Leader>v :vsplit<CR> 
     nnoremap <leader><space> :Files<CR>
 
 " mutt
