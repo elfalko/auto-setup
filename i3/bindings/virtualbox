@@ -1,5 +1,5 @@
 # t     vm          <local vm>  virtualbox  -               
-set $key_vm    t
+# set $key_vm    t
 
 set $cmd_vm               /bin/bash ~/auto-setup/virtualbox/start_first_vm.sh
 set $cmd_vm_menu          virtualbox

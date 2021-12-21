@@ -3,8 +3,8 @@
 
 # TODO requires scripts
 
-set $backgroundscript exec ~/projects/fehmods/feh_multiscreen_background.sh
-set $safebackgroundscript exec ~/projects/fehmods/feh_safe_backgrounds.sh
+set $backgroundscript exec ~/auto-setup/feh/feh_multiscreen_background.sh
+set $safebackgroundscript exec ~/auto-setup/feh/feh_safe_backgrounds.sh
 set $gifbackgroundscript exec ~/projects/xwinwrap/playvids.sh ~/projects/xwinwrap/slowsun.mp4
 
 bindsym $mod+$key_bg exec $backgroundscript

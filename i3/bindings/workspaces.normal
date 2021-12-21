@@ -1,4 +1,6 @@
-################################################################################
+#double clicking workspace brings you back. Yeah!!
+workspace_auto_back_and_forth yes
+
 # workspaces 1-10
 set $ws1 "1"
 set $ws2 "2"
