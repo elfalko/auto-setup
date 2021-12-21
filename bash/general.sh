@@ -5,6 +5,7 @@
 # long, all, human readable, extended
 alias l="ls -lahF"
 alias ll="ls -lahF"
+alias lc="ls -clthF | head"
 
 alias tf="tail -f"
 
