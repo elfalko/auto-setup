@@ -7,7 +7,8 @@ sudo apt upgrade
 echo "Getting dependencies"
 sudo apt install git neovim tmux curl terminator\
     grim slurp \  # simple grimshot 
-    jq      # sway fancy output script, generally practical
+    jq \      # sway fancy output script, generally practical
+    feh
 
 # nice to haves
 # gimp
