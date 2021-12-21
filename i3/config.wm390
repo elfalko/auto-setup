@@ -11,7 +11,7 @@
 # w     jump urgent -           life stats  -                
 # e     mnt dev     umnt dev    -           -               
 # r     -      	    reload i3   -           -               
-# t     vm          <local vm>  virtualbox  -               
+# t     vm start    vm stop     vm menu     -               
 #
 # y     windows	    mv windows  -           -               
 # u     ranger 	    filebrowser -           -               

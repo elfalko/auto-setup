@@ -1,8 +1,10 @@
-# t     vm          <local vm>  virtualbox  -               
+# t     vm start    vm stop     vm menu     -               
 # set $key_vm    t
 
-set $cmd_vm               /bin/bash ~/auto-setup/virtualbox/start_first_vm.sh
-set $cmd_vm_menu          virtualbox
+set $cmd_vm_start          /bin/bash ~/auto-setup/virtualbox/start_first_vm.sh
+set $cmd_vm_stop           /bin/bash ~/auto-setup/virtualbox/stop_first_active_wm.sh
+set $cmd_vm_menu           virtualbox
 
-bindsym $mod+$key_vm exec $cmd_vm
-bindsym $mod+ctrl+$key_vm exec $cmd_vm_menu
+bindsym $mod+$key_vm       exec $cmd_vm_start
+bindsym $mod+shift+$key_vm exec $cmd_vm_stop
+bindsym $mod+ctrl+$key_vm  exec $cmd_vm_menu
