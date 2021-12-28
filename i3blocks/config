@@ -9,7 +9,7 @@ interval=3600
 #label=🖵
 
 ## [LAMP]
-## command=/home/f/.falk/scripts/i3blocks/xampp.sh
+## command=~/.config/i3blocks/xampp.sh
 ## interval=10
 
 [volume-pulseaudio]

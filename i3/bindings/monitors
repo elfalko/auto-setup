@@ -2,7 +2,7 @@
 # monitors
 
 # TODO requires script
-set $monitorscript exec ~/.falk/scripts/i3/monitor_setup.sh
+set $monitorscript exec ~/auto-setup/x/monitor_setup.sh
 
 set $mode_monitor (Ff)ullstack (Tt)riangle (d)efault (c)lone (e)xternal     [yu]i[op] rotate 1/2    [hjkl] move ws
 mode "$mode_monitor" {

@@ -5,7 +5,9 @@
 # needs scripts in TODO
 
 set $qrcmd exec xclip -selection clipboard -o | qrencode -o - | feh -FZ -
-set $tgcmd exec ~/.falk/scripts/tg-test.sh $(xclip -selection clipboard -o) 
+
+# script with personal bot key, so not in this repo
+set $tgcmd exec ~/setup/telegram/tg-test.sh $(xclip -selection clipboard -o) 
 
 bindsym $mod+shift+$key_connect $qrcmd
 bindsym $mod+$key_connect $tgcmd

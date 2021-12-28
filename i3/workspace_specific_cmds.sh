@@ -35,7 +35,7 @@ launch_ws_specific_programs(){
     case "$curws" in
         Tunes)
             # echo "Tunes"
-            exec ~/.falk/scripts/chat.sh 
+            exec ~/auto-setup/scripts/chat.sh 
             ;;
         P3D)
             # echo "3DP"

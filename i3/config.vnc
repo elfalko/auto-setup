@@ -5,7 +5,6 @@
 # https://i3wm.org/docs/userguide.html
 ################################################################################
 # Cheat sheet
-################################################################################
 # Caps - Mod
 #
 # keyref:
@@ -33,7 +32,7 @@
 # j     focus v     mv v        resize v    -     
 # k     focus ^     mv ^        resize ^    -
 # l     focus >     mv >        resize >    -      
-# ;     telegram    qr          -           -               
+# ;     -           -           -           -
 #
 # z     background  safe bg     gif         -               
 # x     -           -           -           -               
@@ -78,22 +77,12 @@ set $o-right  DisplayPort-0
 
 set $term terminator
 set $browser firefox
-# set $Locker exec betterlockscreen -l dim -t "M-bM-^FM-^QM-bM-^FM-^QM-bM-^FM-^SM-bM-^FM-^SM-bM-^FM-^PM-bM-^FM-^RM-bM-^FM-^PM-bM-^FM-^RBA " --off 10 && sleep 1
-# set $Locker exec betterlockscreen -l dim --off 10 -- --greeter-text="M-bM-^FM-^QM-bM-^FM-^QM-bM-^FM-^SM-bM-^FM-^SM-bM-^FM-^PM-bM-^FM-^RM-bM-^FM-^PM-bM-^FM-^RBA" && sleep 1
 set $locker exec /bin/bash ~/auto-setup/i3/i3lock.sh && sleep 1
 
-set $muttcmd layout tabbed, exec urxvt -e mbsync -a & urxvt -e neomutt -F ~/.falk/mutt/muttrc, layout splith 
-set $querymutt layout tabbed, exec [ $(ps h -C neomutt | wc -l) = 0 ] && urxvt -e mbsync -a & [ $(ps h -C neomutt | wc -l) = 0 ] &&  urxvt -e neomutt -F ~/.falk/mutt/muttrc, layout splith
-
-set $screenkeycmd exec --no-startup-id "killall screenkey || screenkey -s small --mods-mode tux --bg-color '#022260'"
-set $keepasscmd exec keepassx2 ~/keepass.kdbx 
 set $lfcmd exec urxvt -e lf
 set $rangercmd exec urxvt -e ranger 
 set $cmd_launcher dmenu_run
 set $custom_launcher [ -f ~/auto-setup/i3/workspace_specific_cmds.sh ] && /bin/bash ~/auto-setup/i3/workspace_specific_cmds.sh
-
-## TODO doesn't work as intended
-# set $kmonadcmd exec --no-startup-id "killall kmonad && notify-send 'Kmonad stopped' || kmonad $HOME/projects/kmonad/homerowmods.kbd && notify-send 'Kmonad started'"
 
 ################################################################################
 # basic programs which I need to function in i3/sway
@@ -136,29 +125,6 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym Shift+XF86MonBrightnessUp exec xbacklight -set 100
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym Shift+XF86MonBrightnessDown exec xbacklight -set 1
-################################################################################
-# volumemount - externals
-
-# needs dmenu
-# needs scripts in TODO
-
-set $mntcmd exec ~/.falk/scripts/dmenumount.sh
-set $umntcmd exec ~/.falk/scripts/dmenuunmount.sh
-
-bindsym $mod+e $mntcmd
-bindsym $mod+shift+e $umntcmd
-################################################################################
-# mobile connection
-
-# needs x server
-# needs scripts in TODO
-
-set $qrcmd exec xclip -selection clipboard -o | qrencode -o - | feh -FZ -
-set $tgcmd exec ~/.falk/scripts/tg-test.sh $(xclip -selection clipboard -o) 
-
-bindsym $mod+shift+semicolon $qrcmd
-bindsym $mod+semicolon $tgcmd
-
 ################################################################################
 # terminal selector mode
 
@@ -205,21 +171,7 @@ mode "$mode_filebrowsers" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Ctrl+u mode "$mode_filebrowsers"
-################################################################################
-# only linked on $ws3dp
 
-set $mode_3dp (c)ura (p)ronsole (o)penscad (r)eset screensaver
-mode "$mode_3dp" {
-    bindsym r exec xset s 600 600, mode "default"
-    bindsym c exec urxvt -e xset s off -dpms && cura, mode "default"
-    bindsym p exec pronsole.py, mode "default"
-    bindsym o exec openscad, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym $mod+Ctrl+p mode "default"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
 ###############################################################################
 # Syscontrol
 
@@ -316,67 +268,14 @@ for_window [class="Thunderbird"] floating disable; move container to workspace $
 include ~/auto-setup/i3/bindings/workspaces.normal
 
 ################################################################################
-# floating video following you across workspaces
-
-#sticky toggle
-bindsym $mod+$key_sticky sticky toggle
-bindsym $mod+Ctrl+$key_sticky floating enable, sticky enable, resize set 590 px 333 px, move window to position 1330 px 723 px
-###############################################################################
-# monitors
-
-# TODO requires script
-set $monitorscript exec ~/.falk/scripts/i3/monitor_setup.sh
-
-set $mode_monitor (Ff)ullstack (Tt)riangle (d)efault (c)lone (e)xternal     [yu]i[op] rotate 1/2    [hjkl] move ws
-mode "$mode_monitor" {
-    bindsym f exec $monitorscript stacked, mode "default"
-    bindsym shift+f exec $monitorscript reverse-stacked, mode "default"
-    bindsym t exec $monitorscript triangle, mode "default"
-    bindsym shift+t exec $monitorscript reverse-triangle, mode "default"
-    bindsym d exec $monitorscript normal, mode "default"
-    bindsym c exec $monitorscript mirror, mode "default"
-    bindsym e exec $monitorscript external, mode "default"
-
-    # push workspaces around
-    bindsym j move workspace to output down, mode "default" 
-    bindsym k move workspace to output up, mode "default"
-    bindsym h move workspace to output left, mode "default"
-    bindsym l move workspace to output right, mode "default"
-
-    bindsym y exec xrandr --output DP1 --rotate left 
-    bindsym u exec xrandr --output DP1 --rotate right 
-    bindsym o exec xrandr --output DP2 --rotate left 
-    bindsym p exec xrandr --output DP2 --rotate right 
-    bindsym i exec xrandr --output DP1 --rotate normal --output DP2 --rotate normal 
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym q mode "default"
-    bindsym $mod+Ctrl+m mode "default"
-    bindsym m mode "default"
-}
-bindsym $mod+m mode "$mode_monitor"
-
-#hardcoded for safety
-bindsym $mod+Shift+m exec xrandr --output eDP1 --auto --output DP1 --off --output DP2 --off & rm /tmp/monitor_mode.dat
-
-################################################################################
 # backgrounds
 
 # TODO requires scripts
 
 set $backgroundscript exec ~/projects/fehmods/feh_multiscreen_background.sh
-set $safebackgroundscript exec ~/projects/fehmods/feh_safe_backgrounds.sh
-set $gifbackgroundscript exec ~/projects/xwinwrap/playvids.sh ~/projects/xwinwrap/slowsun.mp4
 
 bindsym $mod+$key_bg exec $backgroundscript
-bindsym $mod+Shift+$key_bg exec $safebackgroundscript
-bindsym $mod+Ctrl+$key_bg exec $gifbackgroundscript
-# bindsym $mod+Ctrl+g exec ~/.falk/scripts/rss_cycle.sh
-bindsym $mod+Ctrl+w exec libreoffice ~/projects/life.ods
-bindsym $mod+Ctrl+n $muttcmd
-bindsym $mod+shift+Escape $keepasscmd
+
 ################################################################################
 # screenshot
 

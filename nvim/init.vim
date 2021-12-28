@@ -202,12 +202,12 @@
     nnoremap <Leader>ff o//TODO FSC 
     nnoremap <Leader>## 80i#<Esc>
 
-    " LATEX
-        " nnoremap <Leader>li :-1read ${HOME}/.falk/templates/latex/itemize<CR>jA
-        " nnoremap <Leader>lt :-1read ${HOME}/.falk/templates/latex/tabular<CR>2jA
-        " nnoremap <Leader>l[ :-1read ${HOME}/.falk/templates/latex/bracket<CR>2ei
-        " nnoremap <Leader>l{ :-1read ${HOME}/.falk/templates/latex/brace<CR>2ei
-        " nnoremap <Leader>l( :-1read ${HOME}/.falk/templates/latex/parenthesis<CR>2ei
+" LATEX
+    nnoremap <Leader>tli :-1read ${HOME}/auto-setup/templates/latex/itemize<CR>jA
+    nnoremap <Leader>tlt :-1read ${HOME}/auto-setup/templates/latex/tabular<CR>2jA
+    nnoremap <Leader>tl[ :-1read ${HOME}/auto-setup/templates/latex/bracket<CR>2ei
+    nnoremap <Leader>tl{ :-1read ${HOME}/auto-setup/templates/latex/brace<CR>2ei
+    nnoremap <Leader>tl( :-1read ${HOME}/auto-setup/templates/latex/parenthesis<CR>2ei
 
 " PLUGINS
     " Install Vim Plug if not installed
