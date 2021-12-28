@@ -12,7 +12,11 @@ elif [ -f /bin/i3lock-color ]; then
   LOCK="i3lock-color"
   TEXTOPT="--greeter-text=$TEXT"
   WRONGOPT="--wrong-text=$WRONG"
-  OPTS="-F -f --keylayout 0 --pass-media-keys --pass-volume-keys --pass-screen-keys --greeter-color=ffffffff -i $BG -e $TEXTOPT $WRONGOPT"
+  OPTS="-fill --show-failed-attempts --keylayout 0 --pass-media-keys --pass-volume-keys --pass-screen-keys --greeter-color=ffffffff -i $BG -e $TEXTOPT $WRONGOPT"
+elif [ -f /usr/bin/betterlockscreen ]; then
+  # betterlockscreen --update $BG 
+  LOCK="betterlockscreen"
+  OPTS="--lock dim --off 10"
 fi
 
 $LOCK $OPTS 

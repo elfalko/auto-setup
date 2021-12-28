@@ -1,5 +1,3 @@
-################################################################################
-
 # change container layout (stacked, tabbed, toggle split)
 set $mode_layout Layout norm(a)l (s)tacking tabbe(d) (f)vertical (i)n (o)ut
 mode "$mode_layout" {

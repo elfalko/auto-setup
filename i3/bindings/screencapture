@@ -1,8 +1,9 @@
-################################################################################
+# show keys
+set $screenkeycmd exec --no-startup-id "killall screenkey || screenkey -s small --mods-mode tux --bg-color '#022260'"
+
 # screenshot
 # TODO copy to clipboard
-
-bindsym --release $mod+c exec --no-startup-id import ~/pics/screenshots/$(date '+%Y%m%d-%H%M%S').png
-bindsym $mod+Shift+c exec thunar ~/pics/screenshots
+bindsym --release $mod+$key_screenshot exec --no-startup-id import ~/pics/screenshots/$(date '+%Y%m%d-%H%M%S').png
+bindsym $mod+Shift+$key_screenshot exec thunar ~/pics/screenshots
 
 bindsym $mod+Print $screenkeycmd

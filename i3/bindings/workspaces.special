@@ -1,7 +1,4 @@
-################################################################################
 # workspaces special
-
-# TODO requires script
 
 set $wsmail "Mail"
 set $wstunes "Tunes"
@@ -11,16 +8,16 @@ set $ws3dp "P3D"
 # switch to workspace
 # search for process name and start if it does not exist
 # exec [ $(ps h -C thunderbird | wc -l) = 0 ] && thunderbird
-bindsym $mod+n workspace $wsmail
-bindsym $mod+t workspace $wstunes
-bindsym $mod+y workspace $wswin
-bindsym $mod+p workspace $ws3dp
+bindsym $mod+$key_mail  workspace $wsmail
+bindsym $mod+$key_comms workspace $wstunes
+bindsym $mod+$key_vm_ws workspace $wswin
+bindsym $mod+$key_3dp   workspace $ws3dp
 
 # move focused container to workspace
-bindsym $mod+Shift+n move container to workspace $wsmail
-bindsym $mod+Shift+t move container to workspace $wstunes
-bindsym $mod+Shift+y move container to workspace $wswin
-bindsym $mod+Shift+p move container to workspace $ws3dp
+bindsym $mod+Shift+$key_mail  move container to workspace $wsmail
+bindsym $mod+Shift+$key_comms move container to workspace $wstunes
+bindsym $mod+Shift+$key_vm_ws move container to workspace $wswin
+bindsym $mod+Shift+$key_3dp   move container to workspace $ws3dp
 
 assign [class="Thunderbird"] $wsmail
 assign [class="Oracle"] $wswin

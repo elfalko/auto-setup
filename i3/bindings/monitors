@@ -33,8 +33,8 @@ mode "$mode_monitor" {
     bindsym $mod+Ctrl+m mode "default"
     bindsym m mode "default"
 }
-bindsym $mod+m mode "$mode_monitor"
+bindsym $mod+$key_monitor mode "$mode_monitor"
 
 #hardcoded for safety
-bindsym $mod+Shift+m exec xrandr --output eDP1 --auto --output DP1 --off --output DP2 --off & rm /tmp/monitor_mode.dat
+bindsym $mod+Shift+$key_monitor exec xrandr --output eDP1 --auto --output DP1 --off --output DP2 --off & rm /tmp/monitor_mode.dat
 

@@ -1,4 +1,4 @@
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# https://i3wm.org/docs/userguide.html
 ################################################################################
 # Cheat sheet
 ################################################################################
@@ -11,7 +11,7 @@
 # w     jump urgent -           life stats  -                
 # e     mnt dev     umnt dev    -           -               
 # r     -      	    reload i3   -           -               
-# t     tunes  	    mv tunes    -           -               
+# t     vm start    vm stop     vm menu     -               
 #
 # y     windows	    mv windows  -           -               
 # u     ranger 	    filebrowser -           -               
@@ -25,10 +25,10 @@
 # f     fullscreen  focus       tgl float   -              
 # g     rss[rip]    -           -           -              
 #
-# h     focus <     mv <        resize <    -
-# j     focus v     mv v        resize v    -     
-# k     focus ^     mv ^        resize ^    -
-# l     focus >     mv >        resize >    -      
+# h     focus ᐸ     mv ᐸ        resize ᐸ    -
+# j     focus ᐯ     mv ᐯ        resize ᐯ    -     
+# k     focus ᐱ     mv ᐱ        resize ᐱ    -
+# l     focus ᐳ     mv ᐳ        resize ᐳ    -      
 # ;     telegram    qr          -           -               
 #
 # z     background  safe bg     gif         -               
@@ -44,446 +44,106 @@
 #
 # space context     dmenu       -           -               
 # enter terminal    browser     -           -               
-# esc   keepass     -           -           -               
+# esc   lock        keepass     -           -           -               
 # mute  pavuctl     -           -           -
 # Print -           -           -           -               screenkey
 
-################################################################################
-# config
-    set $mod mod3 
+set $mod mod3 
 
-    # This font is widely installed, provides lots of unicode glyphs, right-to-left
-    # text rendering and scalability on retina/hidpi displays (thanks to pango).
-    font pango:DejaVu Sans Mono 10
+set $key_left       h
+set $key_down       j
+set $key_up         k
+set $key_right      l
 
-    # Use Mouse+$mod to drag floating windows to their wanted position
-    floating_modifier $mod
+set $key_browser    i
 
-    #hides vertival with single window but not with multiples
-    hide_edge_borders smart
+set $key_fullscreen f
+set $key_float      f
 
-    #colors
-    # super nice configurator from 
-    # https://thomashunter.name/i3-configurator/
-    # class                 border  backgr. text    indicator child_border
-    client.urgent           #2F343A #ED6700 #FFFFFF #ED6700   #ED6700
+set $key_files      u
 
-    #double clicking workspace brings you back. Yeah!!
-    workspace_auto_back_and_forth yes
+set $key_screenshot c
 
-    hide_edge_borders both
+set $key_bg         z
+set $key_monitor    m
 
-    #popup_during_fullscreen smart|ignore|leave_fullscreen
-    popup_during_fullscreen smart
+set $key_scratchpad v
+set $key_sticky     s
 
-    # hides header
-    new_window pixel 1
 
-################################################################################
-# cmds
-    set $term terminator
-    # set $Locker exec betterlockscreen -l dim -t "↑↑↓↓←→←→BA " --off 10 && sleep 1
-    set $Locker exec i3lock --greeter-text="↑↑↓↓←→←→BA" --wrong-text="FAIL" -i ~/pics/wallpapers/bounty_hunters_by_wojtekfus-dar6xah.png -F --keylayout 0 -f --pass-media-keys --pass-screen-keys --pass-volume-keys -e --greeter-color=ffffffff && sleep 1
-    set $backgroundscript exec ~/projects/fehmods/feh_multiscreen_background.sh
-    set $safebackgroundscript exec ~/projects/fehmods/feh_safe_backgrounds.sh
-    set $gifbackgroundscript exec ~/projects/xwinwrap/playvids.sh ~/projects/xwinwrap/slowsun.mp4
-    # set $Locker exec betterlockscreen -l dim --off 10 -- --greeter-text="↑↑↓↓←→←→BA" && sleep 1
-    set $muttcmd layout tabbed, exec urxvt -e mbsync -a & urxvt -e neomutt -F ~/.falk/mutt/muttrc, layout splith 
-    set $querymutt layout tabbed, exec [ $(ps h -C neomutt | wc -l) = 0 ] && urxvt -e mbsync -a & [ $(ps h -C neomutt | wc -l) = 0 ] &&  urxvt -e neomutt -F ~/.falk/mutt/muttrc, layout splith
+set $key_vnc        equal
+set $key_connect    semicolon
 
-    set $screenkeycmd exec --no-startup-id "killall screenkey || screenkey -s small --mods-mode tux --bg-color '#022260'"
-    set $keepasscmd exec keepassx2 ~/keepass.kdbx 
-    set $lfcmd exec urxvt -e lf
-    set $rangercmd exec urxvt -e ranger 
-    set $qrcmd exec xclip -selection clipboard -o | qrencode -o - | feh -FZ -
-    set $tgcmd exec ~/.falk/scripts/tg-test.sh $(xclip -selection clipboard -o) 
-    set $mntcmd exec ~/.falk/scripts/dmenumount.sh
-    set $umntcmd exec ~/.falk/scripts/dmenuunmount.sh
-    set $monitorscript exec ~/.falk/scripts/i3/monitor_setup.sh
-    set $backgroundscript exec ~/projects/fehmods/feh_multiscreen_background.sh
-    set $safebackgroundscript exec ~/projects/fehmods/feh_safe_backgrounds.sh
-    set $gifbackgroundscript exec ~/projects/xwinwrap/playvids.sh ~/projects/xwinwrap/slowsun.mp4
-    ## TODO doesn't work as intended
-    # set $kmonadcmd exec --no-startup-id "killall kmonad && notify-send 'Kmonad stopped' || kmonad $HOME/projects/kmonad/homerowmods.kbd && notify-send 'Kmonad started'"
+set $key_3dp        p
+set $key_comms      grave
+set $key_mail       n # only used for single screen, otherwise this is comms
+set $key_vm         t
+set $key_vm_ws      y
+
+set $o-left   HDMI-A-0
+set $o-right  DisplayPort-0
 
 ################################################################################
-# externals
-    bindsym $mod+e $mntcmd
-    bindsym $mod+shift+e $umntcmd
+# commands
+# idea: 
+# bind the command to a variable
+# bind key to a variable
+# bind abstract to abstract
 
-################################################################################
+set $term terminator
+set $browser qutebrowser || firefox
+set $locker exec /bin/bash ~/auto-setup/i3/i3lock.sh && sleep 1
 
-################################################################################
-# mobile connection
-    bindsym $mod+shift+semicolon $qrcmd
-    bindsym $mod+semicolon $tgcmd
+# TODO move to own file
+set $keepasscmd exec keepassx2 ~/keepass.kdbx 
+set $lfcmd exec urxvt -e lf
+set $rangercmd exec urxvt -e ranger 
+set $cmd_launcher dmenu_run
+set $cmd_vncview vncviewer localhost::5903
+set $custom_launcher [ -f ~/auto-setup/i3/workspace_specific_cmds.sh ] && /bin/bash ~/auto-setup/i3/workspace_specific_cmds.sh
+set $cmd_switch_multihead /bin/bash ~/auto-setup/sway/switch_multihead.sh
 
-################################################################################
-# navigation 
-## directions
-    bindsym $mod+h focus left
-    bindsym $mod+j focus down
-    bindsym $mod+k focus up
-    bindsym $mod+l focus right
+include bindings/basics
+include bindings/terminal.mode
+include bindings/browser.mode
+include bindings/files.mode
 
-    # alternatively, you can use the cursor keys:
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+include bindings/mediakeys
+include bindings/screenlight
 
-    # move focused window (or floating by 30)
-    bindsym $mod+Shift+h move left 30
-    bindsym $mod+Shift+j move down 30
-    bindsym $mod+Shift+k move up 30
-    bindsym $mod+Shift+l move right 30
+include bindings/sysctl.mode
 
-    # alternatively, you can use the cursor keys:
-    bindsym $mod+Shift+Left move left 30
-    bindsym $mod+Shift+Down move down 30
-    bindsym $mod+Shift+Up move up 30
-    bindsym $mod+Shift+Right move right 30
+include bindings/windownavigation
+include bindings/layout
+include bindings/layout.mode
 
-    bindsym $mod+Ctrl+h resize shrink width 10 px or 10 ppt
-    bindsym $mod+Ctrl+j resize grow height 10 px or 10 ppt
-    bindsym $mod+Ctrl+k resize shrink height 10 px or 10 ppt
-    bindsym $mod+Ctrl+l resize grow width 10 px or 10 ppt
+include bindings/windowassignment
 
-    # sadly does not work
-    # bindsym $mod+Shift+Ctrl+h move workspace to output left
-    # bindsym $mod+Shift+Ctrl+j move workspace to output down 
-    # bindsym $mod+Shift+Ctrl+k move workspace to output up 
-    # bindsym $mod+Shift+Ctrl+l move workspace to output right 
+include bindings/vnc
+include bindings/virtualbox
 
-## floating
-    # enter fullscreen mode for the focused container
-    bindsym $mod+f fullscreen toggle
-    # change focus between tiling / floating windows
-    bindsym $mod+shift+f focus mode_toggle
-    # toggle tiling / floating
-    bindsym $mod+Ctrl+f floating toggle
-    #sticky toggle
-    bindsym $mod+s sticky toggle
-    bindsym $mod+Ctrl+s floating enable, sticky enable, resize set 590 px 333 px, move window to position 1330 px 723 px
+include bindings/floatingvideo
+include bindings/screencapture 
 
-## change container layout (stacked, tabbed, toggle split)
-    set $mode_layout Layout norm(a)l (s)tacking tabbe(d) (f)vertical (i)n (o)ut
-    mode "$mode_layout" {
-        bindsym a layout splith, focus child, mode "default"
-        bindsym s layout stacking, focus child, mode "default"
-        bindsym d layout tabbed, focus child, mode "default"
-        bindsym f layout splitv, focus child, mode "default"
-        
-        bindsym i focus child
-        bindsym o focus parent 
+include behavior
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-    }
-    bindsym $mod+q focus parent, mode "$mode_layout"
-    # focus the parent container
-    bindsym $mod+a focus parent
-    # focus the child container
-    bindsym $mod+Shift+a focus child
+include themes/minimal
+include themes/bar
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-    set $ws1 "1"
-    set $ws2 "2"
-    set $ws3 "3"
-    set $ws4 "4"
-    set $ws5 "5"
-    set $ws6 "6"
-    set $ws7 "7"
-    set $ws8 "8"
-    set $ws9 "9"
-    set $ws10 "10"
-    set $wsmail "Mail"
-    set $wstunes "Tunes"
-    set $wswin "Why"
-    set $ws3dp "P3D"
+include bindings/workspaces.normal
+include bindings/workspaces.utility
+include bindings/workspaces.special
+# include ../sway/monitor-2.config
+# include ../sway/monitor-2-comms.config
+include bindings/monitors
+include bindings/backgrounds
 
-# switch to workspace
-# search for process name ans start if it does not exist
-# exec [ $(ps h -C thunderbird | wc -l) = 0 ] && thunderbird
-    bindsym $mod+1 workspace $ws1
-    bindsym $mod+2 workspace $ws2
-    bindsym $mod+3 workspace $ws3
-    bindsym $mod+4 workspace $ws4
-    bindsym $mod+5 workspace $ws5
-    bindsym $mod+6 workspace $ws6
-    bindsym $mod+7 workspace $ws7
-    bindsym $mod+8 workspace $ws8
-    bindsym $mod+9 workspace $ws9
-    bindsym $mod+0 workspace $ws10
-    bindsym $mod+n workspace $wsmail
-    bindsym $mod+t workspace $wstunes
-    bindsym $mod+y workspace $wswin
-    bindsym $mod+p workspace $ws3dp
+include bindings/machines.brightside
+include bindings/volumemount
+include bindings/mobileconnection
+include bindings/printer.mode
+include bindings/mutt
 
-# move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace $ws1
-    bindsym $mod+Shift+2 move container to workspace $ws2
-    bindsym $mod+Shift+3 move container to workspace $ws3
-    bindsym $mod+Shift+4 move container to workspace $ws4
-    bindsym $mod+Shift+5 move container to workspace $ws5
-    bindsym $mod+Shift+6 move container to workspace $ws6
-    bindsym $mod+Shift+7 move container to workspace $ws7
-    bindsym $mod+Shift+8 move container to workspace $ws8
-    bindsym $mod+Shift+9 move container to workspace $ws9
-    bindsym $mod+Shift+0 move container to workspace $ws10
-    bindsym $mod+Shift+n move container to workspace $wsmail
-    bindsym $mod+Shift+t move container to workspace $wstunes
-    bindsym $mod+Shift+y move container to workspace $wswin
-    bindsym $mod+Shift+p move container to workspace $ws3dp
+# include bindings/machines.wm390
 
-# switch to next/previous
-    bindsym $mod+Prior workspace prev
-    bindsym $mod+Next workspace next
-
-# move to next/previous
-    bindsym $mod+Shift+Prior move container to workspace prev
-    bindsym $mod+Shift+Next move container to workspace next
-
-#scratchpad
-    bindsym $mod+v scratchpad show
-    bindsym $mod+Shift+v move scratchpad
-
-###############################################################################
-# I3 control
-###############################################################################
-
-# kill focused window
-bindsym $mod+Shift+q kill
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+b exit
-
-###############################################################################
-# Syscontrol
-###############################################################################
-# Screensaver with betterlockscreen
-
-set $mode_system System (l)ock (e)logout (s)uspend (h)ibernate (r)eboot (Shift+s)hutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+End mode "$mode_system"
-bindsym End $Locker 
-###############################################################################
-# Utility
-###############################################################################
-bindsym $mod+w [urgent=latest] focus
-
-# start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec $term
-
-set $mode_terminal (a)lacritty (d) urxvt (s) terminator
-mode "$mode_terminal" {
-    bindsym a exec alacritty, mode "default"
-    bindsym d exec urxvt, mode "default"
-    bindsym s exec terminator, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym $mod+Ctrl+Return mode "default"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Ctrl+Return mode "$mode_terminal"
-
-##### monitors #####
-
-set $mode_monitor (Ff)ullstack (Tt)riangle (d)efault (c)lone (e)xternal     [yu]i[op] rotate 1/2    [hjkl] move ws
-mode "$mode_monitor" {
-    bindsym f exec $monitorscript stacked, mode "default"
-    bindsym shift+f exec $monitorscript reverse-stacked, mode "default"
-    bindsym t exec $monitorscript triangle, mode "default"
-    bindsym shift+t exec $monitorscript reverse-triangle, mode "default"
-    bindsym d exec $monitorscript normal, mode "default"
-    bindsym c exec $monitorscript mirror, mode "default"
-    bindsym e exec $monitorscript external, mode "default"
-
-    # push workspaces around
-    bindsym j move workspace to output down, mode "default" 
-    bindsym k move workspace to output up, mode "default"
-    bindsym h move workspace to output left, mode "default"
-    bindsym l move workspace to output right, mode "default"
-
-    bindsym y exec xrandr --output DP1 --rotate left 
-    bindsym u exec xrandr --output DP1 --rotate right 
-    bindsym o exec xrandr --output DP2 --rotate left 
-    bindsym p exec xrandr --output DP2 --rotate right 
-    bindsym i exec xrandr --output DP1 --rotate normal --output DP2 --rotate normal 
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym q mode "default"
-    bindsym $mod+Ctrl+m mode "default"
-    bindsym m mode "default"
-}
-bindsym $mod+m mode "$mode_monitor"
-
-#hardcoded for safety
-bindsym $mod+Shift+m exec xrandr --output eDP1 --auto --output DP1 --off --output DP2 --off & rm /tmp/monitor_mode.dat
-
-# backgrounds
-bindsym $mod+z exec $backgroundscript
-bindsym $mod+Shift+z exec $safebackgroundscript
-bindsym $mod+Ctrl+z exec $gifbackgroundscript
-
-# screenshot
-bindsym --release $mod+c exec --no-startup-id import ~/pics/screenshots/$(date '+%Y%m%d-%H%M%S').png
-bindsym $mod+Shift+c exec thunar ~/pics/screenshots
-
-# most used programs
-# Internet
-bindsym $mod+i exec firefox
-bindsym $mod+Shift+Return exec firefox
-
-set $mode_browser (f) firefox (d) firefox dev (j) chromium (k) chrome
-mode "$mode_browser" {
-    bindsym f exec firefox, mode "default"
-    bindsym d exec firefox-developer-edition, mode "default"
-    bindsym j exec chromium, mode "default"
-    bindsym k exec google-chrome-stable, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym $mod+Shift+i mode "default"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Shift+i mode "$mode_browser"
-
-################################################################################
-# General quicklaunch 
-################################################################################
-# start dmenu (a program launcher)
-bindsym $mod+Shift+space exec dmenu_run
-
-# script runs workplace specific mode/command, defaults to i3-dmenu-desktop
-bindsym $mod+space exec /home/f/projects/i3/workspace_specific_cmds.sh
-
-set $mode_3dp (c)ura (p)ronsole (o)penscad (r)eset screensaver
-mode "$mode_3dp" {
-    bindsym r exec xset s 600 600, mode "default"
-    bindsym c exec urxvt -e xset s off -dpms && cura, mode "default"
-    bindsym p exec pronsole.py, mode "default"
-    bindsym o exec openscad, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym $mod+Ctrl+p mode "default"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-# only linked on $ws3dp
-
-################################################################################
-# Post
-################################################################################
-bindsym $mod+Ctrl+g exec ~/.falk/scripts/rss_cycle.sh 
-bindsym $mod+Ctrl+w exec libreoffice ~/projects/life.ods
-assign [class="Thunderbird"] "Mail"
-
-# Usage
-bindsym $mod+u $rangercmd
-bindsym $mod+shift+u exec thunar
-
-set $mode_filebrowsers (t)hunar (r)anger (l)f
-mode "$mode_filebrowsers" {
-    bindsym r $rangercmd, mode "default"
-    bindsym t exec thunar, mode "default"
-    bindsym l $lfcmd, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym $mod+Ctrl+u mode "default"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Ctrl+u mode "$mode_filebrowsers"
-
-bindsym $mod+Escape $keepasscmd
-
-bindsym $mod+XF86AudioMute exec pavucontrol 
-bindsym $mod+b exec bluetoothctl power on && blueman-manager 
-bindsym $mod+Ctrl+n $muttcmd
-
-assign [class="Oracle"] $wswin
-assign [class="Toolkit"] floating enable, sticky enable, resize 590 px 333 px
-
-# To find window classes use
-# xprop | grep CLASS
-
-bar {
-  mode hide
-  hidden_state hide 
-  modifier $mod
-  
-  colors {
-    urgent_workspace   #2F343A #ED6700 #FFFFFF
-    binding_mode       #2F343A #ED6700 #FFFFFF
-  }
-
-  position top 
-  tray_output primary
-  status_command i3blocks -c ~/.config/i3blocks/config
-}
-
-# network manager
-exec nm-applet --no-agent
-# wallpaper
-
-exec $backgroundscript
-# exec $gifbackgroundscript
-
-################################################################################
-# program specific
-################################################################################
-# stack inkscape secondary windows
-for_window [class="Inkscape"] layout stacking floating disable
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
-################################################################################
-# function keybinds
-################################################################################
-# change volume or toggle mute
-# bindsym Shift+XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 150% && pkill -RTMIN+1 i3blocks 
-
-bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 
-bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
-bindsym Ctrl+XF86AudioMute exec pavucontrol
-
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym Shift+XF86MonBrightnessUp exec xbacklight -set 100
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-bindsym Shift+XF86MonBrightnessDown exec xbacklight -set 1
-
-bindsym $mod+Print $screenkeycmd
-# exec xbindkeys -p
-
-################################################################################
-
-exec_always --no-startup-id autotiling
-exec_always --no-startup-id /usr/bin/dunst -conf /home/f/.config/dunst/dunstrc
-# exec_always --no-startup-id kmonad /home/f/projects/kmonad/homerowmods.kbd
-# exec redshift
-
-## TODO
-# auto logout
-
+include startup

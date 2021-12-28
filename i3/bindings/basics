@@ -19,6 +19,7 @@ bindsym $mod+Escape $locker
 # start dmenu (a program launcher)
 # script runs workplace specific mode/command, defaults to i3-dmenu-desktop
 bindsym $mod+space exec $custom_launcher || $cmd_launcher
+bindsym $mod+Shift+space exec dmenu_run
 
 # Usage
 bindsym $mod+$key_files $rangercmd

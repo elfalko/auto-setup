@@ -1,0 +1,5 @@
+# TODO to own file, script to check if urxvt actually works
+set $muttcmd layout tabbed, exec urxvt -e mbsync -a & urxvt -e neomutt -F ~/.falk/mutt/muttrc, layout splith 
+set $querymutt layout tabbed, exec [ $(ps h -C neomutt | wc -l) = 0 ] && urxvt -e mbsync -a & [ $(ps h -C neomutt | wc -l) = 0 ] &&  urxvt -e neomutt -F ~/.falk/mutt/muttrc, layout splith
+
+bindsym $mod+Ctrl+n $muttcmd

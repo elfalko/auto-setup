@@ -1,8 +1,6 @@
 ################################################################################
 # backgrounds
 
-# TODO requires scripts
-
 set $backgroundscript exec ~/auto-setup/feh/feh_multiscreen_background.sh
 set $safebackgroundscript exec ~/auto-setup/feh/feh_safe_backgrounds.sh
 set $gifbackgroundscript exec ~/projects/xwinwrap/playvids.sh ~/projects/xwinwrap/slowsun.mp4
@@ -10,3 +8,6 @@ set $gifbackgroundscript exec ~/projects/xwinwrap/playvids.sh ~/projects/xwinwra
 bindsym $mod+$key_bg exec $backgroundscript
 bindsym $mod+Shift+$key_bg exec $safebackgroundscript
 bindsym $mod+Ctrl+$key_bg exec $gifbackgroundscript
+
+# wallpaper
+exec $backgroundscript

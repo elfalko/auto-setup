@@ -1,14 +1,9 @@
 ################################################################################
 # network manager
 exec nm-applet --no-agent
-# wallpaper
-
-exec $backgroundscript
-# exec $gifbackgroundscript
 
 # exec xbindkeys -p
-
 exec_always --no-startup-id autotiling
-exec_always --no-startup-id /usr/bin/dunst -conf /home/f/.config/dunst/dunstrc
+exec_always --no-startup-id /usr/bin/dunst -conf ~/auto-setup/dunst/dunstrc
 # exec_always --no-startup-id kmonad /home/f/projects/kmonad/homerowmods.kbd
 # exec redshift
