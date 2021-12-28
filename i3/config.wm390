@@ -50,31 +50,31 @@
 
 set $mod mod3 
 
-set $key_left h
-set $key_down j
-set $key_up k
-set $key_right l
+set $key_left       h
+set $key_down       j
+set $key_up         k
+set $key_right      l
 
-set $key_browser i
+set $key_browser    i
 
 set $key_fullscreen f
-set $key_float f
+set $key_float      f
 
-set $key_files u
+set $key_files      u
 
 set $key_screenshot c
 
-set $key_bg z
+set $key_bg         z
 
 set $key_scratchpad v
-set $key_sticky s
+set $key_sticky     s
 
-set $key_vm    t
+set $key_vm         t
 
-set $key_vnc XF86Search
-set $key_connect semicolon
+set $key_vnc        equal
+set $key_connect    semicolon
 
-set $key_comms grave
+set $key_comms      grave
 
 set $o-left   HDMI-A-0
 set $o-right  DisplayPort-0

@@ -66,10 +66,11 @@
     " alternate folding
         set foldmethod=indent
         nnoremap <space> za
-        nnoremap <leader>f zR
+        " nnoremap <leader>f zR
 
     " display numbers
         set number
+        set relativenumber
 
     " indentation
         set autoindent
@@ -105,6 +106,8 @@
 
     " Set the command window height to 2 lines, to avoid many cases of having to "press <Enter> to continue"
         " set cmdheight=2 "generally wastes window height
+
+    
         
     colorscheme evening 
 
@@ -187,11 +190,16 @@
     nnoremap <Leader>v :vsplit<CR> 
     nnoremap <leader><space> :Files<CR>
 
+    " quicker window resizing
+    nnoremap <leader>h :vertical resize -10<CR>
+    nnoremap <leader>l :vertical resize +10<CR>
+
 " mutt
     map <leader>kq G?><CR>d?>--<CR>
 
 " SNIPPETS
     nnoremap <Leader>ba i#!/bin/bash<CR><CR>
+    nnoremap <Leader>ff o//TODO FSC 
     nnoremap <Leader>## 80i#<Esc>
 
     " LATEX
@@ -237,12 +245,10 @@
         Plug 'lervag/vimtex'
 
         Plug 'tpope/vim-commentary' "[5]
-
         Plug 'tpope/vim-surround' "[6]
-
         Plug 'tpope/vim-repeat' "supports vim-surround
-
         Plug 'tpope/vim-fugitive'
+        Plug 'tpope/vim-abolish'
 
         Plug 'slim-template/vim-slim' "[10]
 
