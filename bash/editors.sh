@@ -20,4 +20,8 @@ alias v="$EDITOR -O"
 alias vi="$EDITOR -O"
 alias nvc="$EDITOR ~/.config/nvim/init.vim"
 
+vc(){
+    $EDITOR -O $1h $1c
+}
+
 set -o vi
