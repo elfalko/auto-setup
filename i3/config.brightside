@@ -76,7 +76,8 @@ set $key_connect    semicolon
 
 set $key_3dp        p
 set $key_comms      grave
-set $key_mail       n # only used for single screen, otherwise this is comms
+# only used for single screen, otherwise this is comms
+set $key_mail       n 
 set $key_vm         t
 set $key_vm_ws      y
 
