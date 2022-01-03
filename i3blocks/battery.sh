@@ -4,6 +4,8 @@ icon_num=5
 icon_on="♥"
 icon_off="♡"
 icon_chg="⚡"
+icon_plug="🔌"
+icon_inf="∞"
 
 batstat=$(acpi)
 batstat=${batstat/Battery\ 0:/}
@@ -15,7 +17,12 @@ stat=${status:0:2}
 if [[ $batstat =~ ([0-9]*\%) ]]; then 
 	percentage=${BASH_REMATCH[1]%\%}
 else 
-	percentage='?'
+    # TODO is it right to assume this?
+    echo $icon_chg$icon_plug
+    echo $icon_chg$icon_plug
+    echo "FFAE00"
+	# percentage='?'
+    exit 0
 fi
 
 if [[ $batstat =~ ([0-9][0-9]:[0-9][0-9]:[0-9][0-9]) ]]; then 
@@ -32,7 +39,8 @@ do
 		charge+=$icon_on;
 	else
 		if [[ $i == 1 ]]; then
-			charge="╬╬╬╬╬"
+			charge=" =╬= "
+			# charge="✟ ✟ ✟"
 			break
 		fi
 
