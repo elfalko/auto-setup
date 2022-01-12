@@ -2,7 +2,6 @@
 
 alias cdas="cd $FAUTOSETUP"
 
-alias cdd="cd ~/Downloads"
 
 # herpderp
 alias cd..="cd .."
@@ -18,9 +17,12 @@ function fcat () {
     [ -f /usr/bin/batcat ] && batcat "$@" || cat "$@"
 }
 
+alias cdd="cd ~/Downloads"
 # fast movement of download files
 if [ -f ~/auto-setup/scripts/get_latest_download.sh ]; then
-    alias gld="/bin/bash ~/auto-setup/scripts/get_latest_download.sh"
+    source ~/auto-setup/scripts/get_latest_download.sh
+    alias gld="get_latest_download"
+    alias glfd="get_latest_firefox_download"
 fi
 
 # python

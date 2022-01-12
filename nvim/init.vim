@@ -24,10 +24,19 @@
     " fix: vim gtk [4]
         set clipboard=unnamedplus
 
-        set formatoptions+=j " Delete comment character when joining commented lines [4]
+    " Delete comment character when joining commented lines [4]
+        set formatoptions+=j   
+    " Stop newline continution of comments
+        set formatoptions-=cro                  
+
+    " dash separated words are treated as word text object
+        set iskeyword+=-
 
     " files
         set fileformat=unix
+
+    " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+        au! BufWritePost $MYVIMRC source %      
 
     " open my vimnotes
         nnoremap <Leader>hhh :tabedit ~/.config/nvim/notes<CR>
@@ -82,6 +91,7 @@
         set tabstop=4 
 
     "tabs are spaces
+        set smarttab
         set expandtab
         set shiftwidth=4
 

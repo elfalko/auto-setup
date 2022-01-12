@@ -7,6 +7,8 @@ alias l="ls -lahF"
 alias ll="ls -lahF"
 alias lc="ls -clthF | head"
 
+alias c="clear"
+
 alias tf="tail -f"
 
 # silver surfer 
