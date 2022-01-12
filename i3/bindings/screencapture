@@ -3,7 +3,7 @@ set $screenkeycmd exec --no-startup-id "killall screenkey || screenkey -s small 
 
 # screenshot
 # TODO copy to clipboard
-bindsym --release $mod+$key_screenshot exec --no-startup-id import ~/pics/screenshots/$(date '+%Y%m%d-%H%M%S').png
+bindsym --release $mod+$key_screenshot exec --no-startup-id /bin/bash ~/auto-setup/x/simple_screenshot.sh ~/pics/screenshots
 bindsym $mod+Shift+$key_screenshot exec thunar ~/pics/screenshots
 
 bindsym $mod+Print $screenkeycmd
