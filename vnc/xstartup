@@ -1,0 +1,4 @@
+#!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+exec i3 -c /home/$USER/auto-setup/i3/config.vnc

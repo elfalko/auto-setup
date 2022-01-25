@@ -1,0 +1,3 @@
+host vnc-server
+  hostname remotesystem
+  DynamikForward localhost:5903
