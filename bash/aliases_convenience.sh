@@ -23,6 +23,7 @@ if [ -f ~/auto-setup/scripts/get_latest_download.sh ]; then
     source ~/auto-setup/scripts/get_latest_download.sh
     alias gld="get_latest_download"
     alias glfd="get_latest_firefox_download"
+    alias glss="get_latest_screenshot"
 fi
 
 # python

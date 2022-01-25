@@ -24,4 +24,4 @@ vc(){
     $EDITOR -O $1h $1c
 }
 
-set -o vi
+# set -o vi

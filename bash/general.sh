@@ -8,6 +8,7 @@ alias ll="ls -lahF"
 alias lc="ls -clthF | head"
 
 alias c="clear"
+alias cx="chmod +x"
 
 alias tf="tail -f"
 
@@ -25,7 +26,10 @@ mkcd(){
 alias nethelp='echo "ip addr; route -n; sudo dhclient"'
 
 # ultra shorthand
-alias m="make"
+m(){
+    make $1 && notify-send "Make completed" || notify-send "Make FAILED (╯°□°)╯︵┻━┻"
+}
+
 w(){
     watch -n 0.5 "$1"
 }
