@@ -1,3 +1,0 @@
-bindsym $mod+$key_play_pause exec playerctl play-pause
-bindsym $mod+$key_vol_up     exec playerctl volume 0.1+
-bindsym $mod+$key_vol_down   exec playerctl volume 0.1-

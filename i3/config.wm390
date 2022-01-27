@@ -81,8 +81,9 @@ set $key_connect    semicolon
 set $key_comms      grave
 
 set $key_play_pause F1
-set $key_vol_up     F2
-set $key_vol_down   F3
+set $key_vol_down   F2
+set $key_vol_up     F3
+set $key_vol_mute   F4
 
 set $o-left   HDMI-A-0
 set $o-right  DisplayPort-0
@@ -114,7 +115,6 @@ include bindings/terminal.mode
 include bindings/browser.mode
 include bindings/files.mode
 
-# include bindings/mediakeys
 # include bindings/screenlight
 
 # include bindings/volumemount
@@ -134,7 +134,7 @@ include bindings/virtualbox
 
 include bindings/floatingvideo
 include bindings/screencapture 
-include bindings/playerctl
+include bindings/mediakeys
 
 include bindings/workspaces.utility
 
