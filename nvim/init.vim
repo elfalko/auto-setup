@@ -208,7 +208,9 @@
     map <leader>kq G?><CR>d?>--<CR>
 
 " SNIPPETS
-    nnoremap <Leader>ba i#!/bin/bash<CR><CR>set -euxo pipefail<CR><CR>
+    nnoremap <Leader>ba :-1read ${HOME}/auto-setup/templates/bash/header<CR>
+    nnoremap <Leader>bh :-1read ${HOME}/auto-setup/templates/bash/help<CR>
+    nnoremap <Leader>bp :-1read ${HOME}/auto-setup/templates/bash/params<CR>
     nnoremap <Leader>ff o//TODO FSC 
     nnoremap <Leader>## 80i#<Esc>
 
