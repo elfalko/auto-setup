@@ -148,7 +148,7 @@ include themes/bar
 include ../sway/monitor-2.config
 include ../sway/monitor-2-comms.config
 # include bindings/monitors
-# include bindings/backgrounds
+include bindings/backgrounds
 
 # include bindings/machines.brightside
 include bindings/machines.wm390
