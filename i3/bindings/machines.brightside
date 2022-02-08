@@ -1,3 +1,4 @@
-# bindsym $mod+Ctrl+g exec ~/.falk/scripts/rss_cycle.sh
+set $cmd_keepass          exec keepassx2 ~/keepass.kdbx 
+
 bindsym $mod+Ctrl+w exec libreoffice ~/projects/life.ods
-bindsym $mod+shift+Escape $keepasscmd
+bindsym $mod+shift+$key_pwmgr $cmd_keepass

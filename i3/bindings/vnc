@@ -1,7 +1,9 @@
 # mode blocks all keys so stuff can pass to vnc viewer
+set $cmd_vncview            exec vncviewer localhost::5903
+bindsym $mod+shift+$key_vnc $cmd_vncview
+
 mode "vnc" {
     bindsym $mod+$key_vnc mode "default"
 }
 bindsym $mod+$key_vnc mode "vnc"
 
-bindsym $mod+shift+$key_vnc exec $cmd_vncview

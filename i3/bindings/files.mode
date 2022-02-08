@@ -1,10 +1,13 @@
 ################################################################################
+set $cmd_lf          exec "urxvt -e lf"
+set $cmd_ranger      exec "urxvt -e ranger"
+
 set $mode_filebrowsers (t)hunar (r)anger (l)f (d)olphin
 mode "$mode_filebrowsers" {
-    bindsym r $rangercmd, mode "default"
+    bindsym r $cmd_ranger, mode "default"
     bindsym d exec dolphin, mode "default"
     bindsym t exec thunar, mode "default"
-    bindsym l $lfcmd, mode "default"
+    bindsym l $cmd_lf, mode "default"
 
     # back to normal: Enter or Escape
     bindsym $mod+Ctrl+$key_files mode "default"
