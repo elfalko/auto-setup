@@ -8,9 +8,9 @@
 # key   +mod   	    +mod+shift  +mod+ctrl   +mod+shift+ctl  +nothing (only if key itself was overwritten) 
 #
 # q     layout 	    kill window -           -               
-# w     jump urgent -           life stats  -                
+# w     jump urgent -           -           -                
 # e     mnt dev     umnt dev    -           -               
-# r     -      	    reload i3   -           -               
+# r     swap screen reload i3   -           -               
 # t     vm start    vm stop     vm menu     -               
 #
 # y     windows	    mv windows  -           -               
@@ -41,6 +41,11 @@
 # m     monitors    reset mon   -           -               
 # ,     -           -           -           -               
 # .     -           -           -           -               
+#
+# `     comm ws     mv left ws  mv right ws
+# 1-0   ws          mv left ws  mv right ws
+# -     -           -           -           -
+# =     vnc mode    vnc viewer  remmina     -
 #
 # space context     dmenu       -           -               
 # enter terminal    browser     -           -               
