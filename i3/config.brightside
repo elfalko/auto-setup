@@ -81,8 +81,13 @@ set $key_mail       n
 set $key_vm         t
 set $key_vm_ws      y
 
+################################################################################
+# machine specific
+
 set $o-left   HDMI-A-0
 set $o-right  DisplayPort-0
+
+set $lockpaper ~/pics/wallpapers/bounty_hunters_by_wojtekfus-dar6xah.png
 
 ################################################################################
 # commands
@@ -92,8 +97,9 @@ set $o-right  DisplayPort-0
 # bind abstract to abstract
 
 set $term terminator
-set $browser qutebrowser || firefox
-set $locker exec /bin/bash ~/auto-setup/i3/i3lock.sh && sleep 1
+# set $browser qutebrowser || firefox
+set $browser firefox
+set $locker exec /bin/bash ~/auto-setup/i3/i3lock.sh $lockpaper && sleep 1
 
 # TODO move to own file
 set $keepasscmd exec keepassx2 ~/keepass.kdbx 
