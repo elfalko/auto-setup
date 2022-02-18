@@ -15,7 +15,7 @@
 #
 # y     windows	    mv windows  -           -               
 # u     ranger 	    filebrowser -           -               
-# i     firefox	    browser     -           -              
+# i     firefox	    browser     network     -              
 # o     -      	    -           -           -              
 # p     p3d    	    mv p3d      -           -              
 #
@@ -47,6 +47,10 @@
 # esc   lock        keepass     -           -           -               
 # mute  pavuctl     -           -           -
 # Print -           -           -           -               screenkey
+#
+# F1    start/stop
+# F2    Vol +
+# F3    Vol -
 
 set $mod mod3 
 
@@ -70,15 +74,20 @@ set $key_monitor    m
 set $key_scratchpad v
 set $key_sticky     s
 
-
+set $key_vm         t
 set $key_vnc        equal
 set $key_connect    semicolon
 
 set $key_3dp        p
 set $key_comms      grave
+
+set $key_play_pause F1
+set $key_vol_down   F2
+set $key_vol_up     F3
+set $key_vol_mute   F4
+
 # only used for single screen, otherwise this is comms
 set $key_mail       n 
-set $key_vm         t
 set $key_vm_ws      y
 
 ################################################################################
@@ -90,32 +99,12 @@ set $o-right  DisplayPort-0
 set $lockpaper ~/pics/wallpapers/bounty_hunters_by_wojtekfus-dar6xah.png
 
 ################################################################################
-# commands
-# idea: 
-# bind the command to a variable
-# bind key to a variable
-# bind abstract to abstract
-
-set $term terminator
-# set $browser qutebrowser || firefox
-set $browser firefox
-set $locker exec /bin/bash ~/auto-setup/i3/i3lock.sh $lockpaper && sleep 1
-
-# TODO move to own file
-set $keepasscmd exec keepassx2 ~/keepass.kdbx 
-set $lfcmd exec urxvt -e lf
-set $rangercmd exec urxvt -e ranger 
-set $cmd_launcher dmenu_run
-set $cmd_vncview vncviewer localhost::5903
-set $custom_launcher [ -f ~/auto-setup/i3/workspace_specific_cmds.sh ] && /bin/bash ~/auto-setup/i3/workspace_specific_cmds.sh
-set $cmd_switch_multihead /bin/bash ~/auto-setup/sway/switch_multihead.sh
 
 include bindings/basics
 include bindings/terminal.mode
 include bindings/browser.mode
 include bindings/files.mode
 
-include bindings/mediakeys
 include bindings/screenlight
 
 include bindings/sysctl.mode
@@ -131,12 +120,14 @@ include bindings/virtualbox
 
 include bindings/floatingvideo
 include bindings/screencapture 
+include bindings/mediakeys
 
 include behavior
 
 include themes/minimal
 include themes/bar
 
+set $cmd_switch_multihead /bin/bash ~/auto-setup/sway/switch_multihead.sh
 include bindings/workspaces.normal
 include bindings/workspaces.utility
 include bindings/workspaces.special

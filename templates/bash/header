@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+print_help(){
+    echo "Test script"
+    echo
+    echo "Usage"
+    echo "  $0 ARG1 [ARG2]"
+}
+
+if [ ! $# -le 1 ]; then
+    print_help
+    exit 1
+fi

@@ -1,26 +1,30 @@
 ################################################################################
 # basic programs which I need to function in i3/sway
+set $cmd_term        exec "terminator || urxvt || alacritty || notify-send 'No terminal'"
+set $cmd_browser     exec firefox
+set $cmd_files       exec "dolphin || thunar || notify-send 'No file browser found'"
+set $cmd_clifiles    exec "urxvt -e lf || ranger"
+set $cmd_launcher    dmenu_run
+set $custom_launcher [ -f ~/auto-setup/i3/workspace_specific_cmds.sh ] && /bin/bash ~/auto-setup/i3/workspace_specific_cmds.sh
+set $cmd_networking  exec "gnome-control-center || NetworkManager || urxvt -e nmtui || notify-send 'No network management program found'"
 
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec $term
+# terminal and browser
+bindsym $mod+Return             $cmd_term
+bindsym $mod+Shift+Return       $cmd_browser
 
-bindsym $mod+Shift+Return exec $browser
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-# doesn't work because of missing $FAUTOSETUP var, also causes lots of trouble
-# bindsym $mod+Shift+r exec /bin/bash ~/auto-setup/i3/build_i3_config.sh && i3-msg restart
-bindsym $mod+Shift+r restart
+# restart i3 inplace 
+bindsym $mod+Shift+r            restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+b exit
+bindsym $mod+Shift+b            exit
 
-bindsym $mod+Escape $locker 
+# cmd launchers
+bindsym $mod+space              exec $custom_launcher || $cmd_launcher
+bindsym $mod+Shift+space        exec dmenu
 
-# start dmenu (a program launcher)
-# script runs workplace specific mode/command, defaults to i3-dmenu-desktop
-bindsym $mod+space exec $custom_launcher || $cmd_launcher
-bindsym $mod+Shift+space exec dmenu_run
+# networking
+bindsym $mod+ctrl+$key_browser  $cmd_networking
 
-# Usage
-bindsym $mod+$key_files $rangercmd
-bindsym $mod+shift+$key_files exec thunar
+# files
+bindsym $mod+$key_files         $cmd_clifiles
+bindsym $mod+shift+$key_files   $cmd_files

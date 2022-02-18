@@ -1,4 +1,3 @@
-################################################################################
 # navigation 
 bindsym $mod+$key_left focus left
 bindsym $mod+$key_down focus down
