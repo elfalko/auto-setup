@@ -332,5 +332,5 @@ bar {
 exec nm-applet --no-agent
 
 exec_always --no-startup-id autotiling
-exec ~/auto-setup/feh/feh_default_local_background.sh
+exec /bin/bash ~/auto-setup/vnc/set_vnc_bg.sh
 exec $term
