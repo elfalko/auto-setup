@@ -90,8 +90,13 @@ set $key_vol_mute   F4
 set $key_mail       n 
 set $key_vm_ws      y
 
+################################################################################
+# machine specific
+
 set $o-left   HDMI-A-0
 set $o-right  DisplayPort-0
+
+set $lockpaper ~/pics/wallpapers/bounty_hunters_by_wojtekfus-dar6xah.png
 
 ################################################################################
 

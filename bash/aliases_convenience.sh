@@ -26,6 +26,8 @@ if [ -f ~/auto-setup/scripts/get_latest_download.sh ]; then
     alias glss="get_latest_screenshot"
 fi
 
+alias ffs="/bin/bash $FAUTOSETUP/scripts/foldersizes.sh"
+
 # python
 alias p="python3"
 
