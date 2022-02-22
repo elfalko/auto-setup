@@ -4,7 +4,7 @@ set $cmd_term        exec "terminator || urxvt || alacritty || notify-send 'No t
 set $cmd_browser     exec firefox
 set $cmd_files       exec "dolphin || thunar || notify-send 'No file browser found'"
 set $cmd_clifiles    exec "urxvt -e lf || ranger"
-set $cmd_launcher    dmenu_run
+set $cmd_launcher    dmenu_run -i -l 50
 set $custom_launcher [ -f ~/auto-setup/i3/workspace_specific_cmds.sh ] && /bin/bash ~/auto-setup/i3/workspace_specific_cmds.sh
 set $cmd_networking  exec "gnome-control-center || NetworkManager || urxvt -e nmtui || notify-send 'No network management program found'"
 
