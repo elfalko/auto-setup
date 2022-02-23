@@ -25,6 +25,10 @@ ENTRIES=$(ls -A $1)
 
 [ -z "$ENTRIES" ] && exit 1
 
-CHOSEN=$(echo "$ENTRIES" | dmenu -i -p "Options:")
+if [ ${#ENTRIES[@]} -eq 1 ]; then 
+    CHOSEN=$ENTRIES
+else
+    CHOSEN=$(echo "$ENTRIES" | dmenu -i -p "Options:")
+fi
 
 echo "$TARGET/$CHOSEN"
