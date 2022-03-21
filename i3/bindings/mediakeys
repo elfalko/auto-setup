@@ -1,4 +1,3 @@
-################################################################################
 # change volume or toggle mute
 # bindsym Shift+XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 150% && pkill -RTMIN+1 i3blocks 
 
