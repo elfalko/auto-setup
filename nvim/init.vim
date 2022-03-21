@@ -116,6 +116,8 @@
 
     " Set the command window height to 2 lines, to avoid many cases of having to "press <Enter> to continue"
         " set cmdheight=2 "generally wastes window height
+       
+        set synmaxcol=2048
 
     
         
@@ -459,12 +461,17 @@
     colorscheme falcon 
 
 " TWEAKS [4]
-    autocmd FileType yaml set tabstop=2 shiftwidth=2
-    autocmd FileType h set tabstop=2 shiftwidth=2
-    autocmd FileType cpp set tabstop=4 shiftwidth=4
     autocmd FileType c set tabstop=4 shiftwidth=4
+    autocmd FileType cpp set tabstop=4 shiftwidth=4
+    autocmd FileType h set tabstop=2 shiftwidth=2
+    autocmd FileType lua set tabstop=8 shiftwidth=8
+    autocmd FileType md set tabstop=2 shiftwidth=2
     autocmd FileType py set tabstop=4 shiftwidth=4
     autocmd FileType tex set spell! spelllang=en_us
+    autocmd FileType xml set tabstop=8 shiftwidth=8
+    autocmd FileType yaml set tabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.log set filetype=wmlog
+    autocmd BufNewFile,BufRead *.txt set filetype=wmlog
 
 "    autocmd BufWritePost *.tex silent! execute "![ -z $(ps h -C $PDFVIEWER) ] || make >/dev/null 2>&1 &" | redraw! 
 "    autocmd BufWritePost *.ms silent! execute "![ -z $(ps h -C $PDFVIEWER) ] || make -B @% >/dev/null 2>&1" | redraw!
