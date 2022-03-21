@@ -7,5 +7,5 @@ bindsym $mod+Shift+Prior move container to workspace prev
 bindsym $mod+Shift+Next move container to workspace next
 
 #scratchpad
-bindsym $mod+$key_scratchpad show
+bindsym $mod+$key_scratchpad scratchpad show
 bindsym $mod+Shift+$key_scratchpad move scratchpad

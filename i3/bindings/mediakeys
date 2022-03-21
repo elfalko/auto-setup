@@ -5,7 +5,7 @@
 set $cmd_vol_down amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
 set $cmd_vol_up amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
 set $cmd_vol_mute amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
-set $cmd_pctl_pause playerctl play-pause
+set $cmd_pctl_pause playerctl play-pause -a
 
 bindsym XF86AudioMute               exec $cmd_vol_mute
 bindsym $mod+$key_vol_mute          exec $cmd_vol_mute
