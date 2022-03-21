@@ -1,3 +1,6 @@
+# swap out screens
+bindsym $mod+r exec ~/auto-setup/i3/i3swapvisiblews.sh
+
 # switch to next/previous
 bindsym $mod+Prior workspace prev
 bindsym $mod+Next workspace next
