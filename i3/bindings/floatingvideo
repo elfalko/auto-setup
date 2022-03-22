@@ -1,9 +1,11 @@
 # floating video following you across workspaces
 
+set $cmd_sticky_float floating enable, sticky enable, resize set 590 px 332 px, border none
+set $cmd_float_rb move window to position 1330 px 750 px
 #sticky toggle
 bindsym $mod+$key_sticky sticky toggle
-bindsym $mod+shift+$key_sticky floating enable, sticky enable, resize set 590 px 333 px, move window to position 1330 px 723 px
+bindsym $mod+shift+$key_sticky $cmd_sticky_float, $cmd_float_rb 
 bindsym $mod+Ctrl+$key_sticky floating disable, sticky disable
 
 # firefox youtube popout
-assign [class="Toolkit"] floating enable, sticky enable, resize 590 px 333 px
+for_window [class="firefox" instance="Toolkit"] $cmd_sticky_float
