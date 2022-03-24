@@ -1,7 +1,7 @@
 # Syscontrol
 # set $Locker exec betterlockscreen -l dim -t "M-bM-^FM-^QM-bM-^FM-^QM-bM-^FM-^SM-bM-^FM-^SM-bM-^FM-^PM-bM-^FM-^RM-bM-^FM-^PM-bM-^FM-^RBA " --off 10 && sleep 1
 # set $Locker exec betterlockscreen -l dim --off 10 -- --greeter-text="M-bM-^FM-^QM-bM-^FM-^QM-bM-^FM-^SM-bM-^FM-^SM-bM-^FM-^PM-bM-^FM-^RM-bM-^FM-^PM-bM-^FM-^RBA" && sleep 1
-set $cmd_locker exec /bin/bash ~/auto-setup/i3/i3lock.sh && sleep 1
+set $cmd_locker exec "playerctl play-pause -a; /bin/bash ~/auto-setup/i3/i3lock.sh && sleep 1"
 
 bindsym $mod+Escape $cmd_locker 
 
