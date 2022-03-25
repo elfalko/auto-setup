@@ -1,8 +1,14 @@
 ################################################################################
 # To find window classes use
 # xprop | grep CLASS
+#
+set $cmd_common_float resize set 1600 px 820 px, move window to position 160 px 100px
 
 # stack inkscape secondary windows
 for_window [class="Inkscape"] layout stacking, floating disable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
+
+# tested on onlyoffice, libreoffice
+# maybe to liberal, but should only work on floats and those are usually Open File/Document/?
+for_window [title="Open"] $cmd_common_float
