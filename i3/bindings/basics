@@ -26,5 +26,5 @@ bindsym $mod+Shift+space        exec dmenu
 bindsym $mod+ctrl+$key_browser  $cmd_networking
 
 # files
-bindsym $mod+$key_files         $cmd_clifiles
-bindsym $mod+shift+$key_files   $cmd_files
+bindsym $mod+shift+$key_files   $cmd_clifiles
+bindsym $mod+$key_files         $cmd_files

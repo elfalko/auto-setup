@@ -14,7 +14,7 @@
 # t     vm start    vm stop     vm menu     -               
 #
 # y     windows	    mv windows  -           -               
-# u     ranger 	    filebrowser -           -               
+# u     filebrowser cli files   -           -               
 # i     firefox	    browser     network     -              
 # o     -      	    -           -           -              
 # p     p3d    	    mv p3d      -           -              
