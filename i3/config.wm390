@@ -45,7 +45,7 @@
 # `     comm ws     mv left ws  mv right ws
 # 1-0   ws          mv left ws  mv right ws
 # -     -           -           -           -
-# =     vnc mode    vnc viewer  remmina     -
+# =     vnc mode    vnc viewer  remmina     kill programs after switch 
 #
 # space context     dmenu       -           -               
 # enter terminal    browser     -           -               
@@ -132,5 +132,6 @@ include ../sway/monitor-2-comms.config
 include bindings/backgrounds
 
 include bindings/machines.wm390
+include bindings/machines.wm390vnc
 
 include startup
