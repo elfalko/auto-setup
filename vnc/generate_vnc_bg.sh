@@ -15,9 +15,28 @@
 # fi
 
 SIZE=1920x1080
-FONT="Terminus-(TTF)-Bold"
+FONT=""
+
+find_font(){
+    echo $(convert -list font | grep $1)
+}
+
+# Try some nicer fonts
+# TODO: check this in a loop
+if ! [ -z $(find_font "Terminus-(TTF)-Bold") ]; then 
+    echo "selecting font 1"
+    FONT="-font Terminus-(TTF)-Bold"
+elif ! [ -z $(find_font "Terminus-(TTF)") ]; then 
+    echo "selecting font 2"
+    FONT="-font Terminus-(TTF)"
+elif ! [ -z $(find_font "Ubuntu-Bold") ]; then 
+    echo "selecting font 3"
+    FONT="-font Ubuntu-Bold"
+fi
+
 FONTSIZE=100
 
-echo "$HOSTNAME
-VNC" | \
-convert -size $SIZE xc:blue4 -font $FONT -pointsize $FONTSIZE -gravity Center -fill grey -annotate 0,0 "@-" vnc_bg.png
+TEXT="$HOSTNAME\r\n< VNC >"
+
+# -font $FONT
+convert -size $SIZE xc:blue4 -pointsize $FONTSIZE $FONT -gravity Center -fill grey -annotate 0,0 "$TEXT" vnc_bg.png

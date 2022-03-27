@@ -3,6 +3,6 @@
 # xprop | grep CLASS
 
 # stack inkscape secondary windows
-for_window [class="Inkscape"] layout stacking floating disable
+for_window [class="Inkscape"] layout stacking, floating disable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable

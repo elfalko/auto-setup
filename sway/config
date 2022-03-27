@@ -201,8 +201,8 @@ include ~/auto-setup/sway/monitor-2.config
 include ~/auto-setup/sway/monitor-2-comms.config
 
 # WM screen setup
-    for_window [class="VirtualBox*"] floating disable;
-    for_window [class="VirtualBox" title="Add Share"] floating enable;
+    for_window [class="VirtualBox*"] floating disable
+    for_window [class="VirtualBox" title="Add Share"] floating enable
     # dual screen 
     for_window [class="VirtualBox Machine" title=".*1"] move container to output $o-left
     for_window [class="VirtualBox Machine" title=".*2"] move container to output $o-right

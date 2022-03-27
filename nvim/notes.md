@@ -143,6 +143,18 @@ opening brackets leave spaces, closing do not
 :earlier <x>m    timemachine
 norm <cmd> run in normal mode
 
+### coc
+
+gd    goto definition
+,a    code action
+
+### surround
+
+yss"  wrap line in quotes
+cs(]  change round to square brackets
+cst"  change tags to quotes
+dsiw] delete brackets around inner word
+
 ## examples
 
 dwwP    swap word forwards

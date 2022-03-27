@@ -1,3 +1,6 @@
+# swap out screens
+bindsym $mod+r exec ~/auto-setup/i3/i3swapvisiblews.sh
+
 # switch to next/previous
 bindsym $mod+Prior workspace prev
 bindsym $mod+Next workspace next
@@ -7,5 +10,5 @@ bindsym $mod+Shift+Prior move container to workspace prev
 bindsym $mod+Shift+Next move container to workspace next
 
 #scratchpad
-bindsym $mod+$key_scratchpad show
+bindsym $mod+$key_scratchpad scratchpad show
 bindsym $mod+Shift+$key_scratchpad move scratchpad

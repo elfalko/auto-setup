@@ -33,6 +33,10 @@ alias p="python3"
 
 # ssh
 alias sshc="$EDITOR ~/.ssh/config"
+# enable compression
+alias scp="scp -C"
+# archive mode, verbose, compression, prune empty dirs
+alias rs="rsync -avzm --progress"
 
 
 #todo 
@@ -45,3 +49,4 @@ alias wlsusb="watch -cd -n 0.5 lsusb"
 
 # weather
 alias wttr="curl v2.wttr.in/munich"
+
