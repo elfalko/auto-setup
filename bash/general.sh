@@ -8,7 +8,11 @@ alias ll="ls -lahF"
 alias lc="ls -clthF | head"
 
 alias c="clear"
-alias cx="chmod +x"
+
+cx(){
+    touch $1
+    chmod +x $1
+}
 
 alias tf="tail -f"
 
