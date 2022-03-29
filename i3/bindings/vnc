@@ -1,5 +1,5 @@
 # mode blocks all keys so stuff can pass to vnc viewer
-set $cmd_vncview            exec vncviewer localhost::5903
+set $cmd_vncview            exec vncviewer -PasswordFile ~/.vnc/passwd localhost::5903 
 set $cmd_remmina            exec /bin/bash ~/auto-setup/scripts/dmenu/remminastarter.sh
 set $cmd_kill_vnc_progs     exec /bin/bash ~/auto-setup/vnc/vnc_kill_common_programs.sh
 

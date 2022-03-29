@@ -22,7 +22,7 @@
 # a     parent 	    child       -           -              
 # s     sticky 	    corner mode -           -              
 # d     -           -           -           -              
-# f     fullscreen  focus       tgl float   -              
+# f     fullscreen  focus       tgl float   fullscreen global              
 # g     rss[rip]    -           -           -              
 #
 # h     focus ᐸ     mv ᐸ        resize ᐸ    -

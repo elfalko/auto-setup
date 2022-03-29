@@ -24,6 +24,7 @@ bindsym $mod+Control+Shift+$key_up    move workspace to output up
 
 # enter fullscreen mode for the focused container
 bindsym $mod+$key_fullscreen fullscreen toggle
+bindsym $mod+ctrl+shift+$key_fullscreen fullscreen global
 
 # kill focused window
 bindsym $mod+Shift+q kill
