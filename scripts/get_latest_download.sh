@@ -22,7 +22,7 @@ get_latest_screenshot(){
 }
 
 get_latest_file(){
-    LATEST="$(ls -t $1 | head -n1)"
+    LATEST="$(ls -tA $1 | head -n1)"
     if [ -z "$LATEST" ]; then
         echo "No file found at $1"
         exit 1
