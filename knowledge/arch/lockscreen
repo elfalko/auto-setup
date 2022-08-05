@@ -1,0 +1,18 @@
+i3 needs
+	a lock function, e.g. i3lock
+	a screensaver to cover what you were doing
+
+https://github.com/pavanjadhaw/betterlockscreen
+	seems to provide that
+
+	trizen i3lock-color betterlockscreen
+
+setup
+	betterlockscreen -u <path/to/img>
+
+in i3config set
+	bindsym $mod+x exec "betterlockscreen -l dim"
+
+	for some reason mod+shift+x does not work?!?
+	also after deep sleep no lockscreen yet
+

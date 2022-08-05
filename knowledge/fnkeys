@@ -1,0 +1,35 @@
+setting up function keys on the arch
+https://wiki.archlinux.org/index.php/Xbindkeys
+
+install xbindkeys
+setup default file
+	xbindkeys -d > ~/.falk/resources/keyboards/.xbindkeysrc
+	ln -s ~/.falk/resources/keyboards/.xbindkeysrc .xbindkeysrc
+
+to get to work add to i3 config at startup
+exec xbindkeys -p
+
+reload with
+xbindkeys -p
+
+check loaded state with 
+xbindkeys -s
+
+
+add volume control
+	add suggested alsa lines 
+	works
+
+
+add brightness control with up/down keys
+	fix xbacklight to work
+	manual writing to /sys/class/backlight/intel_backlight/brightness works
+
+	but xbacklight command complains "No outputs have backlight property"
+	https://wiki.archlinux.org/index.php/backlight
+	add suggested /etc/X11/xorg.conf.d/20-intel.conf entry
+
+	add suggested xbindkeys entry
+	works after restarting x
+
+
