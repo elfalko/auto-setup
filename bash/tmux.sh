@@ -1,6 +1,5 @@
 #!/bin/bash
 
-alias t="tmux -f $FAUTOSETUP/resources/tmux.conf"
-alias tmux="tmux -f $FAUTOSETUP/resources/tmux.conf"
-alias ta="tmux -f $FAUTOSETUP/resources/tmux.conf attach"
-alias tmc="$EDITOR $FAUTOSETUP/resources/tmux.conf"
+alias t="tmux"
+alias ta="tmux attach"
+alias tmc="$EDITOR ~/auto-setup/tmux/tmux.conf"
