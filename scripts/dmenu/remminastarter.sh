@@ -15,6 +15,10 @@ set -exo pipefail
 # fi
 
 DMENUSELECT=$HOME/auto-setup/scripts/dmenu/dmenufileselection.sh
-REMMINACONFIGS=$HOME/.local/share/remmina/
+REMMINACONFIGS=$HOME/.local/share/remmina
 
-remmina --connect="$(/bin/bash $DMENUSELECT $REMMINACONFIGS)"
+SELECTION=$(/bin/bash $DMENUSELECT $REMMINACONFIGS)
+
+[ -z $SELECTION ] && notify-send "Selection empty" && return 1;
+
+remmina --connect="$SELECTION"

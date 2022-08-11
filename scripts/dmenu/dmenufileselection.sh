@@ -7,7 +7,9 @@ print_help(){
     echo "  depends on dmenu"
     echo
     echo "Usage"
-    echo "  $0 DIR"
+    echo "  $0 FILEPATH"
+    echo 
+    echo " FILEPATH e.g. ~/.local/share/remmina/*.remmina"
     echo
 }
 
@@ -20,15 +22,13 @@ fi
 pgrep -x dmenu && exit 1
 
 TARGET=$1
+CHOSEN=""
 
-ENTRIES=$(ls -A $1)
 
-[ -z "$ENTRIES" ] && exit 1
-
-if [ ${#ENTRIES[@]} -eq 1 ]; then 
-    CHOSEN=$ENTRIES
+if [ $(ls -1 $TARGET | wc -l) -eq 1 ]; then
+    CHOSEN=$(ls -1 $TARGET)
 else
-    CHOSEN=$(echo "$ENTRIES" | dmenu -i -p "Options:")
+    CHOSEN=$(ls $TARGET | dmenu -i -p "Options:")
 fi
 
 echo "$TARGET/$CHOSEN"
