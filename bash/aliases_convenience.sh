@@ -39,14 +39,8 @@ alias scp="scp -C"
 alias rs="rsync -avzm --progress"
 
 
-#todo 
-# if [ -f /usr/bin/td ]; then
-#     alias tdi="td -i"
-# fi
-
 # devices
 alias wlsusb="watch -cd -n 0.5 lsusb"
 
 # weather
 alias wttr="curl v2.wttr.in/munich"
-

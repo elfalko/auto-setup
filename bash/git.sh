@@ -11,7 +11,8 @@ alias gi="git i"
 alias gii="git ii"
 
 alias ga="git add"
-alias gd="git diff --minimal"
+alias gd="git diff --minimal --color-moved-ws=ignore-space-change"
+alias gdw="git diff --minimal"
 alias gdc="git diff --compact-summary"
 alias gdf="git diff --name-only"
 alias gitco='git commit -m '
