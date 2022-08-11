@@ -27,6 +27,17 @@ IFS=$'\n\t'
 
 [Original: Unofficial Bash Strict Mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)
 
+### Link list
+
+#### behaviour
+[writing smart questions](http://catb.org/~esr/faqs/smart-questions.html)
+[hacker definition](http://www.catb.org/~esr/faqs/hacker-howto.html)
+
+#### building sources
+[Beginner's Installing from Source](http://moi.vonos.net/linux/beginners-installing-from-source/): tar, patching, make
+[Building and Installing Software Packages for Linux](https://tldp.org/HOWTO/Software-Building-HOWTO.html#toc17): tar, make, fixing code and deps
+
+
 ## Windows
 
 Win+r > `shell:startup` to drag in desktop symbols to run at startup

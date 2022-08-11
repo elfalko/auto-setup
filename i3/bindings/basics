@@ -1,9 +1,9 @@
 ################################################################################
 # basic programs which I need to function in i3/sway
-set $cmd_term        exec "terminator || urxvt || alacritty || notify-send 'No terminal'"
+set $cmd_term        exec /bin/bash ~/auto-setup/scripts/terminal.sh $default_path
 set $cmd_browser     exec firefox
-set $cmd_files       exec /bin/bash ~/auto-setup/scripts/filebrowser.sh ~/work
-set $cmd_clifiles    exec "urxvt -e lf || ranger || notify-send 'No cmdline browser'"
+set $cmd_files       exec /bin/bash ~/auto-setup/scripts/filebrowser.sh $default_path
+set $cmd_clifiles    exec "urxvt -e ranger || notify-send 'No cmdline browser'"
 set $cmd_launcher    dmenu_run -i -l 50
 set $custom_launcher [ -f ~/auto-setup/i3/workspace_specific_cmds.sh ] && /bin/bash ~/auto-setup/i3/workspace_specific_cmds.sh
 set $cmd_networking  exec "gnome-control-center || NetworkManager || urxvt -e nmtui || notify-send 'No network management program found'"

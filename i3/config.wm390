@@ -94,11 +94,12 @@ set $o-left   HDMI-A-0
 set $o-right  DisplayPort-0
 
 ################################################################################
+set $default_path ~/work
 
 include bindings/basics
-include bindings/terminal.mode
-include bindings/browser.mode
-include bindings/files.mode
+# include bindings/terminal.mode
+# include bindings/browser.mode
+# include bindings/files.mode
 
 # include bindings/screenlight
 
@@ -129,9 +130,10 @@ include bindings/workspaces.utility
 include ../sway/monitor-2.config
 include ../sway/monitor-2-comms.config
 # include bindings/monitors
+include config.monitors.work
 include bindings/backgrounds
 
-include bindings/machines.wm390
-include bindings/machines.wm390vnc
-
 include startup
+
+include bindings/machines.wm390
+

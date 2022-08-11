@@ -1,2 +1,4 @@
 exec mattermost-desktop
 exec thunderbird
+exec safeeyes
+exec nmcli con up test\ network
