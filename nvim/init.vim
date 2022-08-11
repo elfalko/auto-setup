@@ -176,6 +176,8 @@
           set wildignore+=*.aux
 
 " TAG JUMPING [1]
+    " Create the `tags` file (may need to install ctags first)
+    command! MakeTags !ctags -R .
 
 " some security fix [3]
     set modelines=0

@@ -1,0 +1,5 @@
+https://www.linux.com/learn/HOW-RUN-YOUR-OWN-GIT-SERVER
+
+git remote add origin ssh://fjs@wanderfalke//home/fjs/bla
+
+git config --global credential.helper cache

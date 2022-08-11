@@ -1,0 +1,7 @@
+libc++ threw errors due to keychecking
+reading brought me to their page and the following links to check keys
+http://allanmcrae.com/2015/01/two-pgp-keyrings-for-package-management-in-arch-linux/
+https://wiki.archlinux.org/index.php/GnuPG#Use_a_keyserver
+
+essential
+gpg --recv-keys <key from validgpgkeys in PGKBUILD>

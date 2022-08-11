@@ -1,0 +1,41 @@
+rebuilding mgr/gpt
+
+https://www.easeus.com/partition-manager-software/fix-uefi-boot-in-windows-10-8-7.html
+
+repair pc>troubleshoot>advanced>command prompt
+`diskpart`
+`list disk`
+find gpt disk 
+`sel disk 0`
+`list vol`
+find 100mb / gpt partition
+`sel vol x`
+
+set type id
+`set id=`
+`c12a7328-f81f-11d2-ba4b-00a0c93ec93b` EFI
+`ebd0a0a2-b9e5-4433-81c0-68b6b72699c7` normal
+
+assign drive letter (to something unused like M:, not X:)
+`assign letter=M:`
+
+[differs from instructions]
+`exit`
+
+repair boot record
+`cd /d M:\EFI\Microsoft\Boot\`
+`bootrec /fixboot`
+
+if no permission, try other ID above
+
+rebuild bcd
+
+move file, show with `dir`
+`ren BCG BCG.old`
+
+`bcdboot C:\Windows /s M: /f ALL`
+/f ALL is for both bios and uefi
+/l en-us / de-de for english/german language
+
+`exit`
+reboot

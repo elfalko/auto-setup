@@ -1,0 +1,4 @@
+https://averagelinuxuser.com/clean-arch-linux/
+
+in /etc/systemd/journald.conf 
+SystemMaxUse=50M

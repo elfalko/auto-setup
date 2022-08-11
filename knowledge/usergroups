@@ -1,0 +1,13 @@
+https://wiki.archlinux.org/index.php/users_and_groups 
+
+
+see own info
+id
+groups <user>
+
+add user to group (yourself)
+sudo usermod -aG <groups> <user>
+sudo usermod -aG plugdev $LOGNAME
+
+add group
+groupadd plugdev
