@@ -4,8 +4,9 @@
 # TODO requires script
 set $monitorscript exec ~/auto-setup/x/monitor_setup.sh
 
-set $mode_monitor (Ff)ullstack (Tt)riangle (d)efault (c)lone (e)xternal     [yu]i[op] rotate 1/2    [hjkl] move ws
+set $mode_monitor (a)randr (Ff)ullstack (Tt)riangle (d)efault (c)lone (e)xternal     [yu]i[op] rotate 1/2    [hjkl] move ws
 mode "$mode_monitor" {
+    bindsym a exec exec arandr, mode "default"
     bindsym f exec $monitorscript stacked, mode "default"
     bindsym shift+f exec $monitorscript reverse-stacked, mode "default"
     bindsym t exec $monitorscript triangle, mode "default"
