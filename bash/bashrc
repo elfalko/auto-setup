@@ -75,9 +75,9 @@ if [ -f /bin/i3 ]; then
 alias i3c="$EDITOR ~/.config/i3/config"
 fi
 
-if [ -f /bin/docker ]; then
-  source $FAUTOSETUP/docker/aliases_docker.sh
-fi
+# if [ -f /bin/docker ]; then
+#   source $FAUTOSETUP/docker/aliases_docker.sh
+# fi
 
 source $FAUTOSETUP/bash/aliases_sway.sh
 # source $FAUTOSETUP/bash/aliases_regolith.sh
