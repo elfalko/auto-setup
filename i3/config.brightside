@@ -16,7 +16,7 @@
 # y     windows	    mv windows  -           -               
 # u     ranger 	    filebrowser -           -               
 # i     firefox	    browser     network     -              
-# o     -      	    -           -           -              
+# o     kicad       killcad     -              
 # p     p3d    	    mv p3d      -           -              
 #
 # a     parent 	    child       -           -              
@@ -104,6 +104,7 @@ include bindings/basics
 include bindings/terminal.mode
 include bindings/browser.mode
 include bindings/files.mode
+include bindings/kicad
 
 include bindings/screenlight
 
