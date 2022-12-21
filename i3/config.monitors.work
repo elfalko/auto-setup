@@ -1,3 +1,4 @@
 set $o-left   HDMI-A-0
 set $o-right  DisplayPort-0
 
+exec xrandr --output $o-left --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output $o-right --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-1 --off --output DisplayPort-2 --off

@@ -46,7 +46,9 @@ export HISTCONTROL=ignoredups
 
 source $FAUTOSETUP/bash/aliases_convenience.sh
 
-source $FAUTOSETUP/bash/feh.sh
+source $FAUTOSETUP/bash/aliases_ranger.sh
+source $FAUTOSETUP/bash/aliases_feh.sh
+source $FAUTOSETUP/bash/aliases_vnc.sh
 
 # WSL 2
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then

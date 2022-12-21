@@ -1,7 +1,7 @@
 ################################################################################
 # backgrounds
 
-set $backgroundscript exec ~/auto-setup/feh/feh_background_spanning_image.sh ~/setup/wallpapers
+set $backgroundscript exec ~/auto-setup/feh/feh_background_spanning_image.sh ~/setup/wallpapers/tall
 set $safebackgroundscript exec ~/auto-setup/feh/feh_safe_backgrounds.sh
 set $gifbackgroundscript exec ~/projects/xwinwrap/playvids.sh ~/projects/xwinwrap/slowsun.mp4
 

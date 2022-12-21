@@ -73,7 +73,7 @@
 
 " DISPLAY
     " alternate folding
-        set foldmethod=indent
+        " set foldmethod=indent
         nnoremap <space> za
         " nnoremap <leader>f zR
 

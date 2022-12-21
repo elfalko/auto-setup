@@ -1,7 +1,7 @@
 # floating video following you across workspaces
 
 set $cmd_sticky_float floating enable, sticky enable, resize set 590 px 332 px, border none
-set $cmd_float_rb move window to position 1330 px 750 px
+set $cmd_float_rb move window to position 1300 px 725 px
 #sticky toggle
 bindsym $mod+$key_sticky sticky toggle
 bindsym $mod+shift+$key_sticky $cmd_sticky_float, $cmd_float_rb 
