@@ -1,0 +1,5 @@
+# ireasoning mib browser 
+# https://ireasoning.com/download.shtml
+for_window [class="MibBrowser" title="SNMP SET"] move window to position 1300 px 1100 px
+
+bindsym $mod+comma exec ~/Downloads/ireasoning/mibbrowser/browser.sh

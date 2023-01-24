@@ -1,1 +1,1 @@
-ln -s $HOME/auto-setup/gitui $HOME/.config/gitui
+ln -s $HOME/auto-setup/gitui $HOME/.config/
