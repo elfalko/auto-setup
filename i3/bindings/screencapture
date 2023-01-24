@@ -4,6 +4,7 @@ set $cmd_screenkey exec --no-startup-id "killall screenkey || screenkey -s small
 # screenshot
 # TODO copy to clipboard
 bindsym --release $mod+$key_screenshot exec --no-startup-id /bin/bash ~/auto-setup/x/simple_screenshot.sh ~/pics/screenshots
-bindsym $mod+Shift+$key_screenshot exec thunar ~/pics/screenshots
+bindsym $mod+Shift+$key_screenshot exec flameshot gui --path ~/pics/screenshots
+bindsym $mod+Ctrl+$key_screenshot exec thunar ~/pics/screenshots
 
 bindsym $mod+Print $screenkeycmd
