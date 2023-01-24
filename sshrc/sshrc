@@ -1,0 +1,7 @@
+export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vimrc' | source \$MYVIMRC"
+export EDITOR="vim"
+
+alias l="ls -lahF"
+alias v="vim -o"
+alias gi="git status"
+alias ga="git add"
