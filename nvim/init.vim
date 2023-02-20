@@ -39,8 +39,8 @@
         au! BufWritePost $MYVIMRC source %      
 
     " open my vimnotes
-        nnoremap <Leader>hhh :tabedit ~/.config/nvim/notes<CR>
-        nnoremap <Leader>init :tabedit ~/.config/nvim/init.vim<CR>
+        nnoremap <Leader>hhh :tabedit ~/auto-setup/nvim/notes.md<CR>
+        nnoremap <Leader>init :tabedit ~/auto-setup/nvim/init.vim<CR>
         
 " MOVEMENT
     " remap escape
