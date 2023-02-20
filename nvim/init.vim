@@ -97,14 +97,11 @@
 
     "number of visual spaces per tab
         set tabstop=4 
-
-    "tabs are spaces
         set smarttab
         set expandtab
         set shiftwidth=4
-
-    "number of spaces in tab when editing
         set softtabstop=4
+        autocmd FileType make setlocal noexpandtab softtabstop=0
 
     "highlight the line we are on
         set cursorline
@@ -292,6 +289,8 @@
 
         Plug 'Vimjas/vim-python-pep8-indent'
 
+        Plug 'AlphaTechnolog/pywal.nvim', { 'as': 'pywal' }
+
         Plug 'mg979/vim-visual-multi', {'branch': 'master'} " [23]
 
         " [25]
@@ -336,9 +335,6 @@
         " Some servers have issues with backup files, see #649
         set nobackup
         set nowritebackup
-
-        " Better display for messages
-        set cmdheight=2
 
         " You will have bad experience for diagnostic messages when it's default 4000.
         set updatetime=300
@@ -464,11 +460,13 @@
     nnoremap <Leader>c2 :colorscheme iceberg<CR>
     nnoremap <Leader>c3 :colorscheme falcon<CR>
     nnoremap <Leader>c4 :colorscheme nord<CR>
-    
+
+    colorscheme gotham
+    hi! Comment guifg=#0b6e8a
+    hi! CursorLine guibg=#103040
+
     "for qmk keymap editing
     " nnoremap <Leader><Leader> cf,_______, <Esc>l
-
-    colorscheme falcon 
 
 " TWEAKS [4]
     autocmd FileType c set tabstop=4 shiftwidth=4
