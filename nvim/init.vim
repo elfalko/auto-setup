@@ -81,6 +81,14 @@
         set number
         set relativenumber
 
+    " toggles between hybrid and normal numbers on focus loss or mode
+    " https://jeffkreeftmeijer.com/vim-number/
+        augroup numbertoggle
+          autocmd!
+          autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+          autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+        augroup END
+
     " indentation
         set autoindent
 
@@ -100,9 +108,10 @@
 
     "highlight the line we are on
         set cursorline
+        set cursorcolumn
 
-    "Add a colored line after at 80 characters
-        set colorcolumn=80
+    "Add a colored line at certain intervals
+        set colorcolumn=80,160
 
     " dark bg
         set background="dark"
@@ -114,7 +123,7 @@
             set termguicolors
         endif
 
-    " Set the command window height to 2 lines, to avoid many cases of having to "press <Enter> to continue"
+    " Set the command window height to 2 lines, to avoid many cases of having to press <Enter> to continue"
         " set cmdheight=2 "generally wastes window height
        
         set synmaxcol=2048
@@ -133,15 +142,14 @@
 " SEARCHING
     "immediately start searching
         set incsearch
-    "highlight search results
         set hlsearch
     " toggle search highlight
-        nnoremap <leader>h :set hlsearch!<CR>
+    "    nnoremap <leader>h :set hlsearch!<CR>
     "wtf smartcase is not set without ignorecase
         set ignorecase
         set smartcase 
     "toggles smartcase and shows what is set
-        :map \s :set smartcase!<CR>:set smartcase?<CR>
+    "    :map \s :set smartcase!<CR>:set smartcase?<CR>
     "replacing [16]
     if has('nvim')
         set inccommand=nosplit
@@ -474,6 +482,7 @@
     autocmd FileType yaml set tabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.log set filetype=wmlog
     autocmd BufNewFile,BufRead *.txt set filetype=wmlog
+    autocmd FileType make setlocal noexpandtab softtabstop=0
 
 "    autocmd BufWritePost *.tex silent! execute "![ -z $(ps h -C $PDFVIEWER) ] || make >/dev/null 2>&1 &" | redraw! 
 "    autocmd BufWritePost *.ms silent! execute "![ -z $(ps h -C $PDFVIEWER) ] || make -B @% >/dev/null 2>&1" | redraw!
@@ -517,5 +526,4 @@
     " [23] https://github.com/mg979/vim-visual-multi
     " [24] https://github.com/Shougo/ddc.vim  TODO requires nvim 5+
     " [25] https://github.com/Shougo/deoplete.nvim
-
 
