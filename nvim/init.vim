@@ -326,7 +326,7 @@
         " Conquer of Completion
         " Use release branch (recommend)
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        let g:coc_global_extensions = [ 'coc-json', 'coc-git', 'coc-prettier']
+        let g:coc_global_extensions = [ 'coc-json', 'coc-git', 'coc-prettier', 'coc-yaml']
 
         " Default CoC stuff
         " if hidden is not set, TextEdit might fail.

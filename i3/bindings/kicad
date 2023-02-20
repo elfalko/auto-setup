@@ -1,0 +1,7 @@
+# kicad
+bindsym $mod+o exec kicad
+bindsym $mod+shift+o exec "pkill kicad"
+
+for_window [class="KiCad" title="PCB Editor$"] fullscreen
+for_window [class="KiCad" title="3D Viewer$"] fullscreen
+for_window [class="KiCad" title="DRC Control$"] floating disable

@@ -16,7 +16,7 @@
 # y     windows	    mv windows  -           -               
 # u     ranger 	    filebrowser -           -               
 # i     firefox	    browser     network     -              
-# o     -      	    -           -           -              
+# o     kicad       killcad     -              
 # p     p3d    	    mv p3d      -           -              
 #
 # a     parent 	    child       -           -              
@@ -93,9 +93,6 @@ set $key_vm_ws      y
 ################################################################################
 # machine specific
 
-set $o-left   HDMI-A-0
-set $o-right  DisplayPort-0
-
 set $lockpaper ~/pics/wallpapers/bounty_hunters_by_wojtekfus-dar6xah.png
 
 ################################################################################
@@ -104,6 +101,7 @@ include bindings/basics
 include bindings/terminal.mode
 include bindings/browser.mode
 include bindings/files.mode
+include bindings/kicad
 
 include bindings/screenlight
 
@@ -127,12 +125,20 @@ include behavior
 include themes/minimal
 include themes/bar
 
-set $cmd_switch_multihead /bin/bash ~/auto-setup/sway/switch_multihead.sh
-include bindings/workspaces.normal
+# include bindings/workspaces.normal
+
+# set $cmd_switch_multihead /bin/bash ~/auto-setup/sway/switch_multihead.sh
+set $cmd_switch_multihead /bin/bash ~/auto-setup/i3/switch_multihead.sh
+set $cmd_move_multihead /bin/bash ~/auto-setup/i3/move_multihead.sh
+exec_always /bin/bash ~/auto-setup/i3/generate_multihead_setup.sh "1 2 3 4 5 6 7 8 9 0"
+include /tmp/i3-multihead.config
+
 include bindings/workspaces.utility
 include bindings/workspaces.special
+
 # include ../sway/monitor-2.config
 # include ../sway/monitor-2-comms.config
+
 include bindings/monitors
 include bindings/backgrounds
 
