@@ -1,7 +1,47 @@
 export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vimrc' | source \$MYVIMRC"
 export EDITOR="vim"
+export INPUTRC="$SSHHOME/.sshrc.d/inputrc"
 
+tmuxsetup() {
+    local TMUXDIR=/tmp/fsctmux
+    rm -rf $TMUXDIR
+    mkdir -p $TMUXDIR
+    cp -r $SSHHOME/.sshrc $SSHHOME/bashsshrc $SSHHOME/sshrc $SSHHOME/.sshrc.d $TMUXDIR
+}
+tmuxrc() {
+    local TMUXDIR=/tmp/fsctmux
+    if ! [ -d $TMUXDIR ]; then
+        rm -rf $TMUXDIR
+        mkdir -p $TMUXDIR
+    fi
+    rm -rf $TMUXDIR/.sshrc.d
+    cp -r $SSHHOME/.sshrc $SSHHOME/bashsshrc $SSHHOME/sshrc $SSHHOME/.sshrc.d $TMUXDIR
+    SSHHOME=$TMUXDIR SHELL=$TMUXDIR/bashsshrc /usr/bin/tmux -S $TMUXDIR/tmuxserver $@
+}
+export SHELL=`which bash`
+
+# General
 alias l="ls -lahF"
 alias v="vim -o"
+
+# Git
+export GIT_AUTHOR_NAME="Falk Schoenfeld"
+export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+export GIT_AUTHOR_EMAIL="falk.schoenfeld@work-microwave.com"
+export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+export GIT_EDITOR=$EDITOR
+alias gf="git fetch"
+alias gfp="git pull"
 alias gi="git status"
 alias ga="git add"
+alias gd="git diff"
+alias gc="git commit"
+alias gco="git checkout"
+alias gca="git commit --amend"
+alias gl="git log --oneline --graph --all --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"
+alias gp="git push"
+alias gpu="git push --upstream"
+
+# tmux
+alias t="tmux -f /tmp/fsctmux/.sshrc.d/tmux.conf"
+alias ta="tmux attach"
