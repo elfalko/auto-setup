@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # script to check if programs are missing
+# TODO cycle through $@ and install all
 
 set -euxo pipefail
 
