@@ -229,6 +229,13 @@
     nnoremap <Leader>tl[ :-1read ${HOME}/auto-setup/templates/latex/bracket<CR>2ei
     nnoremap <Leader>tl{ :-1read ${HOME}/auto-setup/templates/latex/brace<CR>2ei
     nnoremap <Leader>tl( :-1read ${HOME}/auto-setup/templates/latex/parenthesis<CR>2ei
+    nnoremap <Leader>gl guiwi\gls{<esc>ea}<esc>
+    nnoremap <Leader>sn I\section{<esc>A}\label{}<esc>i
+    nnoremap <Leader>ssn I\subsection{<esc>A}\label{}<esc>i
+    nnoremap <Leader>sssn I\subsubsection{<esc>A}\label{}<esc>i
+    nnoremap <Leader>p I\paragrap{<esc>A}\label{}<esc>i
+    nnoremap <Leader>tf i\fig{}{}{}{}{}<esc>3F}i
+
 
 " PLUGINS
     " Install Vim Plug if not installed
@@ -525,3 +532,5 @@
     " [24] https://github.com/Shougo/ddc.vim  TODO requires nvim 5+
     " [25] https://github.com/Shougo/deoplete.nvim
 
+        " [26] https://github.com/subnut/nvim-ghost.nvim
+        " [27] https://github.com/glacambre/firenvim
