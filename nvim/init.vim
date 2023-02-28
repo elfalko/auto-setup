@@ -298,7 +298,24 @@
 
         Plug 'AlphaTechnolog/pywal.nvim', { 'as': 'pywal' }
 
+
         Plug 'mg979/vim-visual-multi', {'branch': 'master'} " [23]
+
+        if has('nvim')
+            " write in browser [26]
+            " Plug 'subnut/nvim-ghost.nvim', {'do': ':call nvim_ghost#installer#install()'}       
+            " augroup nvim_ghost_user_autocommands
+            "     au User *.reddit.com set filetype=markdown
+            "     au User *.stackoverflow.com set filetype=markdown
+            "     au User *github.com set filetype=markdown
+            "     au User intranet.lan.work-microwave.com set filetype=markdown
+            " augroup END
+
+            " let g:nvim_ghost_super_quiet = 1
+            
+            " [27]
+            Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+        endif
 
         " [25]
         " if has('nvim')
