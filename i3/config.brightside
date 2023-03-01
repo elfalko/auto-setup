@@ -134,7 +134,7 @@ exec_always /bin/bash ~/auto-setup/i3/generate_multihead_setup.sh "1 2 3 4 5 6 7
 include /tmp/i3-multihead.config
 
 include bindings/workspaces.utility
-include bindings/workspaces.special
+# include bindings/workspaces.special
 
 # include ../sway/monitor-2.config
 # include ../sway/monitor-2-comms.config

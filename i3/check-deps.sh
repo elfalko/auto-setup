@@ -3,8 +3,6 @@
 # script to check if programs are missing
 # TODO cycle through $@ and install all
 
-set -euxo pipefail
-
 distro="$(lsb_release -d)"
 pkgmanager="#package manager"
 echo "$distro" | grep -i ubuntu && pkgmanager="sudo apt install"
@@ -17,3 +15,6 @@ function find_or_install(){
 
 find_or_install jq
 find_or_install polkit
+find_or_install i3blocks
+find_or_install i3lock-color
+find_or_install autotiling

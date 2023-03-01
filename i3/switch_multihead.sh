@@ -40,7 +40,7 @@ if [ $MON_NUM -gt 1 ]; then
     for (( MON_C=1; MON_C<=$MON_NUM; MON_C++ )); do
         if [ "-$MON_C" != $MON_FOCUS ]; then
             CMD="workspace $WS_NEW$SEPARATOR$MON_C;"
-            notify-send "$CMD"
+            # notify-send "$CMD"
             $WM_MSG "$CMD"
         fi
     done
@@ -50,7 +50,7 @@ else
     CMD="workspace $WS_NEW"
 fi
 
-notify-send "$CMD"
+# notify-send "$CMD"
 sleep 0.1
 $WM_MSG "$CMD"
 
