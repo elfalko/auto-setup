@@ -229,6 +229,13 @@
     nnoremap <Leader>tl[ :-1read ${HOME}/auto-setup/templates/latex/bracket<CR>2ei
     nnoremap <Leader>tl{ :-1read ${HOME}/auto-setup/templates/latex/brace<CR>2ei
     nnoremap <Leader>tl( :-1read ${HOME}/auto-setup/templates/latex/parenthesis<CR>2ei
+    nnoremap <Leader>gl guiwi\gls{<esc>ea}<esc>
+    nnoremap <Leader>sn I\section{<esc>A}\label{}<esc>i
+    nnoremap <Leader>ssn I\subsection{<esc>A}\label{}<esc>i
+    nnoremap <Leader>sssn I\subsubsection{<esc>A}\label{}<esc>i
+    nnoremap <Leader>p I\paragrap{<esc>A}\label{}<esc>i
+    nnoremap <Leader>tf i\fig{}{}{}{}{}<esc>3F}i
+
 
 " PLUGINS
     " Install Vim Plug if not installed
@@ -291,7 +298,24 @@
 
         Plug 'AlphaTechnolog/pywal.nvim', { 'as': 'pywal' }
 
+
         Plug 'mg979/vim-visual-multi', {'branch': 'master'} " [23]
+
+        if has('nvim')
+            " write in browser [26]
+            " Plug 'subnut/nvim-ghost.nvim', {'do': ':call nvim_ghost#installer#install()'}       
+            " augroup nvim_ghost_user_autocommands
+            "     au User *.reddit.com set filetype=markdown
+            "     au User *.stackoverflow.com set filetype=markdown
+            "     au User *github.com set filetype=markdown
+            "     au User intranet.lan.work-microwave.com set filetype=markdown
+            " augroup END
+
+            " let g:nvim_ghost_super_quiet = 1
+            
+            " [27]
+            Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+        endif
 
         " [25]
         " if has('nvim')
@@ -525,3 +549,5 @@
     " [24] https://github.com/Shougo/ddc.vim  TODO requires nvim 5+
     " [25] https://github.com/Shougo/deoplete.nvim
 
+        " [26] https://github.com/subnut/nvim-ghost.nvim
+        " [27] https://github.com/glacambre/firenvim

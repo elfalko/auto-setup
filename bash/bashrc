@@ -72,18 +72,17 @@ source $FAUTOSETUP/bash/aliases_serial.sh
 
 # wms
 if [ -f /bin/i3 ]; then
-alias i3c="$EDITOR ~/.config/i3/config"
+    alias i3c="$EDITOR ~/.config/i3/config"
 fi
 
 # if [ -f /bin/docker ]; then
 #   source $FAUTOSETUP/docker/aliases_docker.sh
 # fi
 
-source $FAUTOSETUP/bash/aliases_sway.sh
+# source $FAUTOSETUP/bash/aliases_sway.sh
 # source $FAUTOSETUP/bash/aliases_regolith.sh
 
-# ubuntu
-# TODO check with lsb_release -i
-source $FAUTOSETUP/bash/ubuntu_aliases.sh
+# distrostuff based on lsb_release
+source $FAUTOSETUP/bash/distrostuff.sh
 
 
