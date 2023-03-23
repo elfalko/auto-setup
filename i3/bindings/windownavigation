@@ -4,17 +4,21 @@ bindsym $mod+$key_down focus down
 bindsym $mod+$key_up focus up
 bindsym $mod+$key_right focus right
 
+set $manipulation_distance 100
+set $manipulation_distance_half 50
+
 # move focused window (or floating by 30)
-bindsym $mod+Shift+$key_left  move left  30
-bindsym $mod+Shift+$key_down  move down  30 
-bindsym $mod+Shift+$key_up    move up    30 
-bindsym $mod+Shift+$key_right move right 30
+bindsym $mod+Shift+$key_left  move left  $manipulation_distance
+bindsym $mod+Shift+$key_down  move down  $manipulation_distance
+bindsym $mod+Shift+$key_up    move up    $manipulation_distance
+bindsym $mod+Shift+$key_right move right $manipulation_distance
 
 # resize with ctrl
-bindsym $mod+Ctrl+$key_left  resize shrink width  10px or 10 ppt
-bindsym $mod+Ctrl+$key_down  resize grow   height 10px or 10 ppt
-bindsym $mod+Ctrl+$key_up    resize shrink height 10px or 10 ppt
-bindsym $mod+Ctrl+$key_right resize grow   width  10px or 10 ppt
+# movement is only applied to focused, floating windows to keep them centered
+bindsym $mod+Ctrl+$key_left  resize shrink width  $manipulation_distance, [con_id=__focused__ floating] move right $manipulation_distance_half 
+bindsym $mod+Ctrl+$key_down  resize grow   height $manipulation_distance, [con_id=__focused__ floating] move up    $manipulation_distance_half
+bindsym $mod+Ctrl+$key_up    resize shrink height $manipulation_distance, [con_id=__focused__ floating] move down  $manipulation_distance_half 
+bindsym $mod+Ctrl+$key_right resize grow   width  $manipulation_distance, [con_id=__focused__ floating] move left  $manipulation_distance_half
 
 # move workspaces between outputs with Ctrl+Shift
 bindsym $mod+Control+Shift+$key_right move workspace to output right
