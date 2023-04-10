@@ -4,7 +4,7 @@ exec nm-applet --no-agent
 
 # exec xbindkeys -p
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always --no-startup-id autotiling
-exec_always --no-startup-id /usr/bin/dunst -conf ~/auto-setup/dunst/dunstrc
+exec_always --no-startup-id $(which autotiling)
+exec_always --no-startup-id killall dunst; $(which dunst) -conf ~/auto-setup/dunst/dunstrc
 # exec_always --no-startup-id kmonad /home/f/projects/kmonad/homerowmods.kbd
 # exec redshift
