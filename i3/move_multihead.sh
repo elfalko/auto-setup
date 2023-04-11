@@ -28,5 +28,12 @@ if [ $WS_NEW == $WS_CURRENT ]; then
 fi
 
 #idea: move to same monitor, different ws
-CMD="move container to workspace $WS_NEW$WS_CURRENT_SIDE_FOCUSED;"
+
+MON_NUM=$(. $HOME/auto-setup/x/count_monitors.sh)
+if [ $MON_NUM -gt 1 ]; then
+    CMD="move container to workspace $WS_NEW$WS_CURRENT_SIDE_FOCUSED;"
+else
+    CMD="move container to workspace $WS_NEW;"
+fi
+
 $WM_MSG "$CMD"

@@ -1,0 +1,68 @@
+[user]
+	email = falk.schoenfeld@work-microwave.com
+	name = Falk Schoenfeld
+[credential]
+	helper = cache --timeout 3600
+[color]
+	ui = auto
+[push]
+    default = upstream
+[commit]
+    verbose = true
+[pull]
+	rebase = false
+[core]
+    autocrlf = input
+
+[alias]
+  # Commit (c)
+  c=commit
+  ca=commit --all
+  cm=commit --message
+  co=checkout
+  cf=commit --amend --reuse-message HEAD
+  chp=cherry-pick
+  cr=revert
+  cres=reset "HEAD^"
+  cs=show
+
+  # Fetch (f)
+  f=fetch
+  fa=fetch --all
+  fp=pull
+  fr=pull --rebase
+  fpr=pull --rebase
+
+  # Index (i)
+  i=status -sb
+  ii=status -sb --ignored
+  iu=status -sb -uall
+
+  # Merge (m)
+  m=merge
+  mnc=merge --no-commit
+  ma=merge --abort
+  mt=mergetool
+
+  # Push (p)
+  p=push
+  pu=push --set-upstream
+  pf=push --force-with-lease
+  pa=push --all
+
+  # Rebase (r)
+  r=rebase
+  ra=rebase --abort
+  rc=rebase --continue
+  ri=rebase --interactive
+  rs=rebase --skip
+
+  # Stash (s)
+  s=stash
+  sp=stash pop
+
+ # Log (l)
+  l1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  l2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  l = !git l1
+  lo = log --oneline

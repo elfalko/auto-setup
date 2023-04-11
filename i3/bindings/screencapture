@@ -1,9 +1,12 @@
 # show keys
 set $cmd_screenkey exec --no-startup-id "killall screenkey || screenkey -s small --mods-mode tux --bg-color '#022260'"
+# todo screenkey install message
 
 # screenshot
 # TODO copy to clipboard
-bindsym --release $mod+$key_screenshot exec --no-startup-id /bin/bash ~/auto-setup/x/simple_screenshot.sh ~/pics/screenshots
-bindsym $mod+Shift+$key_screenshot exec thunar ~/pics/screenshots
+set $screenshotpath ~/screenshots
+bindsym --release $mod+$key_screenshot exec --no-startup-id mkdir -p $screenshotpath && /bin/bash ~/auto-setup/x/simple_screenshot.sh $screenshotpath
+bindsym $mod+Shift+$key_screenshot exec mkdir -p $screenshotpath && flameshot gui --path $screenshotpath
+bindsym $mod+Ctrl+$key_screenshot exec thunar $screenshotpath
 
 bindsym $mod+Print $screenkeycmd

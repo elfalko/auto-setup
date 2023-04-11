@@ -12,4 +12,5 @@ echo "Setting up files"
 
 ln -s ~/auto-setup/i3 ~/.config/i3
 ln -s ~/auto-setup/i3blocks ~/.config/i3blocks
+. ~/auto-setup/i3/check-deps.sh
 /bin/bash ~/auto-setup/i3/build_i3_config.sh

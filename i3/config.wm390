@@ -39,7 +39,7 @@
 
 # n     mail        mv mail     -           -               
 # m     monitors    reset mon   -           -               
-# ,     -           -           -           -               
+# ,     mibbrowser  -           -           -               
 # .     -           -           -           -               
 #
 # `     comm ws     mv left ws  mv right ws
@@ -113,6 +113,8 @@ include bindings/windowassignment
 
 include bindings/vnc
 include bindings/virtualbox
+
+include bindings/snmp
 
 include bindings/floatingvideo
 include bindings/screencapture 

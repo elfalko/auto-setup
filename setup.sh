@@ -4,24 +4,17 @@ linkcmd="/bin/bash ./scripts/lnnew.sh"
 # actual setup
 echo "Setting up files"
 
-mkdir -p ~/.config/tmux
-$linkcmd tmux.conf ~/.config/tmux/tmux.conf 
+. tmux/setup.sh
 
-mkdir -p ~/.config/nvim
-$linkcmd init.vim ~/.config/nvim/init.vim
-
-$linkcmd init.vim ~/.vimrc
-
-sudo $linkcmd init.vim /root/.vimrc
-
-$linkcmd pre-commit ./.git/hooks/pre-commit
+. nvim/setup.sh
+echo "Install nodejs for coc"
 
 # linkcmd .bash_aliases ~/.bash_aliases
 
+
+. git/setup.sh
+
 $linkcmd .inputrc ~/.inputrc
-
-$linkcmd .gitconfig ~/.gitconfig
-
 $linkcmd .Xmodmap ~/.Xmodmap
 
 echo ""

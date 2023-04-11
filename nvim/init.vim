@@ -39,8 +39,8 @@
         au! BufWritePost $MYVIMRC source %      
 
     " open my vimnotes
-        nnoremap <Leader>hhh :tabedit ~/.config/nvim/notes<CR>
-        nnoremap <Leader>init :tabedit ~/.config/nvim/init.vim<CR>
+        nnoremap <Leader>hhh :tabedit ~/auto-setup/nvim/notes.md<CR>
+        nnoremap <Leader>init :tabedit ~/auto-setup/nvim/init.vim<CR>
         
 " MOVEMENT
     " remap escape
@@ -89,6 +89,14 @@
         set number
         set relativenumber
 
+    " toggles between hybrid and normal numbers on focus loss or mode
+    " https://jeffkreeftmeijer.com/vim-number/
+        augroup numbertoggle
+          autocmd!
+          autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+          autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+        augroup END
+
     " indentation
         set autoindent
 
@@ -98,20 +106,18 @@
 
     "number of visual spaces per tab
         set tabstop=4 
-
-    "tabs are spaces
         set smarttab
         set expandtab
         set shiftwidth=4
-
-    "number of spaces in tab when editing
         set softtabstop=4
+        autocmd FileType make setlocal noexpandtab softtabstop=0
 
     "highlight the line we are on
         set cursorline
+        set cursorcolumn
 
-    "Add a colored line after at 80 characters
-        set colorcolumn=80
+    "Add a colored line at certain intervals
+        set colorcolumn=80,160
 
     " dark bg
         set background="dark"
@@ -123,7 +129,7 @@
             set termguicolors
         endif
 
-    " Set the command window height to 2 lines, to avoid many cases of having to "press <Enter> to continue"
+    " Set the command window height to 2 lines, to avoid many cases of having to press <Enter> to continue"
         " set cmdheight=2 "generally wastes window height
        
         set synmaxcol=2048
@@ -142,15 +148,14 @@
 " SEARCHING
     "immediately start searching
         set incsearch
-    "highlight search results
         set hlsearch
     " toggle search highlight
-        nnoremap <leader>h :set hlsearch!<CR>
+    "    nnoremap <leader>h :set hlsearch!<CR>
     "wtf smartcase is not set without ignorecase
         set ignorecase
         set smartcase 
     "toggles smartcase and shows what is set
-        :map \s :set smartcase!<CR>:set smartcase?<CR>
+    "    :map \s :set smartcase!<CR>:set smartcase?<CR>
     "replacing [16]
     if has('nvim')
         set inccommand=nosplit
@@ -233,6 +238,18 @@
     nnoremap <Leader>tl[ :-1read ${HOME}/auto-setup/templates/latex/bracket<CR>2ei
     nnoremap <Leader>tl{ :-1read ${HOME}/auto-setup/templates/latex/brace<CR>2ei
     nnoremap <Leader>tl( :-1read ${HOME}/auto-setup/templates/latex/parenthesis<CR>2ei
+    nnoremap <Leader>gl guiwi\gls{<esc>ea}<esc>
+    nnoremap <Leader>sn I\section{<esc>A}\label{}<esc>i
+    nnoremap <Leader>ssn I\subsection{<esc>A}\label{}<esc>i
+    nnoremap <Leader>sssn I\subsubsection{<esc>A}\label{}<esc>i
+    nnoremap <Leader>p I\paragrap{<esc>A}\label{}<esc>i
+    nnoremap <Leader>tf i\fig{}{}{}{}{}<esc>3F}i
+    nnoremap <Leader>ra i$\rightarrow$<esc>
+    nnoremap <Leader>aw c2j\axweb{<esc>JA}{<esc>JA}<CR><esc>
+    nnoremap <Leader>af c2j\axfp{<esc>JA}{<esc>JA}<CR><esc>
+    nnoremap <Leader>as c/‘<CR>\axsnmp{<esc>JxA}{<esc>JxA}{<esc>JxA}{<esc>JxA}{\axsnmpsixty <esc>d/ax60<CR>d2f <esc>JxA}<esc>
+    nnoremap <Leader>pl <esc>0df yypgu$k0<esc>I\paragraph{<esc>A}\label{<esc>JxA}
+
 
 " PLUGINS
     " Install Vim Plug if not installed
@@ -293,7 +310,26 @@
 
         Plug 'Vimjas/vim-python-pep8-indent'
 
+        Plug 'AlphaTechnolog/pywal.nvim', { 'as': 'pywal' }
+
+
         Plug 'mg979/vim-visual-multi', {'branch': 'master'} " [23]
+
+        if has('nvim')
+            " write in browser [26]
+            " Plug 'subnut/nvim-ghost.nvim', {'do': ':call nvim_ghost#installer#install()'}       
+            " augroup nvim_ghost_user_autocommands
+            "     au User *.reddit.com set filetype=markdown
+            "     au User *.stackoverflow.com set filetype=markdown
+            "     au User *github.com set filetype=markdown
+            "     au User intranet.lan.work-microwave.com set filetype=markdown
+            " augroup END
+
+            " let g:nvim_ghost_super_quiet = 1
+            
+            " [27]
+            Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+        endif
 
         " [25]
         " if has('nvim')
@@ -337,9 +373,6 @@
         " Some servers have issues with backup files, see #649
         set nobackup
         set nowritebackup
-
-        " Better display for messages
-        set cmdheight=2
 
         " You will have bad experience for diagnostic messages when it's default 4000.
         set updatetime=300
@@ -465,11 +498,13 @@
     nnoremap <Leader>c2 :colorscheme iceberg<CR>
     nnoremap <Leader>c3 :colorscheme falcon<CR>
     nnoremap <Leader>c4 :colorscheme nord<CR>
-    
+
+    colorscheme gotham
+    hi! Comment guifg=#0b6e8a
+    hi! CursorLine guibg=#103040
+
     "for qmk keymap editing
     " nnoremap <Leader><Leader> cf,_______, <Esc>l
-
-    colorscheme falcon 
 
 " TWEAKS [4]
     autocmd FileType c set tabstop=4 shiftwidth=4
@@ -483,6 +518,7 @@
     autocmd FileType yaml set tabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.log set filetype=wmlog
     autocmd BufNewFile,BufRead *.txt set filetype=wmlog
+    autocmd FileType make setlocal noexpandtab softtabstop=0
 
 "    autocmd BufWritePost *.tex silent! execute "![ -z $(ps h -C $PDFVIEWER) ] || make >/dev/null 2>&1 &" | redraw! 
 "    autocmd BufWritePost *.ms silent! execute "![ -z $(ps h -C $PDFVIEWER) ] || make -B @% >/dev/null 2>&1" | redraw!
@@ -527,4 +563,5 @@
     " [24] https://github.com/Shougo/ddc.vim  TODO requires nvim 5+
     " [25] https://github.com/Shougo/deoplete.nvim
 
-
+        " [26] https://github.com/subnut/nvim-ghost.nvim
+        " [27] https://github.com/glacambre/firenvim

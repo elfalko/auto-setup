@@ -137,6 +137,13 @@ opening brackets leave spaces, closing do not
 (test)
 ( test )
 
+## vim-visual-multi
+
+:help visual-multi
+C-n to select word
+C-arrow to select multiple cursors
+\\a in selection to align
+
 ## commands
 
 :sort

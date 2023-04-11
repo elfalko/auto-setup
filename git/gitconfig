@@ -50,10 +50,7 @@
   fa=fetch --all
   fc=clone
   fp=pull
-  fr=pull --rebase
-  fpr=pull --rebase
-
-  # Grep (g)
+  fr=pull --rebase fpr=pull --rebase # Grep (g)
   g=grep
   gi=grep --ignore-case
   gl=grep --files-with-matches

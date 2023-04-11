@@ -47,6 +47,9 @@ interval=10
 # command=~/.config/i3blocks/bandwidth.sh
 # interval=5
 
+# [storage]
+# TODO /etc/i3status.conf
+
 [memory]
 command=~/.config/i3blocks/memory.sh
 label=MEM

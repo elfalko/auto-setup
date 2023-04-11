@@ -31,7 +31,7 @@ alias nethelp='echo "ip addr; route -n; sudo dhclient"'
 
 # ultra shorthand
 m(){
-    make $1 && notify-send "Make completed" || notify-send "Make FAILED (╯°□°)╯︵┻━┻"
+    make $1 && notify-send "Make completed" || notify-send "Make FAILED (╯°□°)╯︵┻━┻ && return -1"
 }
 
 # Add an "alert" alias for long running commands.  Use like so:

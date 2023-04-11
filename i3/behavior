@@ -6,3 +6,5 @@ floating_modifier $mod
 
 #popup_during_fullscreen smart|ignore|leave_fullscreen
 popup_during_fullscreen smart
+
+for_window [urgent=latest] focus
