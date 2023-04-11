@@ -71,6 +71,14 @@
     " keep off the upper/lower edges
         set scrolloff=5
 
+    " change stuff
+        nnoremap <leader>{ ci{
+        nnoremap <leader>} ca{
+        nnoremap <leader>( ci(
+        nnoremap <leader>) ca(
+        nnoremap <leader>[ ci[
+        nnoremap <leader>] ca[
+
 " DISPLAY
     " alternate folding
         " set foldmethod=indent
@@ -86,6 +94,7 @@
 
     " eg for latex
         set conceallevel=2
+        nnoremap <leader>gl guiwi\gls{<esc>ea}<esc>
 
     "number of visual spaces per tab
         set tabstop=4 
@@ -171,9 +180,9 @@
 
     " cleaner file suggestions
         " list the following files last
-          set suffixes+=.pdf,.stl,.svg,.o
+          set suffixes+=.pdf,.stl,.svg,.log,.out
         " never show the following
-          set wildignore+=*.aux
+          set wildignore+=*.aux,*.acn,*.acr,*.alg,*.ist,*.toc,*.o
 
 " TAG JUMPING [1]
     " Create the `tags` file (may need to install ctags first)
