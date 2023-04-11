@@ -130,11 +130,12 @@ include themes/bar
 # set $cmd_switch_multihead /bin/bash ~/auto-setup/sway/switch_multihead.sh
 set $cmd_switch_multihead /bin/bash ~/auto-setup/i3/switch_multihead.sh
 set $cmd_move_multihead /bin/bash ~/auto-setup/i3/move_multihead.sh
+exec_always /bin/bash ~/auto-setup/x/brightside_home_stack.sh || /bin/bash ~/auto-setup/x/stack_monitors.sh
 exec_always /bin/bash ~/auto-setup/i3/generate_multihead_setup.sh "1 2 3 4 5 6 7 8 9 0"
 include /tmp/i3-multihead.config
 
 include bindings/workspaces.utility
-include bindings/workspaces.special
+# include bindings/workspaces.special
 
 # include ../sway/monitor-2.config
 # include ../sway/monitor-2-comms.config
