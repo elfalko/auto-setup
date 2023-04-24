@@ -1,18 +1,20 @@
 [user]
-	name = Falk Schoenfeld
+  name = Falk Schoenfeld
+  email = falk.schoenfeld@work-microwave.com
 [credential]
-	helper = cache --timeout 3600
+  helper = cache --timeout 3600
 [color]
-	ui = auto
+  ui = auto
 [rerere]
-    enabled = true
+  enabled = true
 [push]
-    default = upstream
+  default = upstream
 [commit]
-    verbose = true
-
-
-
+  verbose = true
+[pull]
+	rebase = false
+[core]
+    autocrlf = input
 
 [alias]
   # Branch (b)
@@ -112,7 +114,3 @@
   l2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
   l = !git l1
   lo = log --oneline
-[pull]
-	rebase = false
-[core]
-    autocrlf = input
