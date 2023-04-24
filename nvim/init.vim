@@ -103,6 +103,10 @@
         set softtabstop=4
         autocmd FileType make setlocal noexpandtab softtabstop=0
 
+        set lcs+=space:·
+        set list
+
+
     "highlight the line we are on
         set cursorline
         set cursorcolumn
@@ -212,6 +216,8 @@
     " quicker window resizing
     nnoremap <leader>h :vertical resize -10<CR>
     nnoremap <leader>l :vertical resize +10<CR>
+
+    nnoremap <Leader>tts :%s/\t/    /g
 
 " mutt
     map <leader>kq G?><CR>d?>--<CR>
