@@ -18,7 +18,6 @@
   # Branch (b)
   b=branch
   ba=branch --all --verbose --verbose
-  bl=branch --verbose --verbose
   bc=checkout -b
   bx=branch --delete
   bm=branch --move
@@ -37,28 +36,11 @@
   cres=reset "HEAD^"
   cs=show
 
-  # Data (d)
-  d=ls-files
-  dc=ls-files --cached
-  dd=ls-files --deleted
-  dx=ls-files --deleted
-  dm=ls-files --modified
-  do=ls-files --other --exclude-standard
-  dk=ls-files --killed
-  di=!git status --porcelain --short --ignored | sed -n '"s/^!! //p"'
-
   # Fetch (f)
   f=fetch
   fa=fetch --all
   fc=clone
   fp=pull
-  fr=pull --rebase fpr=pull --rebase # Grep (g)
-  g=grep
-  gi=grep --ignore-case
-  gl=grep --files-with-matches
-  gL=grep --files-without-matches
-  gv=grep --invert-match
-  gw=grep --word-regexp
 
   # Index (i)
   i=status -sb
@@ -69,6 +51,8 @@
   iu=add --update
   id=diff --no-ext-diff --cached
   idw=diff --no-ext-diff --cached --word-diff
+  d=diff --minimal
+  di=diff --ignore-all-space --minimal
   ir=reset
   irp=reset --patch
   ix=rm -r --cached
