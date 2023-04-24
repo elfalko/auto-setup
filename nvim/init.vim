@@ -356,7 +356,17 @@
         " Conquer of Completion
         " Use release branch (recommend)
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        let g:coc_global_extensions = [ 'coc-json', 'coc-git', 'coc-prettier', 'coc-yaml']
+        let g:coc_global_extensions = [ 'coc-json', 'coc-git', 'coc-prettier', 'coc-yaml', 'coc-pyright']
+        let g:coc_config_home = '~/auto-setup/nvim/coc-settings.json'
+
+        function! SetupCommandAbbrs(from, to)
+          exec 'cnoreabbrev <expr> '.a:from
+            \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
+            \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+        endfunction
+
+        " Use C to open coc config
+        call SetupCommandAbbrs('C', 'CocConfig')
 
         " Default CoC stuff
         " if hidden is not set, TextEdit might fail.
