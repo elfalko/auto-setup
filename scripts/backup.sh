@@ -4,6 +4,7 @@ filter=--filter='-_*.pcap'
 filter="$filter "--filter='-_node_modules'
 filter="$filter "--filter='-_*Thumbs.db*'
 filter="$filter "--filter='-_venv'
+filter="$filter "--filter='-_undodir'
 
 backupdir="/backups/f"
 backupdest=""

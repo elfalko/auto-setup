@@ -71,6 +71,14 @@
     " keep off the upper/lower edges
         set scrolloff=5
 
+    " change stuff
+        nnoremap <leader>{ ci{
+        nnoremap <leader>} ca{
+        nnoremap <leader>( ci(
+        nnoremap <leader>) ca(
+        nnoremap <leader>[ ci[
+        nnoremap <leader>] ca[
+
 " DISPLAY
     " alternate folding
         " set foldmethod=indent
@@ -94,6 +102,7 @@
 
     " eg for latex
         set conceallevel=2
+        nnoremap <leader>gl guiwi\gls{<esc>ea}<esc>
 
     "number of visual spaces per tab
         set tabstop=4 
@@ -180,9 +189,9 @@
 
     " cleaner file suggestions
         " list the following files last
-          set suffixes+=.pdf,.stl,.svg,.o
+          set suffixes+=.pdf,.stl,.svg,.log,.out
         " never show the following
-          set wildignore+=*.aux
+          set wildignore+=*.aux,*.acn,*.acr,*.alg,*.ist,*.toc,*.o
 
 " TAG JUMPING [1]
     " Create the `tags` file (may need to install ctags first)
@@ -241,6 +250,11 @@
     nnoremap <Leader>sssn I\subsubsection{<esc>A}\label{}<esc>i
     nnoremap <Leader>p I\paragrap{<esc>A}\label{}<esc>i
     nnoremap <Leader>tf i\fig{}{}{}{}{}<esc>3F}i
+    nnoremap <Leader>ra i$\rightarrow$<esc>
+    nnoremap <Leader>aw c2j\axweb{<esc>JA}{<esc>JA}<CR><esc>
+    nnoremap <Leader>af c2j\axfp{<esc>JA}{<esc>JA}<CR><esc>
+    nnoremap <Leader>as c/‘<CR>\axsnmp{<esc>JxA}{<esc>JxA}{<esc>JxA}{<esc>JxA}{\axsnmpsixty <esc>d/ax60<CR>d2f <esc>JxA}<esc>
+    nnoremap <Leader>pl <esc>0df yypgu$k0<esc>I\paragraph{<esc>A}\label{<esc>JxA}
 
 
 " PLUGINS

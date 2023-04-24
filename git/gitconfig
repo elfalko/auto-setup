@@ -1,6 +1,7 @@
 [user]
   name = Falk Schoenfeld
   email = falk.schoenfeld@work-microwave.com
+  #email = falk.fairfield@gmail.com
 [credential]
   helper = cache --timeout 3600
 [color]
@@ -12,9 +13,9 @@
 [commit]
   verbose = true
 [pull]
-	rebase = false
+  rebase = false
 [core]
-    autocrlf = input
+  autocrlf = input
 
 [alias]
   # Branch (b)
