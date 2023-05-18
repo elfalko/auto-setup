@@ -44,11 +44,11 @@ export HISTCONTROL=ignoredups
 # jupyter
 # alias jnc="jupyter nbconvert --to script"
 
-source $FAUTOSETUP/bash/aliases_convenience.sh
+source $FAUTOSETUP/bash/convenience.sh
 
-source $FAUTOSETUP/bash/aliases_ranger.sh
-source $FAUTOSETUP/bash/aliases_feh.sh
-source $FAUTOSETUP/bash/aliases_vnc.sh
+source $FAUTOSETUP/bash/ranger.sh
+source $FAUTOSETUP/bash/feh.sh
+source $FAUTOSETUP/bash/vnc.sh
 
 # WSL 2
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
@@ -56,8 +56,8 @@ if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
     export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0
 fi
 
-source $FAUTOSETUP/bash/aliases_x.sh
-source $FAUTOSETUP/bash/aliases_serial.sh
+source $FAUTOSETUP/bash/x.sh
+source $FAUTOSETUP/bash/serial.sh
 
 # https://sourceforge.net/projects/vcxsrv/files/latest/download
 # "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl -dpi auto
