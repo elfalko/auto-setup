@@ -112,6 +112,10 @@
         set softtabstop=4
         autocmd FileType make setlocal noexpandtab softtabstop=0
 
+        set lcs+=space:·
+        set list
+
+
     "highlight the line we are on
         set cursorline
         set cursorcolumn
@@ -221,6 +225,8 @@
     " quicker window resizing
     nnoremap <leader>h :vertical resize -10<CR>
     nnoremap <leader>l :vertical resize +10<CR>
+
+    nnoremap <Leader>tts :%s/\t/    /g
 
 " mutt
     map <leader>kq G?><CR>d?>--<CR>
@@ -364,7 +370,17 @@
         " Conquer of Completion
         " Use release branch (recommend)
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        let g:coc_global_extensions = [ 'coc-json', 'coc-git', 'coc-prettier', 'coc-yaml']
+        let g:coc_global_extensions = [ 'coc-json', 'coc-git', 'coc-prettier', 'coc-yaml', 'coc-pyright']
+        let g:coc_config_home = '~/auto-setup/nvim/coc-settings.json'
+
+        function! SetupCommandAbbrs(from, to)
+          exec 'cnoreabbrev <expr> '.a:from
+            \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
+            \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+        endfunction
+
+        " Use C to open coc config
+        call SetupCommandAbbrs('C', 'CocConfig')
 
         " Default CoC stuff
         " if hidden is not set, TextEdit might fail.
