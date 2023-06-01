@@ -11,7 +11,7 @@ else
     WM_MSG=swaymsg
 fi
 
-OUT="/tmp/i3-multihead.config"
+OUT="$HOME/.config/i3/i3-multihead.config"
 
 WS_NAMES=$1
 # for testing
@@ -39,3 +39,4 @@ do
     done
     echo "" >> $OUT
 done
+echo "exec_always \$cmd_switch_multihead 1" >> $OUT
