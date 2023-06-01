@@ -12,3 +12,5 @@ mode "vnc" {
 bindsym $mod+ctrl+$key_vnc mode "vnc"
 
 bindsym $mod+ctrl+shift+$key_vnc  $cmd_kill_vnc_progs
+
+#for_window [class="*ncviewer"] floating disable
