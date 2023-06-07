@@ -20,7 +20,12 @@ else
 fi
 
 WS_CURRENT=$($WM_MSG -t get_workspaces | jq --raw-output '.[] | try select(.focused == true) | .name')
-MON_FOCUS=$SEPARATOR${WS_CURRENT##*$SEPARATOR}
+
+case "$WS_CURRENT" in
+  *$SEPARATOR*) MON_FOCUS=${WS_CURRENT##*$SEPARATOR} ;;
+  *)            MON_FOCUS="1" ;; # default (when attaching screen)
+esac
+
 WS_CURRENT="${WS_CURRENT%$SEPARATOR*}"
 
 mkdir -p $TMPDIR
@@ -45,7 +50,7 @@ if [ $MON_NUM -gt 1 ]; then
         fi
     done
 
-    CMD="workspace $WS_NEW$MON_FOCUS;"
+    CMD="workspace $WS_NEW$SEPARATOR$MON_FOCUS;"
 else
     CMD="workspace $WS_NEW"
 fi
