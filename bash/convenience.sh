@@ -2,6 +2,8 @@
 
 alias cdas="cd $FAUTOSETUP"
 
+# if just a path is used, cd there
+shopt -s autocd
 
 # herpderp
 alias cd..="cd .."
