@@ -58,7 +58,7 @@ print_help(){
 
 debug_msg(){
     if [ $DEBUG = "1" ]; then
-        notify-send $1
+        notify-send "$1"
         echo "$1"
     fi
 }
@@ -104,7 +104,7 @@ get_last_workspace(){
     if [ -f $TMPFILE ]; then
         WS_LAST=$(cat $TMPFILE)
     fi
-    debug_msg "WS_LAST is $WS_LAST"
+    debug_msg "WS_LAST $WS_LAST"
 
     # workspace back and forth
     if [ $WS_NEW == $WS_CURRENT ]; then
@@ -255,13 +255,9 @@ while [[ $# -gt 0 ]]; do
             shift
             expand_to_multihead
             ;;
-        -*|--*)
-            echo "Unknown option $1"
-            exit 1
-            ;;
         *)
-            POSITIONAL_ARGS+=("$1") # save positional arg
-            shift # past argument
+            debug_msg "Unknown option $1"
+            # exit 1
             ;;
     esac
 done
