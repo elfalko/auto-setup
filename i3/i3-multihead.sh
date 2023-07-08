@@ -80,7 +80,7 @@ get_monitor_number(){
 }
 
 get_monitor_names(){
-    MON_NAMES=( $($WM_MSG -t get_outputs | jq -cr '[ .[].name ] - ["xroot-0"] | @sh') )
+    MON_NAMES=( $($WM_MSG -t get_outputs | jq -cr '[ .[].name ] - ["xroot-0"] | @sh' | sed -e "s/'//g") )
     debug_msg "MON_NAMES $MON_NAMES"
 }
 
