@@ -8,7 +8,7 @@
 # key   +mod   	    +mod+shift  +mod+ctrl   +mod+shift+ctl  +nothing (only if key itself was overwritten) 
 #
 # q     layout 	    kill window -           -               
-# w     jump urgent -           life stats  -                
+# w     jump urgent -           -           -                
 # e     mnt dev     umnt dev    -           -               
 # r     -      	    reload i3   -           -               
 # t     vm start    vm stop     vm menu     -               
