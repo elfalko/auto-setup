@@ -190,31 +190,50 @@ expand_to_multihead(){
     # get all workspaces
     WS_ALL=( $($WM_MSG -t get_workspaces | jq --raw-output '.[].name') )
 
+    debug_msg "Workspaces: ${WS_ALL[@]} found"
     for WS in "${WS_ALL[@]}"
     do
         debug_msg "WS $WS"
         if [ $MON_NUM -gt 1 ]; then
             case "$WS" in
-              *$SEPARATOR*) continue ;;
-              *) WS_NEW="$WS${SEPARATOR}1" ;;
+              *$SEPARATOR*) 
+                debug_msg "WS $WS has separator in name, we have $MON_NUM monitors, skipping"
+                continue 
+                ;;
+              *) 
+                WS_NEW="$WS${SEPARATOR}1" 
+                debug_msg "WS $WS has NO separator in name, we have $MON_NUM monitors, moving to $WS_NEW"
+                ;;
             esac
         else
             case "$WS" in
-              *$SEPARATOR*) WS_NEW=${WS%%$SEPARATOR*} ;;
-              *) continue ;;
-            esac
+              *$SEPARATOR*) 
+                  WS_NEW=${WS%%$SEPARATOR*} 
+                  debug_msg "WS $WS has separator in name, we have $MON_NUM monitors, moving to $WS_NEW"
+                  ;;
+              *) 
+                  debug_msg "WS $WS has separator in name, we have $MON_NUM monitors, skipping"
+                  continue 
+                  ;;
+          esac
         fi
+
+        CMD="workspace $WS,"
+
         # dirty fix, I hardly ever use more than 4 windows per workspace
         for i in {1..4}; do
             CMD="$CMD move container to workspace $WS_NEW,"
             debug_msg "workspace $WS: $i - $CMD"
         done
-        [ ! -z $CMD ] && $WM_MSG $CMD
+        if [ -n "$CMD" ]; then
+            $WM_MSG $CMD
+            debug_msg "final command is not empty, sending"
+        fi 
     done
 
-    [ ! $WS_NEW = "00" ] && $WM_MSG "workspace $WS_NEW"
+    [ "$WS_NEW" != "00" ] && $WM_MSG "workspace $WS_NEW"
 
-    debug_msg "expand_to_multihead"
+    debug_msg "expand_to_multihead done"
 }
 
 if [ $# -lt 1 ]; then 
@@ -228,9 +247,14 @@ while [[ $# -gt 0 ]]; do
         -h|--help)
             print_help
             ;;
+        -vv)
+            DEBUG=1
+            # set -euxo pipefail
+            set -xo pipefail
+            shift
+            ;;
         -v|--verbose)
             DEBUG=1
-            set -euxo pipefail
             shift
             ;;
         g|generate)
