@@ -1,5 +1,7 @@
 #!/bin/bash
 
-SSHDIR=$USER/.ssh
+
+SSHDIR=$HOME/.ssh
 eval $(ssh-agent -s)
-ssh-add $SSHDIR/id*
+chmod 600 $SSHDIR/id_rsa
+ssh-add $SSHDIR/id_rsa
