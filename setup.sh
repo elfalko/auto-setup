@@ -1,6 +1,5 @@
 #!/bin/bash
 
-linkcmd="/bin/bash ./scripts/lnnew.sh"
 # actual setup
 echo "Setting up files"
 
@@ -14,8 +13,9 @@ echo "Install nodejs for coc"
 
 . git/setup.sh
 
-$linkcmd .inputrc ~/.inputrc
-$linkcmd .Xmodmap ~/.Xmodmap
+. inputrc/setup.sh
+
+# $linkcmd .Xmodmap ~/.Xmodmap
 
 echo ""
 
