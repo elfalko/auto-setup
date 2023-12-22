@@ -2,6 +2,8 @@
 
 Collection of knowledge sources and base tools which every dev should know or at least have heard of
 
+If this feels linux focused, you got the right vibe. While reaching a stable and reliable dev environment under any other OS is possible, it seems to be the least hassle under linux.
+
 ## Editors
 
 ### VI/VIM/NVIM
@@ -98,6 +100,10 @@ Collection of knowledge sources and base tools which every dev should know or at
 
 SSH keys preferred
 
+### SVN
+
+subversion. used to be the standard before git, mostly faded out these days.
+
 ## OS
 
 ### Linux
@@ -105,6 +111,40 @@ SSH keys preferred
 - everything doable via commandline means everything is scriptable, automatable
 - everything is a text file, so everything fits well into version control
 - most distros are usable via GUI, but don't bring advantage over MacOS or Windows unless you know some bash and your way around the commandline. 
+
+#### On choosing distros
+
+Most distros mostly differ in the set of tools they deliver by default, but the most impact on the user experience have the following:
+
+- package manager and release / update cycle
+- desktop environments / window managers
+- C implementation
+- systemd / init
+
+most tools are avialable in the package sources of almost all linux distros and can be easily installed even if they aren't.
+Note that most documentation also works on many systems for that very reason.
+E.g. [the arch wiki](https://wiki.archlinux.org/) is well known as one of the best linux documentation projects and instructions work for many distros
+Choose one which has a sufficient user base to have documentation and support available and a release cycle which suits you.
+
+Common examples are:
+
+- Ubuntu (stable LTS release every two years)
+- Debian (base of Ubuntu)
+- Fedora
+
+While the above ones are probably the best to start with to dive into linux, many other interesting ones exist:
+
+- Arch (rolling release, very customizable, not for e.g. servers which should run untouched for-ever-ish)
+- gentoo (like arch but you need to compile everything yourself)
+- openSUSE
+- FreeBSD
+- NixOS
+
+#### MS Office alternatives
+
+- libreoffice
+- openoffice
+- [onlyoffice](https://www.onlyoffice.com/)
 
 ### Windows
 
@@ -157,10 +197,6 @@ common base images are busybox and alpine linux. (Except on azure devops, where 
 
 ## Other CLI tools
 
-### bash
-
-- the glue that keeps the C/C++/Rust parts of linux together
-- [good book for the basics](https://linuxcommand.org/tlcl.php)
 
 ### Tmux
 
@@ -173,6 +209,19 @@ wouldn't it be cool to have several terminals and switch fast between them? Mayb
 
 the remote access tool
 
+use `~/.ssh/config` to setup memorable names for all your machines
+
+goes hand in hand with ssh-key architecture.
+
+#### ssh keys
+
+`ssh-keygen` to generate a key
+`ssh-copy-id <host>` to copy a public key to a different machine to simplify ssh login
+
+#### sshrc
+
+tired of not having your usual config on remote machines but you don't want to install it everywhere? check out [sshrc](https://github.com/cdown/sshrc)
+
 ### mosh
 
 trying to use ssh with a shitty connection? try mosh instead
@@ -183,6 +232,10 @@ trying to browse with a shitty connection and have a server with a better connec
 
 ### scp / rsync
 
+need to transfer files? Just be aware that the progress bar massively reduces the transmission speed
+
+`scp -Rc <source> <target>`
+`rsync -avzm --progress <source> <target>`
 ### grep
 
 - ripgrep
@@ -200,17 +253,20 @@ fuzzy finder for files and contents
 
 the OG search and replace tool. Too mighty for it's own good. Needs understanding of [regex](#regex) to use it
 
-### regex
-
-powerful matching expressions for bash scripts, editors and many other tools
-
-[great playground website](https://regexr.com/)
 
 ### cron
 
 time based script runner
 
 [crontab guru is a great website to find the right expressions for schedules.](https://crontab.guru/)
+
+### dd
+
+to copy disks, isos and other stuff
+
+### gcc
+
+Gnu Compiler Collection. You need it for C/C++. It also brings gdb as a debugger along.
 
 ## CI/CD
 
@@ -230,3 +286,76 @@ have a pipeline which:
 5. if all tests pass, ask for validation by the user
 6. if the user validates, run a deployment pipeline
 
+
+## Programming and other Languages
+
+There are near as many as stars under the sky. This tries to list some useful links for the ones I know best.
+
+[Godbolt compiler explorer](https://godbolt.org/): Ever wondered how different compiler versions behave? How the machine code looks? Sure you can take a look in the gcc output, but this is a nice web overview with fast switching between languages and compilers
+
+### bash
+
+- the glue that keeps the C/C++/Rust parts of linux together
+- [good book for the basics](https://linuxcommand.org/tlcl.php)
+
+### C
+
+coding something close to hardware? Just make sure you understand pointers
+
+### C++
+
+coding for hardware, or ROS? want some more features than C?
+
+### HTML/CSS/JavaScript
+
+for when you need to build websites
+
+HTML builds the structure, CSS makes it look good, an javascript builds interactivity.
+
+The best course for webdesign I ever found is [here](https://internetingishard.netlify.app/).
+
+### JSON
+
+convenient way to store data objects
+
+### LaTeX
+
+Ever felt like MS Word just sucks after you tried to move a picture and the layout of your entire document changed? Or you switched chapter order and now need to update all references manually?
+
+### Markdown
+
+This file is markdown. It's like a simpler version of html and plays really nice with git.
+
+### Matlab / Octave
+
+Good data processing language
+
+### Python
+
+Writing some quick data analysis? Maybe some HIL test system where you want to integrate the local oscilloscope, the signal generator and the coffee machine in the test setup?
+
+get pip and venv first, setup a virtual environment for each project and start coding.
+
+good libs to know:
+
+- venv
+- numpy
+- matplotlib (for plotting)
+- opencv (for computer vision)
+- subcommand (for running e.g. bash commands from python)
+- pandas
+- pytest (if you want to build a test system)
+
+### regex
+
+Powerful matching expressions for bash scripts, editors and many other tools
+
+[great playground website](https://regexr.com/)
+
+### rust
+
+Want full type safety? I hear it is also good for embedded and the linux kernel these days 
+
+### xml
+
+extensible markup language. Often used for defining API interfaces, e.g. IODDs, SNMP MIBs
