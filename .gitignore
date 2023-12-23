@@ -1,3 +1,4 @@
 *.old
 MOK.*
 x/keyboard/xkb
+**.log
