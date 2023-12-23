@@ -1,3 +1,8 @@
+" TODO
+"   open openscad when scad files
+"   run certain stuff only when non admin
+"   split into subfiles
+
 " GENERAL
     " set leader key
         let mapleader=","
@@ -529,19 +534,20 @@
     autocmd BufNewFile,BufRead *.scad set filetype=scad 
 
     " set settings for filetypes
-    autocmd FileType c set tabstop=4 shiftwidth=4
-    autocmd FileType cpp set tabstop=4 shiftwidth=4
-    autocmd FileType h set tabstop=2 shiftwidth=2
-    autocmd FileType lua set tabstop=8 shiftwidth=8
-    autocmd FileType md set tabstop=2 shiftwidth=2
-    autocmd FileType py set tabstop=4 shiftwidth=4
-    autocmd FileType tex set spell! spelllang=en_us
-    autocmd FileType xml set tabstop=8 shiftwidth=8
-    autocmd FileType yaml set tabstop=2 shiftwidth=2
+    autocmd FileType c setlocal tabstop=4 shiftwidth=4
+    autocmd FileType cpp setlocal tabstop=4 shiftwidth=4
+    autocmd FileType h setlocal tabstop=2 shiftwidth=2
+    autocmd FileType lua setlocal tabstop=8 shiftwidth=8
+    autocmd FileType md setlocal tabstop=2 shiftwidth=2
+    autocmd FileType py setlocal tabstop=4 shiftwidth=4
+    autocmd FileType tex setlocal spell! spelllang=en_us
+    autocmd FileType xml setlocal tabstop=8 shiftwidth=8
+    autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
     autocmd FileType make setlocal noexpandtab softtabstop=0
     autocmd FileType scad setlocal commentstring=/*\ %s\ */ tabstop=2 shiftwidth=2
-
-"    autocmd BufWritePost *.tex silent! execute "![ -z $(ps h -C $PDFVIEWER) ] || make >/dev/null 2>&1 &" | redraw! 
+    autocmd FileType scad silent! execute "![ -z $(ps h -C openscad) ] && openscad % &"
+    autocmd BufWipeout *.scad execute "!killall openscad" 
+   " autocmd BufWritePost *.tex silent! execute "![ -z $(ps h -C $PDFVIEWER) ] || make >/dev/null 2>&1 &" | redraw! 
 "    autocmd BufWritePost *.ms silent! execute "![ -z $(ps h -C $PDFVIEWER) ] || make -B @% >/dev/null 2>&1" | redraw!
 "    autocmd BufWritePost *.md execute "![ -z $(ps h -C $PDFVIEWER) ] || lowdown -sTms % | pdfroff -tik -Kutf8 -mspdf > %.pdf" | redraw!
 
