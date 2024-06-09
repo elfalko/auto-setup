@@ -45,9 +45,9 @@ cm(){
 #   sleep 10; alert
 alias alert='notify-send -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-w(){
-    watch -n 0.5 "$1"
-}
+# w(){
+#     watch -n 0.5 "$1"
+# }
 
 # power
 alias sn="sudo shutdown now"
