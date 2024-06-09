@@ -23,6 +23,7 @@ alias cdd="cd ~/Downloads"
 # fast movement of download files
 if [ -f ~/auto-setup/scripts/get_latest_download.sh ]; then
     source ~/auto-setup/scripts/get_latest_download.sh
+    alias glf="get_latest_file"
     alias gld="get_latest_download"
     alias glfd="get_latest_firefox_download"
     alias glss="get_latest_screenshot"
