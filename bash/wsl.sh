@@ -8,6 +8,15 @@ if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
     # to make WSL VSCode integration work with windows terminal, from WSL terminal 
     # which code 
     alias code="/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin/code"
+
+    # assumes $HOME/winhome is a symlink to /mnt/c/Users/$USER
+    get_latest_windows_download(){
+        DOWNLOADDIR="$HOME/winhome/Downloads"
+        get_latest_file $DOWNLOADDIR
+    }
+
+    alias glwd="get_latest_windows_download"
+    alias cdwin="cd $HOME/winhome"
 fi
 
 # https://sourceforge.net/projects/vcxsrv/files/latest/download
