@@ -31,16 +31,23 @@ alias nethelp='echo "ip addr; route -n; sudo dhclient"'
 
 # ultra shorthand
 m(){
-    make $1 && notify-send "Make completed" || notify-send "Make FAILED (╯°□°)╯︵┻━┻ && return -1"
+    make -j`nproc` $@ 
+    # if $? == 0
+    # && notify-send "Make completed" || notify-send "Make FAILED (╯°□°)╯︵┻━┻ && return -1"
+}
+
+cm(){
+    clear;
+    m $@ 2>&1 | less
 }
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-w(){
-    watch -n 0.5 "$1"
-}
+# w(){
+#     watch -n 0.5 "$1"
+# }
 
 # power
 alias sn="sudo shutdown now"

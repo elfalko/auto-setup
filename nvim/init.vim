@@ -55,7 +55,6 @@
         inoremap kk <C-n>
         inoremap ii <C-x>
         inoremap jk <C-f> 
-        
 
     " moves lines around [2]
         nnoremap <C-j> :m .+1<CR>==
@@ -108,16 +107,15 @@
         set conceallevel=2
 
     "number of visual spaces per tab
-        set tabstop=4 
+        set tabstop=2
         set smarttab
         set expandtab
-        set shiftwidth=4
-        set softtabstop=4
+        set shiftwidth=2
+        set softtabstop=2
         autocmd FileType make setlocal noexpandtab softtabstop=0
 
         set lcs+=space:·
         set list
-
 
     "highlight the line we are on
         set cursorline
@@ -138,11 +136,8 @@
 
     " Set the command window height to 2 lines, to avoid many cases of having to press <Enter> to continue"
         " set cmdheight=2 "generally wastes window height
-       
         set synmaxcol=2048
 
-    
-        
     colorscheme evening 
 
     " figuring out what the color group is [9]
@@ -245,7 +240,8 @@ source ~/.config/nvim/plugins.vim
 
 colorscheme gotham
 hi! Comment guifg=#0b6e8a
-hi! CursorLine guibg=#103040
+hi! CursorLine guibg=#404040
+hi! CursorColumn guibg=#404040
 
 " TWEAKS [4]
     " set unknown file types
@@ -253,15 +249,17 @@ hi! CursorLine guibg=#103040
     autocmd BufNewFile,BufRead *.scad set filetype=scad 
 
     " set settings for filetypes
-    autocmd FileType c setlocal tabstop=4 shiftwidth=4
-    autocmd FileType cpp setlocal tabstop=4 shiftwidth=4
-    autocmd FileType h setlocal tabstop=2 shiftwidth=2
-    autocmd FileType lua setlocal tabstop=8 shiftwidth=8
-    autocmd FileType md setlocal tabstop=2 shiftwidth=2
-    autocmd FileType py setlocal tabstop=4 shiftwidth=4
-    autocmd FileType tex setlocal spell! spelllang=en_us
-    autocmd FileType xml setlocal tabstop=8 shiftwidth=8
-    autocmd FileType yaml setlocal tabstop=2 shiftwidth=2
+    autocmd FileType c set tabstop=4 shiftwidth=4
+    autocmd FileType cpp set tabstop=4 shiftwidth=4
+    autocmd FileType h set tabstop=2 shiftwidth=2
+    autocmd FileType html set tabstop=2 shiftwidth=2
+    autocmd FileType lua set tabstop=8 shiftwidth=8
+    autocmd FileType md set tabstop=2 shiftwidth=2
+    autocmd FileType py set tabstop=4 shiftwidth=4
+    autocmd FileType tex set spell! spelllang=en_us
+    autocmd FileType ts set tabstop=2 shiftwidth=2
+    autocmd FileType xml set tabstop=2 shiftwidth=2
+    autocmd FileType yaml set tabstop=2 shiftwidth=2
     autocmd FileType make setlocal noexpandtab softtabstop=0
     autocmd FileType scad setlocal commentstring=/*\ %s\ */ tabstop=2 shiftwidth=2
     autocmd FileType scad silent! execute "![ -z $(ps h -C openscad) ] && openscad % &"
@@ -307,6 +305,5 @@ hi! CursorLine guibg=#103040
     " [23] https://github.com/mg979/vim-visual-multi
     " [24] https://github.com/Shougo/ddc.vim  TODO requires nvim 5+
     " [25] https://github.com/Shougo/deoplete.nvim
-
-        " [26] https://github.com/subnut/nvim-ghost.nvim
-        " [27] https://github.com/glacambre/firenvim
+    " [26] https://github.com/subnut/nvim-ghost.nvim
+    " [27] https://github.com/glacambre/firenvim

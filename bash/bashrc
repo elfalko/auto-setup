@@ -71,4 +71,7 @@ fi
 # distrostuff based on lsb_release
 source $FAUTOSETUP/bash/distrostuff.sh
 
+source $FAUTOSETUP/bash/colors.sh
+
+
 
