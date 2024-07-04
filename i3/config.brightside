@@ -130,8 +130,9 @@ include themes/bar
 
 # include bindings/workspaces.normal
 
-exec_always /bin/bash ~/.screenlayout/default-combo.sh && ~/auto-setup/i3/i3-multihead.sh generate "1 2 3 4 5 6 7 8 9 0"
-include /tmp/i3-multihead.config
+exec_always /bin/bash ~/.screenlayout/default-combo.sh
+exec_always /bin/bash ~/auto-setup/i3/i3-multihead.sh --path ~/.config/i3-multihead/i3-multihead generate "1 2 3 4 5 6 7 8 9 0"
+include ~/.config/i3-multihead/i3-multihead.config
 exec_always /bin/bash ~/auto-setup/i3/i3-multihead.sh expand
 
 include bindings/workspaces.utility
