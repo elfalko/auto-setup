@@ -106,7 +106,6 @@
 
     " eg for latex
         set conceallevel=2
-        nnoremap <leader>gl guiwi\gls{<esc>ea}<esc>
 
     "number of visual spaces per tab
         set tabstop=4 
@@ -267,7 +266,6 @@ hi! CursorLine guibg=#103040
     autocmd FileType scad setlocal commentstring=/*\ %s\ */ tabstop=2 shiftwidth=2
     autocmd FileType scad silent! execute "![ -z $(ps h -C openscad) ] && openscad % &"
     autocmd BufWipeout *.scad execute "!killall openscad" 
-   " autocmd BufWritePost *.tex silent! execute "![ -z $(ps h -C $PDFVIEWER) ] || make >/dev/null 2>&1 &" | redraw! 
 "    autocmd BufWritePost *.ms silent! execute "![ -z $(ps h -C $PDFVIEWER) ] || make -B @% >/dev/null 2>&1" | redraw!
 "    autocmd BufWritePost *.md execute "![ -z $(ps h -C $PDFVIEWER) ] || lowdown -sTms % | pdfroff -tik -Kutf8 -mspdf > %.pdf" | redraw!
 

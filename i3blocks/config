@@ -3,10 +3,11 @@
 command=curl -Ss 'https://wttr.in/Munich?0&T&Q' | cut -c 16- | head -2 | xargs echo
 interval=3600
 
-#[monitors]
-#command=cat /tmp/monitor_mode.dat 2>/dev/null || echo ""
-#interval=1
-#label=🖵
+[monitors]
+# command=cat /tmp/monitor_mode.dat 2>/dev/null || echo ""
+command=echo "$(/bin/bash ~/auto-setup/x/count_monitors.sh)/$(/bin/bash ~/auto-setup/x/count_monitors.sh --connected)"
+interval=5
+label=🖵
 
 ## [LAMP]
 ## command=~/.config/i3blocks/xampp.sh
