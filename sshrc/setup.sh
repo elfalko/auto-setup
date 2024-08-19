@@ -7,3 +7,6 @@ sudo mv sshrc /usr/local/bin
 
 ln -s $HOME/auto-setup/sshrc/sshrc $HOME/.sshrc
 ln -s $HOME/auto-setup/sshrc/sshrc.d $HOME/.sshrc.d
+
+mkdir /home/schoenfeldf/sshrc/sshrc.d/ssh
+echo "Don't forget to link/create your keys in sshrc.d/ssh/sshrc_id_*!"

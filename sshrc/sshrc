@@ -25,11 +25,12 @@ alias l="ls -lahF"
 alias v="vim -o"
 
 # Git
-export GIT_AUTHOR_NAME="Falk Schoenfeld"
+export GIT_AUTHOR_NAME="Falk Schoenfeld on $HOSTNAME"
 export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
-export GIT_AUTHOR_EMAIL="falk.schoenfeld@work-microwave.com"
+export GIT_AUTHOR_EMAIL="falk.schoenfeld@balluffstm.com"
 export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 export GIT_EDITOR=$EDITOR
+
 alias gf="git fetch"
 alias gfp="git pull"
 alias gi="git status"
@@ -41,6 +42,17 @@ alias gca="git commit --amend"
 alias gl="git log --oneline --graph --all --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"
 alias gp="git push"
 alias gpu="git push --upstream"
+
+# load specific ssh key onto device and into agent, so we can access git
+# use pw protected key to ensure even if it remains in tmp, nobody can impersonate you
+if [ -z $SSH_AGENT_PID ]; then
+    SSHDIR=$SSHHOME/.sshrc.d/ssh
+    eval $(ssh-agent -s)
+else
+    echo "SSH_AGENT_PID: $SSH_AGENT_PID - not doing anything"
+fi
+chmod 600 $SSHDIR/sshrc_id_rsa
+ssh-add $SSHDIR/sshrc_id_rsa
 
 # tmux
 alias t="tmux -f /tmp/fsctmux/.sshrc.d/tmux.conf"
