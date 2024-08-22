@@ -1,6 +1,6 @@
 [user]
   name = Falk Schoenfeld
-  email = falk.schoenfeld@work-microwave.com
+  email = falk.schoenfeld@balluffstm.com
   #email = falk.fairfield@gmail.com
 [credential]
   helper = cache --timeout 3600
