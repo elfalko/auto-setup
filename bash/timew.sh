@@ -48,7 +48,7 @@ function twd(){
   tws $DATE
 }
 
-alias twyd="twd $(date  --date='yesterday' +'%Y-%m-%d')"
+alias twyd="twd $(date --date='yesterday' +'%Y-%m-%d')"
 
 
 ## Taskwarrior only
