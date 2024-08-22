@@ -23,7 +23,8 @@ hi! CursorColumn guibg=#404040
     autocmd BufNewFile,BufRead *.scad set filetype=scad 
 
     autocmd FileType scad setlocal commentstring=/*\ %s\ */ tabstop=2 shiftwidth=2
-
+    autocmd FileType scad silent! execute "![ -z $(ps h -C openscad) ] && openscad % &"
+    autocmd BufWipeout *.scad execute "!killall openscad" 
 "    autocmd BufWritePost *.ms silent! execute "![ -z $(ps h -C $PDFVIEWER) ] || make -B @% >/dev/null 2>&1" | redraw!
 "    autocmd BufWritePost *.md execute "![ -z $(ps h -C $PDFVIEWER) ] || lowdown -sTms % | pdfroff -tik -Kutf8 -mspdf > %.pdf" | redraw!
 

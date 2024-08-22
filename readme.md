@@ -4,33 +4,35 @@ The aim here is to semi-automatically setup most distros to a usable state I lik
 
 ## goals
 
-* `CapsLock` as `super`
-* neovim with config
-* tmux with config
-* `.bash_aliases`
-* fancy git aliases
-* some basics installed
-* if GUI: some tiling wm, currently sway/i3
+* so many bash shortcuts
+* Custom x keyboard setup
+    * `CapsLock` as `super`
+    * German umlauts on a, o, u, s
+    * alt gr layer
+* configs for many programs
+  * nvim
+  * vim
+  * ranger
+  * git
+  * gitui
+  * many more, basically just look at the folder names
+* i3 config
+  * multi monitor switching scripts
+* sway config
+
 * never keep anything personal in there (keys, data, whatever) so it can live on github freely
 
 ## setup
 
-1. Clone to home
-2. Run correct install script
-3. Add the following to your `~/.bashrc`
+``` bash
+git clone https://github.com/elfalko/auto-setup
+```
 
-    ``` bash
-    if [ -f ~/bash/bashrc ]; then
-        . ~/.bash/bashrc
-    fi
-    ```
+add the following to your bashrc
+``` bash
+if [ -f ~/auto-setup/bashrc ]; then
+    . ~/auto-setup/bashrc
+fi
+```
 
-4. run some install scripts for the programs you require
-
-## todo
-
-* dual screen sway: put somescript before dmenu to switch to output with less windows open
-* export the lnnew command from somewhere for more modularity
-* arch: setup trizen
-* arch: x config stuff
-
+By default, most folders contain setup scripts to source the config and get stuff running.

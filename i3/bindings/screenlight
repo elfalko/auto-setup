@@ -2,3 +2,10 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym Shift+XF86MonBrightnessUp exec xbacklight -set 100
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym Shift+XF86MonBrightnessDown exec xbacklight -set 1
+
+set $cmd_monlight /home/f/auto-setup/x/simple_backlight_ctl.sh
+
+bindsym $key_light_up exec xbacklight -inc 10 || $cmd_monlight +10
+bindsym Shift+$key_light_up exec xbacklight -set 100 || $cmd_monlight max
+bindsym $key_light_down exec xbacklight -dec 10 || $cmd_monlight -10
+bindsym Shift+$key_light_down exec xbacklight -set 1 || $cmd_monlight min

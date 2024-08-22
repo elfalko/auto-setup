@@ -23,7 +23,7 @@
 # s     sticky 	    corner mode -           -              
 # d     -           -           -           -              
 # f     fullscreen  focus       tgl float   fullscreen global              
-# g     rss[rip]    -           -           -              
+# g     stonerebel  -           -           -              
 #
 # h     focus ᐸ     mv ᐸ        resize ᐸ    -
 # j     focus ᐯ     mv ᐯ        resize ᐯ    -     
@@ -51,6 +51,8 @@
 # F1    start/stop
 # F2    Vol +
 # F3    Vol -
+# F5    Brightness +
+# F6    Brightness -
 
 set $mod mod3 
 
@@ -63,6 +65,8 @@ set $key_browser    i
 
 set $key_fullscreen f
 set $key_float      f
+
+set $key_music      g
 
 set $key_files      u
 
@@ -86,6 +90,9 @@ set $key_vol_down   F2
 set $key_vol_up     F3
 set $key_vol_mute   F4
 
+set $key_light_up   F5
+set $key_light_down F6
+
 # only used for single screen, otherwise this is comms
 set $key_mail       n 
 set $key_vm_ws      y
@@ -96,6 +103,7 @@ set $key_vm_ws      y
 set $lockpaper ~/pics/wallpapers/bounty_hunters_by_wojtekfus-dar6xah.png
 
 ################################################################################
+set $default_path /home/f 
 
 include bindings/basics
 include bindings/terminal.mode
@@ -127,9 +135,9 @@ include themes/bar
 
 # include bindings/workspaces.normal
 
-exec_always /bin/bash ~/auto-setup/x/brightside_home_stack.sh || /bin/bash ~/auto-setup/x/stack_monitors.sh
-exec_always /bin/bash ~/auto-setup/i3/i3-multihead.sh generate "1 2 3 4 5 6 7 8 9 0"
-include /tmp/i3-multihead.config
+exec_always /bin/bash $(find ~/.screenlayout/*/*.sh)
+exec_always /bin/bash ~/auto-setup/i3/i3-multihead.sh --path ~/.config/i3-multihead/i3-multihead generate "1 2 3 4 5 6 7 8 9 0"
+include ~/.config/i3-multihead/i3-multihead.config
 exec_always /bin/bash ~/auto-setup/i3/i3-multihead.sh expand
 
 include bindings/workspaces.utility
@@ -146,6 +154,7 @@ include bindings/volumemount
 include bindings/mobileconnection
 include bindings/printer.mode
 include bindings/mutt
+include bindings/music
 
 # include bindings/machines.wm390
 

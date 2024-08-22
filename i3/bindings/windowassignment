@@ -16,3 +16,6 @@ for_window [window_role="task_dialog"] floating enable
 # maybe to liberal, but should only work on floats and those are usually Open File/Document/?
 for_window [title="Open"] $cmd_common_float
 for_window [class="soffice" title="Navigator"] floating disable
+
+# superslicer
+for_window [class="SuperSlicer" title="Preferences"] floating disable
