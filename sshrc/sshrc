@@ -45,14 +45,17 @@ alias gpu="git push --upstream"
 
 # load specific ssh key onto device and into agent, so we can access git
 # use pw protected key to ensure even if it remains in tmp, nobody can impersonate you
-if [ -z $SSH_AGENT_PID ]; then
-    SSHDIR=$SSHHOME/.sshrc.d/ssh
-    eval $(ssh-agent -s)
-else
-    echo "SSH_AGENT_PID: $SSH_AGENT_PID - not doing anything"
-fi
-chmod 600 $SSHDIR/sshrc_id_rsa
-ssh-add $SSHDIR/sshrc_id_rsa
+
+sshup(){
+  if [ -z $SSH_AGENT_PID ]; then
+      SSHDIR=$SSHHOME/.sshrc.d/ssh
+      eval $(ssh-agent -s)
+  else
+      echo "SSH_AGENT_PID: $SSH_AGENT_PID - not doing anything"
+  fi
+  chmod 600 $SSHDIR/sshrc_id_rsa
+  ssh-add $SSHDIR/sshrc_id_rsa
+}
 
 # tmux
 alias t="tmux -f /tmp/fsctmux/.sshrc.d/tmux.conf"
