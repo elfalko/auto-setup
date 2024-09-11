@@ -1,6 +1,7 @@
 " GENERAL
     " set leader key
         let mapleader=","
+
     " no annoying sound
         set visualbell
 
@@ -35,7 +36,7 @@
         set fileformat=unix
 
     " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
-        au! BufWritePost $MYVIMRC source %      
+        au! BufWritePost $MYVIMRC source %
 
     " open my vimnotes
         nnoremap <Leader>hhh :tabedit ~/auto-setup/nvim/notes.md<CR>
@@ -223,14 +224,14 @@
     nnoremap <Leader>tts :%s/\t/    /g
 
   " set settings for filetypes
-    autocmd FileType c set tabstop=4 shiftwidth=4
-    autocmd FileType cpp set tabstop=4 shiftwidth=4
+    autocmd FileType c set tabstop=4 shiftwidth=4 cinoptions=l1
+    autocmd FileType cpp set tabstop=4 shiftwidth=4 cinoptions=l1
     autocmd FileType h set tabstop=2 shiftwidth=2
     autocmd FileType html set tabstop=2 shiftwidth=2
     autocmd FileType lua set tabstop=8 shiftwidth=8
-    autocmd FileType md set tabstop=2 shiftwidth=2
+    autocmd FileType md set tabstop=2 shiftwidth=2 spelllang=en_us spell
     autocmd FileType py set tabstop=4 shiftwidth=4
-    autocmd FileType tex set spell! spelllang=en_us
+    autocmd FileType tex set spell! spelllang=en_us spell
     autocmd FileType ts set tabstop=2 shiftwidth=2
     autocmd FileType xml set tabstop=2 shiftwidth=2
     autocmd FileType yaml set tabstop=2 shiftwidth=2
