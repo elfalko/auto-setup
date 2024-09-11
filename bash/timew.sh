@@ -1,5 +1,6 @@
 # combine timew and taskw
-alias tt="task ghistory.daily; timew day :id; timew summary :id; task"
+alias tt="task ghistory.daily; timew week sow - eoww :id;  task"
+# timew summary sow - eoww :id;
 
 # timewarrior only
 alias tw="timew"
@@ -49,7 +50,19 @@ function twd(){
 }
 
 alias twyd="twd $(date --date='yesterday' +'%Y-%m-%d')"
-
+alias twtd="twd $(date +'%Y-%m-%d')"
 
 ## Taskwarrior only
 alias ttal='task add dep:"$(task +LATEST uuids)"'
+function ttbp(){
+  task project:$1 burndown.daily
+}
+
+function ttb(){
+  task burndown.daily
+}
+
+function ttp(){
+  task project:$1
+}
+
