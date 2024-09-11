@@ -48,7 +48,7 @@ source $FAUTOSETUP/bash/convenience.sh
 
 source $FAUTOSETUP/bash/ranger.sh
 source $FAUTOSETUP/bash/feh.sh
-source $FAUTOSETUP/bash/timew.sh
+source $FAUTOSETUP/timew/timew.sh
 
 source $FAUTOSETUP/bash/vnc.sh
 
