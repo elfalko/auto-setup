@@ -27,6 +27,7 @@ alias gfp='git pull'
 alias gp='git push'
 alias gpu='git push -u origin '
 
+
 # gtfo(){
 #     eval 'ssh-agent'
 #     ssh-add ~/.ssh/id_ed25519
@@ -34,3 +35,7 @@ alias gpu='git push -u origin '
 #     ssh -T git@github.com
 #     ssh -T git@gitlab.com
 # }
+
+# just for gitui
+alias gu="gitui"
+alias gitiu="gitui"

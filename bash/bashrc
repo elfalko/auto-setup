@@ -35,7 +35,7 @@ fi
 # fi
 
 source $FAUTOSETUP/bash/tmux.sh
-source $FAUTOSETUP/bash/git.sh
+source $FAUTOSETUP/git/git.sh
 source $FAUTOSETUP/bash/jvm.sh
 
 # history - ignore duplicates

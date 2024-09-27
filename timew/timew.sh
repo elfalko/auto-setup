@@ -1,5 +1,5 @@
 # combine timew and taskw
-alias tt="task ghistory.daily; timew week sow - eoww :id;  task"
+alias tt="task ghistory.daily; timew week sow - eoww :id; task limit:25"
 # timew summary sow - eoww :id;
 
 # timewarrior only
