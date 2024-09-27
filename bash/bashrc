@@ -61,7 +61,7 @@ source $FAUTOSETUP/bash/serial.sh
 source $FAUTOSETUP/bash/wsl.sh
 if [ -f /bin/i3 ]; then
     alias i3c="$EDITOR ~/.config/i3/config"
-    alias fi3="startx $(which i3) -c $FAUTOSETUP/i3/config -- vt$XDG_VTNR"
+    alias fi3="exec startx $(which i3) -c $FAUTOSETUP/i3/config -- vt$XDG_VTNR"
 fi
 
 # if [ -f /bin/docker ]; then
@@ -75,6 +75,12 @@ fi
 source $FAUTOSETUP/bash/distrostuff.sh
 
 source $FAUTOSETUP/bash/colors.sh
+
+if [ -d ~/projects/privateconfig ]; then
+  for f in ~/projects/privateconfig/*; do 
+    source $f;
+  done
+fi
 
 
 
