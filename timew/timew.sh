@@ -5,6 +5,10 @@ alias tt="task ghistory.daily; timew week sow - eoww :id; task limit:25"
 # timewarrior only
 alias tw="timew"
 
+alias twdi="timew day :id"
+alias twwi="timew week :id"
+alias twmi="timew month :id"
+
 function tws(){
   if [[ "$1" = "-h" ]]; then
     echo "time warrior summary wrapper"
@@ -49,8 +53,14 @@ function twd(){
   tws $DATE
 }
 
-alias twyd="twd $(date --date='yesterday' +'%Y-%m-%d')"
-alias twtd="twd $(date +'%Y-%m-%d')"
+function twyd(){
+  twd "$(date --date='yesterday' +'%Y-%m-%d')" $@
+}
+
+function twyd(){
+  twd "$(date +'%Y-%m-%d')" $@
+}
+# alias twyd="twd $(date --date='yesterday' +'%Y-%m-%d')"
 
 ## Taskwarrior only
 alias ttal='task add dep:"$(task +LATEST uuids)"'
