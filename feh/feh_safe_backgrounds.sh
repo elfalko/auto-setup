@@ -2,6 +2,7 @@
 
 set -euxo pipefail
 
+[ -f /usr/bin/feh ] || notify-send "feh not found"
 # set a fancy background on the home screen
 # and a normal one on all attached
 
@@ -13,4 +14,4 @@ set -euxo pipefail
 #     $(find -L $HOME/setup/wallpapers | sort -R | tail -1) $BG_L $BG_R
 # /usr/bin/feh --no-fehbg --auto-rotate --bg-max $BG_L $BG_R
 
-/usr/bin/feh --no-fehbg --auto-rotate --bg-max ~/projects/cheatsheet/cheatsheet.jpg
+/usr/bin/feh --no-fehbg --auto-rotate --bg-max $1
