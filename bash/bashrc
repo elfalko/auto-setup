@@ -64,6 +64,10 @@ if [ -f /bin/i3 ]; then
     alias fi3="exec startx $(which i3) -c $FAUTOSETUP/i3/config -- vt$XDG_VTNR"
 fi
 
+if [ -f /usr/bin/startplasma-wayland ]; then
+  source $FAUTOSETUP/kde/aliases.sh
+fi
+
 # if [ -f /bin/docker ]; then
 #   source $FAUTOSETUP/docker/aliases_docker.sh
 # fi
