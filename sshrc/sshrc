@@ -64,5 +64,5 @@ alias sshc="$EDITOR ~/.ssh/config"
 alias gitup="sshup"
 
 # tmux
-alias t="tmux -f /tmp/fsctmux/.sshrc.d/tmux.conf"
+alias t="tmux -f $SSHHOME/.sshrc.d/tmux.conf"
 alias ta="tmux attach"
