@@ -40,3 +40,7 @@ bindsym $mod+shift+$key_float focus mode_toggle
 bindsym $mod+Ctrl+$key_float floating toggle
 
 bindsym $mod+w [urgent=latest] focus
+
+# hints https://github.com/AlfredoSequeida/hints?tab=readme-ov-file#installing
+bindsym $mod+comma exec hints
+

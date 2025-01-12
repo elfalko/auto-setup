@@ -6,5 +6,8 @@ exec nm-applet --no-agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id $(which autotiling)
 exec_always --no-startup-id killall dunst; $(which dunst) -conf ~/auto-setup/dunst/dunstrc
+# exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
+exec --no-startup-id picom -b
 # exec_always --no-startup-id kmonad /home/f/projects/kmonad/homerowmods.kbd
 # exec redshift
+exec_always urxvt

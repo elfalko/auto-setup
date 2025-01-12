@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 # wrapper for i3lock-color, which does not accept a config file apparently
 TEXT="↑↑↓↓←→←→BA"

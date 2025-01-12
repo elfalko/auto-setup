@@ -3,11 +3,11 @@
 
 set $backgroundscript exec ~/auto-setup/feh/feh_background_spanning_image.sh ~/setup/wallpapers/tall
 set $safebackgroundscript exec ~/auto-setup/feh/feh_safe_backgrounds.sh
-set $gifbackgroundscript exec ~/projects/xwinwrap/playvids.sh ~/projects/xwinwrap/slowsun.mp4
+# set $gifbackgroundscript exec ~/projects/xwinwrap/playvids.sh ~/projects/xwinwrap/slowsun.mp4
 
 bindsym $mod+$key_bg exec $backgroundscript
 bindsym $mod+Shift+$key_bg exec $safebackgroundscript
-bindsym $mod+Ctrl+$key_bg exec $gifbackgroundscript
+# bindsym $mod+Ctrl+$key_bg exec $gifbackgroundscript
 
 # wallpaper
-exec $backgroundscript
+exec $safebackgroundscript ~/auto-setup/wallpapers/*.jpg

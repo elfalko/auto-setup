@@ -22,7 +22,7 @@ else
     echo $icon_chg$icon_plug
     echo "FFAE00"
 	# percentage='?'
-    exit 0
+    # exit 0
 fi
 
 if [[ $batstat =~ ([0-9][0-9]:[0-9][0-9]:[0-9][0-9]) ]]; then 
@@ -73,4 +73,4 @@ if (( $percentage < 10 )); then
 	exit 33 
 fi
 
-exit 0
+# exit 0

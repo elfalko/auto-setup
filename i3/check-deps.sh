@@ -15,3 +15,6 @@ find_or_install i3lock-color
 find_or_install autotiling
 find_or_install dunst
 find_or_install dmenu
+find_or_install blueman
+
+# systemctl enable --now blueman-applet

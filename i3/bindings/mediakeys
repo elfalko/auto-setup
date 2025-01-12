@@ -29,4 +29,4 @@ bindsym $mod+shift+$key_mute        exec pavucontrol
 
 # TODO same for mic
 
-bindsym $mod+b exec bluetoothctl power on && blueman-manager 
+bindsym $mod+b exec bluetoothctl power on && blueman-manager || notify-send "Something went wrong with bluetoothctl power on"
