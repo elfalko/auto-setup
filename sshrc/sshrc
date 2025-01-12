@@ -8,6 +8,7 @@ tmuxsetup() {
     mkdir -p $TMUXDIR
     cp -r $SSHHOME/.sshrc $SSHHOME/bashsshrc $SSHHOME/sshrc $SSHHOME/.sshrc.d $TMUXDIR
 }
+
 tmuxrc() {
     local TMUXDIR=/tmp/fsctmux
     if ! [ -d $TMUXDIR ]; then
@@ -16,7 +17,7 @@ tmuxrc() {
     fi
     rm -rf $TMUXDIR/.sshrc.d
     cp -r $SSHHOME/.sshrc $SSHHOME/bashsshrc $SSHHOME/sshrc $SSHHOME/.sshrc.d $TMUXDIR
-    SSHHOME=$TMUXDIR SHELL=$TMUXDIR/bashsshrc /usr/bin/tmux -S $TMUXDIR/tmuxserver $@
+    SSHHOME=$TMUXDIR SHELL=$TMUXDIR/bashsshrc /usr/bin/tmux -S $TMUXDIR/tmuxserver -f $TMUXDIR/.sshrc.d/tmux.conf $@
 }
 export SHELL=`which bash`
 
