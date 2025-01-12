@@ -47,3 +47,5 @@ alias wlsusb="watch -cd -n 0.5 lsusb"
 
 # weather
 alias wttr="curl v2.wttr.in/munich"
+
+alias rffree="rfkill list; rfkill unblock all; rfkill list"
