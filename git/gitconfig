@@ -1,7 +1,6 @@
 [user]
   name = Falk Schoenfeld
-  email = falk.schoenfeld@balluffstm.com
-  #email = falk.fairfield@gmail.com
+  # email comes from .gitconfig which includes this
 [credential]
   helper = cache --timeout 3600
 [color]
