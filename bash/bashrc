@@ -68,6 +68,8 @@ if [ -f /usr/bin/startplasma-wayland ]; then
   source $FAUTOSETUP/kde/aliases.sh
 fi
 
+source $FAUTOSETUP/usbsdmux/automux.sh
+
 # if [ -f /bin/docker ]; then
 #   source $FAUTOSETUP/docker/aliases_docker.sh
 # fi

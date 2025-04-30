@@ -49,3 +49,4 @@ alias wlsusb="watch -cd -n 0.5 lsusb"
 alias wttr="curl v2.wttr.in/munich"
 
 alias rffree="rfkill list; rfkill unblock all; rfkill list"
+alias udevr="sudo udevadm control --reload-rules && sudo udevadm trigger"
