@@ -30,8 +30,8 @@ git clone https://github.com/elfalko/auto-setup
 
 add the following to your bashrc
 ``` bash
-if [ -f ~/auto-setup/bashrc ]; then
-    . ~/auto-setup/bashrc
+if [ -f $HOME/auto-setup/bash/bashrc ]; then
+    . $HOME/auto-setup/bash/bashrc
 fi
 ```
 
