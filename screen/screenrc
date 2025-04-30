@@ -1,0 +1,12 @@
+# load .profile
+shell -$SHELL
+startup_message off
+
+# Enable 256 color term
+term xterm-256color
+
+# Cache 30000 lines for scroll back
+defscrollback 30000
+
+# change command character from ctrl-a to ctrl-b (emacs users may want this)
+#escape ^Bb
