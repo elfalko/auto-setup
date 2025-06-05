@@ -1,3 +1,4 @@
+exe 'set rtp+=' . expand('~/auto-setup/nvim')
 runtime native.vim
 
 " mutt

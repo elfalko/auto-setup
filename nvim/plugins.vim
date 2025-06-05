@@ -14,11 +14,11 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
     
 call plug#begin()
-    source ~/.config/nvim/colorschemes.vim
+    runtime colorschemes.vim
 
     "Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 
-    source ~/.config/nvim/tmux.vim
+    runtime tmux.vim
 
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
@@ -93,7 +93,7 @@ call plug#begin()
     " let g:neoformat_enabled_cpp = ['clangformat']
     " let g:neoformat_enabled_c = ['clangformat']
 
-    source ~/.config/nvim/coc.vim
+    runtime coc.vim
 
     Plug 'norcalli/nvim-colorizer.lua'
 
