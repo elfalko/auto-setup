@@ -119,7 +119,7 @@
         set cursorcolumn
 
     "Add a colored line at certain intervals
-        set colorcolumn=80,160
+        set colorcolumn=80,120,160
 
     " dark bg
         " set background="dark"

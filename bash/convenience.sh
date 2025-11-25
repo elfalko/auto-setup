@@ -1,6 +1,7 @@
 #!/bin/bash
 
 alias cdas="cd $FAUTOSETUP"
+alias cdbai="cd $HOME/.bash_individual_aliases"
 
 # if just a path is used, cd there
 shopt -s autocd
@@ -41,6 +42,9 @@ alias scp="scp -C"
 # archive mode, verbose, compression, prune empty dirs
 alias rs="rsync -avzm --progress"
 
+function lss(){
+  ls -lahS $@ | awk '{ $3=substr($3, 1, 12); $4=substr($4, 1, 12); print }'
+}
 
 # devices
 alias wlsusb="watch -cd -n 0.5 lsusb"
@@ -49,3 +53,4 @@ alias wlsusb="watch -cd -n 0.5 lsusb"
 alias wttr="curl v2.wttr.in/munich"
 
 alias rffree="rfkill list; rfkill unblock all; rfkill list"
+alias udevr="sudo udevadm control --reload-rules && sudo udevadm trigger"
