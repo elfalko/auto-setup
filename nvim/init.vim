@@ -43,6 +43,8 @@ hi! CursorColumn guibg=#404040
     " [20] quickfix error format, include/define, tags
     " majutsushi/tagbar
     
+    " lua require('luainit')
+    runtime luainit.lua
 
 " SOURCES
     " [1] https://www.youtube.com/watch?v=XA2WjJbmmoM&vl=en

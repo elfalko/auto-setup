@@ -12,6 +12,15 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" autoloads nvim-lspconfig if missing
+if empty("~/.config/nvim/pack/nvim/start/nvim-lspconfig")
+  if !has('git')
+    execute '!echo "install git first for lspconfig download"'
+  endif
+  execute '!git clone https://github.com/neovim/nvim-lspconfig ~/.config/nvim/pack/nvim/start/nvim-lspconfig'
+endif
+" runtime lsp.vim
+" runtime basedpyright.vim
 
 " Run PlugInstall if there are missing plugins
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
@@ -40,8 +49,6 @@ if ! empty(glob(data_dir . '/autoload/plug.vim'))
 
   Plug 'sirtaj/vim-openscad' "[11]
 
-
-
   Plug 'unblevable/quick-scope' " [21]
 
   "Plug 'jiangmiao/auto-pairs' " [22]
@@ -54,6 +61,7 @@ if ! empty(glob(data_dir . '/autoload/plug.vim'))
   Plug 'mg979/vim-visual-multi', {'branch': 'master'} " [23]
 
   if has('nvim')
+    " Plug '/neovim/nvim-lspconfig'
     " write in browser [26]
     " Plug 'subnut/nvim-ghost.nvim', {'do': ':call nvim_ghost#installer#install()'}       
     " augroup nvim_ghost_user_autocommands
@@ -79,8 +87,8 @@ if ! empty(glob(data_dir . '/autoload/plug.vim'))
   " endif
 
   " let g:deoplete#enable_at_startup = 1
-  " Plug 'deoplete-plugins/deoplete-clang'
 
+  " Plug 'deoplete-plugins/deoplete-clang'
   " Plug 'dense-analysis/ale'
 
   " let g:ale_linters = {
