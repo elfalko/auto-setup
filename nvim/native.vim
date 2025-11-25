@@ -122,7 +122,7 @@
         set colorcolumn=80,160
 
     " dark bg
-        set background="dark"
+        " set background="dark"
 
     " full color support, disabled for urxvt
         if $TERM =~ '^\(rxvt\)\(-.*\)\?$'
@@ -179,8 +179,8 @@
         " let g:netrw_browse_split=4  " open in prior window
         let g:netrw_altv=1          " open splits to the right
         let g:netrw_liststyle=3     " tree view
-        let g:netrw_list_hide=netrw_gitignore#Hide()
-        let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+        " let g:netrw_list_hide=netrw_gitignore#Hide()
+        " let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
     " cleaner file suggestions
         " list the following files last

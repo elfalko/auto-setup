@@ -45,6 +45,7 @@ export HISTCONTROL=ignoredups
 # alias jnc="jupyter nbconvert --to script"
 
 source $FAUTOSETUP/bash/convenience.sh
+source $FAUTOSETUP/scripts/script_aliases.sh
 
 source $FAUTOSETUP/bash/ranger.sh
 source $FAUTOSETUP/bash/feh.sh
@@ -55,7 +56,10 @@ source $FAUTOSETUP/bash/vnc.sh
 
 source $FAUTOSETUP/bash/x.sh
 source $FAUTOSETUP/bash/serial.sh
+source $FAUTOSETUP/usbsdmux/usbsdmux.sh
+# source $FAUTOSETUP/rubyonrails/rvm.sh
 
+source $FAUTOSETUP/x/aliases.sh
 
 # wms
 source $FAUTOSETUP/bash/wsl.sh

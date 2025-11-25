@@ -11,3 +11,4 @@ set $tgcmd exec ~/setup/telegram/tg-test.sh $(xclip -selection clipboard -o)
 bindsym $mod+shift+$key_connect $qrcmd
 bindsym $mod+$key_connect $tgcmd
 
+# for_window [class="xfreerdp"] fullscreen global

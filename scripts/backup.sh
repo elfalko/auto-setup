@@ -4,6 +4,7 @@ filter=--filter='-_*.pcap'
 filter="$filter "--filter='-_node_modules'
 filter="$filter "--filter='-_*Thumbs.db*'
 filter="$filter "--filter='-_venv'
+filter="$filter "--filter='-_*venv'
 filter="$filter "--filter='-_undodir'
 
 backupdir="/backups/f"
@@ -17,6 +18,30 @@ if [ -d $1 ]; then
 else
     echo "$1 not found"
 fi
+}
+
+backup_old_drive(){
+    echo "$1"
+    backup_path="$1"
+    # mkdir -p "${backup_path}"
+    # sudo mkdir -p ${backup_path}
+    # sudo chown -R f:f ${backup_path}
+
+    echo "backup in progress"
+    # echo ".falk"
+    # $cmd --exclude "thunderbird" /home/f/.falk "${backup_path}"/ || return -1
+    backup_folder /mnt/home/f/auto-setup "${backup_path}"
+    backup_folder /mnt/home/f/projects "${backup_path}"
+    backup_folder /mnt/home/f/personal "${backup_path}"
+    backup_folder /mnt/home/f/pics "${backup_path}"
+    backup_folder /mnt/home/f/work "${backup_path}"
+    backup_folder /mnt/home/f/music "${backup_path}"
+    backup_folder /mnt/home/f/studies "${backup_path}"
+    backup_folder /mnt/home/f/.local/share/mail "${backup_path}"
+
+    # echo "VMs"
+    # $cmd /home/f/VirtualBox VMs "${backup_path}"/ || return -1
+    # echo "done with ${backup_path}"
 }
 
 backup_to_drive(){
@@ -62,10 +87,18 @@ for loc in "${StringArray[@]}"; do
 done
 
 echo "running against server"
+
 . $HOME/auto-setup/scripts/userrequest.sh
+
 # if yn; then
 backup_dest="$servername:~${backupdir}"
 echo $backup_dest;
+
+if [ -d /mnt/home/ ]; then
+  echo "old drive found, backing it up."
+  backup_old_drive "$backup_dest"
+fi
+
 backup_to_drive "$backup_dest"
 # else
 #     echo "aborted, exiting"

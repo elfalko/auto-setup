@@ -39,8 +39,8 @@ do
 		charge+=$icon_on;
 	else
 		if [[ $i == 1 ]]; then
-			charge=" =╬= "
-			# charge="✟ ✟ ✟"
+			# charge=" =✟= "
+			charge="$icon_chg+╬+$icon_chg"
 			break
 		fi
 
