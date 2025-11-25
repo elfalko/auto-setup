@@ -29,7 +29,6 @@ USER ${DEV_USER}
 RUN mkdir -p /home/${DEV_USER}/ws
 WORKDIR /home/${DEV_USER}/ws
 
-# clone auto-setup
-# RUN git clone 
-
-# set up auto-setup
+# RUN git clone https://github.com/elfalko/auto-setup.git /home/${DEV_USER}/auto-setup \
+#   && cd /home/${DEV_USER}/auto-setup \
+#   && . ./setup.sh
