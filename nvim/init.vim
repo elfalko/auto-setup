@@ -2,14 +2,14 @@ exe 'set rtp+=' . expand('~/auto-setup/nvim')
 runtime native.vim
 
 " mutt
-    map <leader>kq G?><CR>d?>--<CR>
+map <leader>kq G?><CR>d?>--<CR>
 
 " SNIPPETS
-    nnoremap <Leader>ba :-1read ${HOME}/auto-setup/templates/bash/header<CR>
-    nnoremap <Leader>bh :-1read ${HOME}/auto-setup/templates/bash/help<CR>
-    nnoremap <Leader>bp :-1read ${HOME}/auto-setup/templates/bash/params<CR>
-    nnoremap <Leader>ff o//TODO FSC 
-    nnoremap <Leader>## 80i#<Esc>
+nnoremap <Leader>ba :-1read ${HOME}/auto-setup/templates/bash/header<CR>
+nnoremap <Leader>bh :-1read ${HOME}/auto-setup/templates/bash/help<CR>
+nnoremap <Leader>bp :-1read ${HOME}/auto-setup/templates/bash/params<CR>
+nnoremap <Leader>ff o//TODO FSC
+nnoremap <Leader>## 80i#<Esc>
 
 runtime plugins.vim
 
@@ -19,32 +19,33 @@ hi! CursorLine guibg=#404040
 hi! CursorColumn guibg=#404040
 
 " TWEAKS [4]
-    " set unknown file types
-    " source ~/.config/nvim/workmicrowavelog.vim
-    autocmd BufNewFile,BufRead *.scad set filetype=scad
-    autocmd BufNewFile,BufRead *.cfg set filetype=cfg
-    autocmd BufNewFile,BufRead Dockerfile* set filetype=dockerfile
+" set unknown file types
+" source ~/.config/nvim/workmicrowavelog.vim
+autocmd BufNewFile,BufRead *.scad set filetype=scad
+autocmd BufNewFile,BufRead *.cfg set filetype=cfg
+autocmd BufNewFile,BufRead Dockerfile* set filetype=dockerfile
 
-    autocmd FileType scad setlocal commentstring=/*\ %s\ */ tabstop=2 shiftwidth=2
-    autocmd FileType scad silent! execute "![ -z $(ps h -C openscad) ] && openscad % &"
-    autocmd BufWipeout *.scad execute "!killall openscad"
-    autocmd FileType cfg colorscheme elflord
+autocmd FileType scad setlocal commentstring=/*\ %s\ */ tabstop=2 shiftwidth=2
+autocmd FileType scad silent! execute "![ -z $(ps h -C openscad) ] && openscad % &"
+autocmd BufWipeout *.scad execute "!killall openscad"
+autocmd FileType cfg colorscheme elflord
 "    autocmd BufWritePost *.ms silent! execute "![ -z $(ps h -C $PDFVIEWER) ] || make -B @% >/dev/null 2>&1" | redraw!
 "    autocmd BufWritePost *.md execute "![ -z $(ps h -C $PDFVIEWER) ] || lowdown -sTms % | pdfroff -tik -Kutf8 -mspdf > %.pdf" | redraw!
 
 " TODO
-    " Stop movements from always going to the first character of a line.
-        " set nostartofline
-    " TODO [4]
-    " QuickfixFormatter [7]
-    " fix line number color
-    " fix current line highlight color
-    " paste mode stuff [18]
-    " [20] quickfix error format, include/define, tags
-    " majutsushi/tagbar
-    
-    " lua require('luainit')
+" Stop movements from always going to the first character of a line.
+    " set nostartofline
+" TODO [4]
+" QuickfixFormatter [7]
+" fix line number color
+" fix current line highlight color
+" paste mode stuff [18]
+" [20] quickfix error format, include/define, tags
+" majutsushi/tagbar
+
+if has('nvim-0.11')
     runtime luainit.lua
+endif
 
 " SOURCES
     " [1] https://www.youtube.com/watch?v=XA2WjJbmmoM&vl=en
