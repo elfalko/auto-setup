@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -x
 # actual setup
 echo "General setup"
 
@@ -28,3 +29,4 @@ EOF
 echo ""
 
 echo "You might want to restart to allow the full config to take effect"
+set +x

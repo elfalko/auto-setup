@@ -13,10 +13,6 @@ nnoremap <Leader>## 80i#<Esc>
 
 runtime plugins.vim
 
-colorscheme gotham
-hi! Comment guifg=#0b6e8a
-hi! CursorLine guibg=#404040
-hi! CursorColumn guibg=#404040
 
 " TWEAKS [4]
 " set unknown file types

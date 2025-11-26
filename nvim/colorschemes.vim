@@ -11,3 +11,12 @@ nnoremap <Leader>c3 :colorscheme falcon<CR>
 nnoremap <Leader>c4 :colorscheme nord<CR>
 nnoremap <Leader>c5 :colorscheme bluewery<CR>
 
+try
+  silent! colorscheme gotham
+  hi! Comment guifg=#0b6e8a
+  hi! CursorLine guibg=#404040
+  hi! CursorColumn guibg=#404040
+catch
+  !echo "Gotham not found"
+endtry
+

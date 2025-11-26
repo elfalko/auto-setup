@@ -1,3 +1,14 @@
+-- autoloads nvim-lspconfig if missing
+local path = vim.fn.stdpath("data") .. "/site/pack/nvim/start/nvim-lspconfig"
+
+if vim.fn.empty(vim.fn.glob(path)) > 0 then
+  vim.fn.system({
+    "git", "clone", "--depth=1",
+    "https://github.com/neovim/nvim-lspconfig",
+    path,
+  })
+end
+
 vim.lsp.config('*', {
   capabilities = {
     textDocument = {
@@ -9,18 +20,18 @@ vim.lsp.config('*', {
   root_markers = { '.git' },
 })
 
--- :checkhealth vim.lsp
 
 vim.lsp.enable('basedpyright')
 
 vim.lsp.enable('bashls')
 
-vim.lsp.config('luals', {
-})
-
+-- TODO why not in lspconfig
+vim.lsp.config('luals', {})
 vim.lsp.enable('luals')
+
 vim.lsp.enable('vimls')
 
+-- :checkhealth vim.lsp
 -- :help lsp-defaults
 -- :help diagnostic-defaults
 

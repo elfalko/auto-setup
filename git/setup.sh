@@ -12,4 +12,8 @@ EOF
 
 # ln -s ~/auto-setup/git/gitconfig ~/.gitconfig
 # cp ~/auto-setup/git/gitlocalenv.sh
-${EDITOR:=nvim} -O "$HOME/.gitconfig" "$HOME/auto-setup/git/gitlocalenv.sh"
+if [ ! -f /.dockerenv ]; then
+  ${EDITOR:=nvim} -O "$HOME/.gitconfig" "$HOME/auto-setup/git/gitlocalenv.sh"
+else
+  echo "Skipping customization in dockerfile"
+fi

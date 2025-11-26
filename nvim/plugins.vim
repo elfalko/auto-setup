@@ -1,7 +1,8 @@
 " PLUGINS
 "
 " Install Vim Plug if not installed
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '$HOME/.vim'
+" execute '!echo Data dir is ' . data_dir
 " execute '!echo '.glob(data_dir . '/autoload/plug.vim')
 if empty(glob(data_dir . '/autoload/plug.vim'))
   if !has('curl')
@@ -10,24 +11,13 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   " execute '!wget -P '.data_dir.'/autoload/plug.vim --no-clobber https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+else
+  " Run PlugInstall if there are missing plugins
+  autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    \| PlugInstall --sync | source $MYVIMRC
+    \| endif
 
-" autoloads nvim-lspconfig if missing
-if empty("~/.config/nvim/pack/nvim/start/nvim-lspconfig")
-  if !has('git')
-    execute '!echo "install git first for lspconfig download"'
-  endif
-  execute '!git clone https://github.com/neovim/nvim-lspconfig ~/.config/nvim/pack/nvim/start/nvim-lspconfig'
-endif
-" runtime lsp.vim
-" runtime basedpyright.vim
-
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-  \| endif
-
-if ! empty(glob(data_dir . '/autoload/plug.vim'))
+  if ! empty(glob(data_dir . '/autoload/plug.vim'))
   call plug#begin()
   runtime colorschemes.vim
 
@@ -56,7 +46,6 @@ if ! empty(glob(data_dir . '/autoload/plug.vim'))
   Plug 'Vimjas/vim-python-pep8-indent'
 
   Plug 'AlphaTechnolog/pywal.nvim', { 'as': 'pywal' }
-
 
   Plug 'mg979/vim-visual-multi', {'branch': 'master'} " [23]
 
@@ -110,7 +99,6 @@ if ! empty(glob(data_dir . '/autoload/plug.vim'))
   Plug 'norcalli/nvim-colorizer.lua'
 
   call plug#end()
-endif
-" Initialize plugin system
-" :PlugInstall
+  endif
 
+endif

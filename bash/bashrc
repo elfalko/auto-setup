@@ -93,6 +93,3 @@ if [ -d ~/projects/privateconfig ]; then
     source $f;
   done
 fi
-
-
-
