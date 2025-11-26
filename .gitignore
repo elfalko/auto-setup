@@ -2,3 +2,4 @@
 MOK.*
 x/keyboard/xkb
 **.log
+*.nvimlog
