@@ -1,5 +1,9 @@
 *.old
+
 MOK.*
 x/keyboard/xkb
+
 **.log
 *.nvimlog
+
+sshrc/sshrc.d/ssh_id_ecdsa

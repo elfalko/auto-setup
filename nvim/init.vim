@@ -16,7 +16,8 @@ runtime plugins.vim
 
 " TWEAKS [4]
 " set unknown file types
-" source ~/.config/nvim/workmicrowavelog.vim
+" autocmd BufNewFile,BufRead *.log source ~/.config/nvim/microsyslog.vim
+source ~/.config/nvim/workmicrowavelog.vim
 autocmd BufNewFile,BufRead *.scad set filetype=scad
 autocmd BufNewFile,BufRead *.cfg set filetype=cfg
 autocmd BufNewFile,BufRead *.dtso set filetype=dts
