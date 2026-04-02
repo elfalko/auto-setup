@@ -120,6 +120,8 @@ set cursorcolumn
 
 "Add a colored line at certain intervals
 set colorcolumn=80,120,160
+2match WarningMsg /\%80v./
+3match ErrorMsg /\%120v./
 
 " dark bg
 " set background="dark"
@@ -222,6 +224,10 @@ nnoremap <leader>h :vertical resize -10<CR>
 nnoremap <leader>l :vertical resize +10<CR>
 
 nnoremap <Leader>tts :%s/\t/    /g
+
+nnoremap <Leader>dt :diffthis<CR>
+nnoremap <Leader>dwt :windo diffthis<CR>
+nnoremap <Leader>dwo :windo diffoff<CR>
 
 " set settings for filetypes
 autocmd FileType c set tabstop=4 shiftwidth=4 cinoptions=l1

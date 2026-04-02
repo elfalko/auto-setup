@@ -64,6 +64,15 @@ else
 
     " [27]
     Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+    " Debuggers
+    Plug 'mfussenegger/nvim-dap'
+    Plug 'nvim-neotest/nvim-nio'
+    Plug 'rcarriga/nvim-dap-ui'
+    Plug 'jay-babu/mason-nvim-dap.nvim'
+    Plug 'theHamsta/nvim-dap-virtual-text'
+
+    Plug 'mfussenegger/nvim-dap-python'
   endif
 
   " [25]

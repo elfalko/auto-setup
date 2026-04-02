@@ -17,7 +17,7 @@ RUN aur-install shellcheck shfmt bash-language-server
 # nvim dev
 RUN aur-install lua-language-server vim-language-server
 # python dev
-RUN aur-install python3 basedpyright
+RUN aur-install python3 basedpyright python-debugpy
 
 # setup user
 RUN useradd "${DEV_USER}" \

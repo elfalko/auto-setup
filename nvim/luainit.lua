@@ -21,6 +21,24 @@ vim.lsp.config('*', {
 })
 
 
+vim.lsp.config('basedpyright', {
+  settings = {
+    basedpyright = {
+      analysis = {
+        diagnosticSeverityOverrides = {
+          reportUnknownVariableType = false,
+          reportUnknownParameterType = false,
+          reportUnannotatedClassAttribute = false,
+          reportMissingParameterType = false,
+          reportUnknownMemberType = false,
+          reportUnknownArgumentType = false,
+          reportAny = false,
+        },
+      },
+    },
+  }
+})
+
 vim.lsp.enable('basedpyright')
 
 vim.lsp.enable('bashls')

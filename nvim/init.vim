@@ -19,8 +19,10 @@ runtime plugins.vim
 " source ~/.config/nvim/workmicrowavelog.vim
 autocmd BufNewFile,BufRead *.scad set filetype=scad
 autocmd BufNewFile,BufRead *.cfg set filetype=cfg
+autocmd BufNewFile,BufRead *.dtso set filetype=dts
 autocmd BufNewFile,BufRead Dockerfile* set filetype=dockerfile
 
+autocmd FileType lua tabstop=2 shiftwidth=2
 autocmd FileType scad setlocal commentstring=/*\ %s\ */ tabstop=2 shiftwidth=2
 autocmd FileType scad silent! execute "![ -z $(ps h -C openscad) ] && openscad % &"
 autocmd BufWipeout *.scad execute "!killall openscad"
