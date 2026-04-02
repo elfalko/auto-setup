@@ -11,6 +11,7 @@ alias gi="git i"
 alias gii="git ii"
 
 alias ga="git add"
+alias gap="git add --patch"
 alias gd="git diff --minimal"
 alias gdi="git diff --minimal --ignore-all-space"
 alias gdw="git diff --minimal"

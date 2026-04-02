@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 #set -exo pipefail
 
@@ -8,17 +8,17 @@
 
 get_latest_firefox_download(){
     DOWNLOADDIR="/tmp/mozilla_${USER}0"
-    get_latest_file $DOWNLOADDIR
+    get_latest_file "$DOWNLOADDIR"
 }
 
 get_latest_download(){
     DOWNLOADDIR="$HOME/Downloads"
-    get_latest_file $DOWNLOADDIR
+    get_latest_file "$DOWNLOADDIR"
 }
 
 get_latest_screenshot(){
     MYDIR="$HOME/pics/screenshots"
-    get_latest_file $MYDIR
+    get_latest_file "$MYDIR"
 }
 
 find_latest_file(){
@@ -45,7 +45,7 @@ find_latest_file(){
     
 
 get_latest_file(){
-    mv "$(find_latest_file $1)" .
+    mv "$(find_latest_file ${1})" .
 }
 
 export -f find_latest_file
