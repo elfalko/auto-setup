@@ -33,6 +33,8 @@ else
   Plug 'tpope/vim-surround' "[6]
   Plug 'tpope/vim-repeat' "supports vim-surround
   Plug 'tpope/vim-fugitive'
+  nnoremap <leader>gb :Git blame<CR> 
+
   Plug 'tpope/vim-abolish'
 
   Plug 'slim-template/vim-slim' "[10]
