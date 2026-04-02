@@ -19,7 +19,7 @@ hi! CursorColumn guibg=#404040
 
 " TWEAKS [4]
     " set unknown file types
-    " source ~/.config/nvim/workmicrowavelog.vim
+    autocmd BufNewFile,BufRead *.log source ~/.config/nvim/microsyslog.vim
     autocmd BufNewFile,BufRead *.scad set filetype=scad 
 
     autocmd FileType scad setlocal commentstring=/*\ %s\ */ tabstop=2 shiftwidth=2
