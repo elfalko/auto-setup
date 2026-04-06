@@ -21,6 +21,7 @@ vim.lsp.config('luals', {
 vim.lsp.enable('luals')
 vim.lsp.enable('vimls')
 
+
 -- :help lsp-defaults
 -- :help diagnostic-defaults
 

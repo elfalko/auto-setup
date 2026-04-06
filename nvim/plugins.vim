@@ -38,6 +38,7 @@ if ! empty(glob(data_dir . '/autoload/plug.vim'))
   Plug 'junegunn/fzf.vim'
 
   Plug 'lervag/vimtex'
+  Plug 'lepture/vim-jinja'
 
   Plug 'tpope/vim-commentary' "[5]
   Plug 'tpope/vim-surround' "[6]
@@ -108,9 +109,12 @@ if ! empty(glob(data_dir . '/autoload/plug.vim'))
   " let g:neoformat_enabled_c = ['clangformat']
 
   Plug 'norcalli/nvim-colorizer.lua'
-
   call plug#end()
 endif
+
+" nvim-colorizer
+lua require 'colorizer'.setup()
+
 " Initialize plugin system
 " :PlugInstall
 

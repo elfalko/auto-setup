@@ -20,7 +20,7 @@ RUN aur-install lua-language-server vim-language-server
 
 # setup user
 RUN useradd "${DEV_USER}" \
-  --shell /bin/bash \
+  --shell "/bin/bash" \
   --user-group \
   --create-home --home-dir "/home/${DEV_USER}"
 USER ${DEV_USER}
