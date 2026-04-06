@@ -74,6 +74,8 @@ fi
 
 source $FAUTOSETUP/usbsdmux/automux.sh
 
+source $FAUTOSETUP/devcontainer/aliases.sh
+
 # if [ -f /bin/docker ]; then
 #   source $FAUTOSETUP/docker/aliases_docker.sh
 # fi
@@ -91,6 +93,3 @@ if [ -d ~/projects/privateconfig ]; then
     source $f;
   done
 fi
-
-
-

@@ -5,10 +5,14 @@ alias cdbai="cd $HOME/.bash_individual_aliases"
 
 # if just a path is used, cd there
 shopt -s autocd
+# autocorrect paths
+shopt -s cdspell
 
 # herpderp
-alias cd..="cd .."
-alias cd...="cd ../.."
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 alias rmrf="rm -rf"
 
 
@@ -54,3 +58,4 @@ alias wttr="curl v2.wttr.in/munich"
 
 alias rffree="rfkill list; rfkill unblock all; rfkill list"
 alias udevr="sudo udevadm control --reload-rules && sudo udevadm trigger"
+alias lst="ls -lah | awk '{printf \"%-5s %-2s %-3s %-2s %-6s %s %s\\n\", \$5, \$7, \$6, \$8, \$9, \$10, \$11}'"

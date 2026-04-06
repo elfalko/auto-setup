@@ -11,7 +11,8 @@ fi
 # ./jdhao_c_setup.sh
 # ./setup_coc.sh
 
-$EDITOR +:PlugInstall
+${EDITOR:=nvim} --headless +qall!
+${EDITOR:=nvim} --headless +PlugInstall +qall!
 
 # trizen -Sy basedpyright \
 #   shellcheck shfmt bash-language-server \
