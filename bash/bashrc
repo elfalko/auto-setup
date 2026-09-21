@@ -93,3 +93,5 @@ if [ -d ~/projects/privateconfig ]; then
     source $f;
   done
 fi
+
+source $FAUTOSETUP/python/aliases.sh

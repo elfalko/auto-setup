@@ -12,14 +12,17 @@ alias gii="git ii"
 
 alias ga="git add"
 alias gap="git add --patch"
+gal(){ git add "!$"; }
 alias gd="git diff --minimal"
 alias gdi="git diff --minimal --ignore-all-space"
 alias gdw="git diff --minimal"
 alias gdc="git diff --compact-summary"
 alias gdf="git diff --name-only"
 alias gitco='git commit -m '
+alias gh='git symbolic-ref refs/remotes/origin/HEAD | cut -f4 -d/'
 alias gl='git l'
 alias gco='git checkout'
+alias gcoh='git checkout $(git symbolic-ref refs/remotes/origin/HEAD | cut -f4 -d/) && git pull'
 alias gcd='git checkout develop; git fetch'
 alias gcm='git checkout master; git fetch'
 alias gcom='git checkout master'
@@ -27,6 +30,7 @@ alias gc='git commit'
 alias gfp='git pull'
 alias gp='git push'
 alias gpu='git push -u origin '
+alias grc='git rebase --continue'
 
 
 # gtfo(){

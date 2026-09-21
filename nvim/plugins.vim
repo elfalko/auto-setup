@@ -26,6 +26,11 @@ else
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  vnoremap <Leader>/ y:Ag <C-R>=escape(@",'/\')<CR><CR>
+
+  " Ag for normal search
+  nnoremap <Leader>* :Ag <C-r><C-w><CR>
+
 
   Plug 'lervag/vimtex'
 
