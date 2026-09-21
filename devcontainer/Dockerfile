@@ -21,7 +21,7 @@ RUN aur-install python3 basedpyright python-debugpy
 
 # setup user
 RUN useradd "${DEV_USER}" \
-  --shell /bin/bash \
+  --shell "/bin/bash" \
   --user-group --uid ${DEV_USER_ID} \
   --create-home --home-dir "/home/${DEV_USER}" \
   && chmod -R 770 "/home/${DEV_USER}"

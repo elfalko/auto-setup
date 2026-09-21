@@ -18,103 +18,108 @@ else
     \| endif
 
   if ! empty(glob(data_dir . '/autoload/plug.vim'))
-  call plug#begin()
-  runtime colorschemes.vim
+    call plug#begin()
+    runtime colorschemes.vim
 
-  runtime tmux.vim
-  "Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
+    runtime tmux.vim
+    "Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-  vnoremap <Leader>/ y:Ag <C-R>=escape(@",'/\')<CR><CR>
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    vnoremap <Leader>/ y:Ag <C-R>=escape(@",'/\')<CR><CR>
 
-  " Ag for normal search
-  nnoremap <Leader>* :Ag <C-r><C-w><CR>
+    " Ag for normal search
+    nnoremap <Leader>* :Ag <C-r><C-w><CR>
 
+    Plug 'lervag/vimtex'
+    Plug 'lepture/vim-jinja'
 
-  Plug 'lervag/vimtex'
+    Plug 'tpope/vim-commentary' "[5]
+    Plug 'tpope/vim-surround' "[6]
+    Plug 'tpope/vim-repeat' "supports vim-surround
+    Plug 'tpope/vim-fugitive'
+    nnoremap <leader>gb :Git blame<CR> 
 
-  Plug 'tpope/vim-commentary' "[5]
-  Plug 'tpope/vim-surround' "[6]
-  Plug 'tpope/vim-repeat' "supports vim-surround
-  Plug 'tpope/vim-fugitive'
-  nnoremap <leader>gb :Git blame<CR> 
+    Plug 'tpope/vim-abolish'
 
-  Plug 'tpope/vim-abolish'
+    Plug 'slim-template/vim-slim' "[10]
 
-  Plug 'slim-template/vim-slim' "[10]
+    Plug 'sirtaj/vim-openscad' "[11]
 
-  Plug 'sirtaj/vim-openscad' "[11]
+    Plug 'unblevable/quick-scope' " [21]
 
-  Plug 'unblevable/quick-scope' " [21]
+    "Plug 'jiangmiao/auto-pairs' " [22]
 
-  "Plug 'jiangmiao/auto-pairs' " [22]
+    Plug 'Vimjas/vim-python-pep8-indent'
 
-  Plug 'Vimjas/vim-python-pep8-indent'
+    Plug 'AlphaTechnolog/pywal.nvim', { 'as': 'pywal' }
 
-  Plug 'AlphaTechnolog/pywal.nvim', { 'as': 'pywal' }
+    Plug 'mg979/vim-visual-multi', {'branch': 'master'} " [23]
 
-  Plug 'mg979/vim-visual-multi', {'branch': 'master'} " [23]
+    if has('nvim')
+      " Plug '/neovim/nvim-lspconfig'
+      " write in browser [26]
+      " Plug 'subnut/nvim-ghost.nvim', {'do': ':call nvim_ghost#installer#install()'}       
+      " augroup nvim_ghost_user_autocommands
+      "     au User *.reddit.com set filetype=markdown
+      "     au User *.stackoverflow.com set filetype=markdown
+      "     au User *github.com set filetype=markdown
+      "     au User intranet.lan.work-microwave.com set filetype=markdown
+      " augroup END
 
-  if has('nvim')
-    " Plug '/neovim/nvim-lspconfig'
-    " write in browser [26]
-    " Plug 'subnut/nvim-ghost.nvim', {'do': ':call nvim_ghost#installer#install()'}       
-    " augroup nvim_ghost_user_autocommands
-    "     au User *.reddit.com set filetype=markdown
-    "     au User *.stackoverflow.com set filetype=markdown
-    "     au User *github.com set filetype=markdown
-    "     au User intranet.lan.work-microwave.com set filetype=markdown
-    " augroup END
+      " let g:nvim_ghost_super_quiet = 1
 
-    " let g:nvim_ghost_super_quiet = 1
+      " [27]
+      Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
-    " [27]
-    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+      " Debuggers
+      Plug 'mfussenegger/nvim-dap'
+      Plug 'nvim-neotest/nvim-nio'
+      Plug 'rcarriga/nvim-dap-ui'
+      Plug 'jay-babu/mason-nvim-dap.nvim'
+      Plug 'theHamsta/nvim-dap-virtual-text'
 
-    " Debuggers
-    Plug 'mfussenegger/nvim-dap'
-    Plug 'nvim-neotest/nvim-nio'
-    Plug 'rcarriga/nvim-dap-ui'
-    Plug 'jay-babu/mason-nvim-dap.nvim'
-    Plug 'theHamsta/nvim-dap-virtual-text'
+      Plug 'mfussenegger/nvim-dap-python'
+    endif
 
-    Plug 'mfussenegger/nvim-dap-python'
+    " [25]
+    " if has('nvim')
+    "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " else
+    "   Plug 'Shougo/deoplete.nvim'
+    "   Plug 'roxma/nvim-yarp'
+    "   Plug 'roxma/vim-hug-neovim-rpc'
+    " endif
+
+    " let g:deoplete#enable_at_startup = 1
+
+    " Plug 'deoplete-plugins/deoplete-clang'
+    " Plug 'dense-analysis/ale'
+
+    " let g:ale_linters = {
+    "     \ 'python': ['pylint'],
+    "     \ 'vim': ['vint'],
+    "     \ 'cpp': ['clang'],
+    "     \ 'c': ['clang']
+    " \}
+
+    runtime coc.vim
+    " " custom setting for clangformat
+    " let g:neoformat_cpp_clangformat = {
+    "     \ 'exe': 'clang-format',
+    "     \ 'args': ['--style="{IndentWidth: 4}"']
+    " \}
+    " let g:neoformat_enabled_cpp = ['clangformat']
+    " let g:neoformat_enabled_c = ['clangformat']
+
+    Plug 'norcalli/nvim-colorizer.lua'
+    call plug#end()
   endif
 
-  " [25]
-  " if has('nvim')
-  "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " else
-  "   Plug 'Shougo/deoplete.nvim'
-  "   Plug 'roxma/nvim-yarp'
-  "   Plug 'roxma/vim-hug-neovim-rpc'
-  " endif
+  " nvim-colorizer
+  lua require 'colorizer'.setup()
 
-  " let g:deoplete#enable_at_startup = 1
-
-  " Plug 'deoplete-plugins/deoplete-clang'
-  " Plug 'dense-analysis/ale'
-
-  " let g:ale_linters = {
-  "     \ 'python': ['pylint'],
-  "     \ 'vim': ['vint'],
-  "     \ 'cpp': ['clang'],
-  "     \ 'c': ['clang']
-  " \}
-
-  runtime coc.vim
-  " " custom setting for clangformat
-  " let g:neoformat_cpp_clangformat = {
-  "     \ 'exe': 'clang-format',
-  "     \ 'args': ['--style="{IndentWidth: 4}"']
-  " \}
-  " let g:neoformat_enabled_cpp = ['clangformat']
-  " let g:neoformat_enabled_c = ['clangformat']
-
-  Plug 'norcalli/nvim-colorizer.lua'
-
-  call plug#end()
-  endif
+  " Initialize plugin system
+  " :PlugInstall
 
 endif
