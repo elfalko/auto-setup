@@ -56,6 +56,7 @@
   idw=diff --no-ext-diff --cached --word-diff
   d=diff --minimal
   di=diff --ignore-all-space --minimal
+  df=diff --name-only
   ir=reset
   irp=reset --patch
   ix=rm -r --cached
@@ -109,6 +110,11 @@
   wcfd=clean -df
   wx=rm -r
   wxf=rm -rf
+
+  # worktree
+	wta = "!f() { git worktree add -b \"$1\" \"../$1\"; }; f"
+  wtr = "!f() { git worktree remove "../$1"; }; f"
+  wtl = "!f() { git worktree list; }; f"
 
  # Log (l)
   l1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h %C(bold green)%as %C(white)%s %C(dim white)%an%C(reset)%C(bold yellow)%d%C(reset)' --all
