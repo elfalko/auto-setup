@@ -9,13 +9,22 @@
 # 6 rotate other way        R
 
 # also see ~/.config/feh/keys
+#
+# if [ ! -z "$1" ]; then
+#   echo "got startat"
+#   STARTAT="--start-at $1"
+# else
+#   STARTAT=""
+# fi
 
-feh --scale-down --draw-filename --draw-exif --auto-rotate \
+set -x
+feh --scale-down --draw-filename --draw-exif \
     --action1 "~/auto-setup/feh/move_to_good.sh $PWD/%F" \
     --action2 "~/auto-setup/feh/move_to_stitch.sh $PWD/%F" \
     --action3 "~/auto-setup/feh/move_to_bad.sh $PWD/%F" \
     --action4 ";~/auto-setup/feh/resize_for_sending.sh $PWD/%F" \
     --action5 ";~/auto-setup/feh/rotate_clockwise.sh $PWD/%F" \
     --action6 ";~/auto-setup/feh/rotate_counterclockwise.sh $PWD/%F" \
-    --start-at $1
+    $@
     # -p \
+set +x

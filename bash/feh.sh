@@ -1,3 +1,3 @@
 #!/bin/bash
 
-alias feh='/bin/bash ~/auto-setup/feh/myfeh.sh'
+alias ffeh='/bin/bash ~/auto-setup/feh/myfeh.sh'
