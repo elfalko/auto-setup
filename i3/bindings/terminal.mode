@@ -1,11 +1,12 @@
 ################################################################################
 # terminal selector mode
 
-set $mode_terminal (a)lacritty (d) urxvt (s) terminator
+set $mode_terminal (a)lacritty (k)itty (t)erminator (u)rxvt
 mode "$mode_terminal" {
+    bindsym k exec kitty, mode "default"
     bindsym a exec alacritty, mode "default"
-    bindsym d exec urxvt, mode "default"
-    bindsym s exec terminator, mode "default"
+    bindsym u exec urxvt, mode "default"
+    bindsym t exec terminator, mode "default"
 
     # back to normal: Enter or Escape
     bindsym $mod+Ctrl+Return mode "default"

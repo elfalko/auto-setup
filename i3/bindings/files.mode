@@ -1,6 +1,6 @@
 ################################################################################
 set $cmd_lf          exec "urxvt -e lf"
-set $cmd_ranger      exec "urxvt -e ranger"
+set $cmd_ranger      exec "kitty -e ranger || urxvt -e ranger"
 
 set $mode_filebrowsers (t)hunar (r)anger (l)f (d)olphin
 mode "$mode_filebrowsers" {
