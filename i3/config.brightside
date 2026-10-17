@@ -5,46 +5,46 @@
 # Caps - Mod
 #
 # keyref:
-# key   +mod   	    +mod+shift  +mod+ctrl   +mod+shift+ctl  +nothing (only if key itself was overwritten) 
+# key   +mod   	    +mod+shift  +mod+ctrl   +mod+shift+ctl  +nothing (only if key itself was overwritten)
 #
-# q     layout 	    kill window -           -               
-# w     jump urgent -           -           -                
-# e     mnt dev     umnt dev    -           -               
-# r     -      	    reload i3   -           -               
-# t     vm start    vm stop     vm menu     -               
+# q     layout 	    kill window -           -
+# w     jump urgent -           -           -
+# e     mnt dev     umnt dev    -           -
+# r     -      	    reload i3   -           -
+# t     vm start    vm stop     vm menu     -
 #
-# y     windows	    mv windows  -           -               
-# u     ranger 	    filebrowser -           -               
-# i     firefox	    browser     network     -              
-# o     kicad       killcad     -              
-# p     p3d    	    mv p3d      -           -              
+# y     windows	    mv windows  -           -
+# u     ranger 	    filebrowser -           -
+# i     firefox	    browser     network     -
+# o     kicad       killcad     -           -
+# p     p3d    	    mv p3d      -           -
 #
-# a     parent 	    child       -           -              
-# s     sticky 	    corner mode -           -              
-# d     -           -           -           -              
-# f     fullscreen  focus       tgl float   fullscreen global              
-# g     stonerebel  -           -           -              
+# a     parent 	    child       -           -
+# s     sticky 	    corner mode -           -
+# d     -           -           -           -
+# f     fullscreen  focus       tgl float   fullscreen global
+# g     stonerebel  -           -           -
 #
 # h     focus ᐸ     mv ᐸ        resize ᐸ    -
-# j     focus ᐯ     mv ᐯ        resize ᐯ    -     
+# j     focus ᐯ     mv ᐯ        resize ᐯ    -
 # k     focus ᐱ     mv ᐱ        resize ᐱ    -
-# l     focus ᐳ     mv ᐳ        resize ᐳ    -      
-# ;     telegram    qr          -           -               
+# l     focus ᐳ     mv ᐳ        resize ᐳ    -
+# ;     telegram    qr          -           -
 #
-# z     background  safe bg     gif         -               
-# x     -           -           -           -               
-# c     screenshot  see shots   -           -               
-# v     scratch     mv scratch  -           -               
-# b     bluetooth   exit 3i     -           -               
+# z     background  safe bg     gif         -
+# x     -           -           -           -
+# c     screenshot  see shots   -           -
+# v     scratch     mv scratch  -           -
+# b     bluetooth   exit 3i     -           -
 
-# n     mail        mv mail     neomutt     -               
-# m     monitors    reset mon   -           -               
-# ,     hints       -           -           -               
-# .     -           -           -           -               
+# n     mail        mv mail     neomutt     -
+# m     monitors    reset mon   -           -
+# ,     hints       -           -           -
+# .     -           -           -           -
 #
-# space context     dmenu       -           -               
-# enter terminal    browser     -           -               
-# esc   lock        keepass     -           -           -               
+# space context     dmenu       -           -
+# enter terminal    browser     -           -
+# esc   lock        keepass     -           -           -
 # mute  pavuctl     -           -           -
 # Print -           -           -           -               screenkey
 #
@@ -54,7 +54,7 @@
 # F5    Brightness +
 # F6    Brightness -
 
-set $mod mod3 
+set $mod mod3
 
 set $key_left       h
 set $key_down       j
@@ -80,6 +80,7 @@ set $key_fullscreen f
 set $key_float      f
 
 set $key_music      g
+set $key_bt         b
 
 set $key_files      u
 
@@ -104,13 +105,12 @@ set $key_light_up   F5
 set $key_light_down F6
 
 # only used for single screen, otherwise this is comms
-set $key_mail       n 
+set $key_mail       n
 set $key_vm_ws      y
 
 set $cmd_reload     restart
 
 set $key_hints      comma
-set $key_clipboard  g
 
 ################################################################################
 # machine specific
@@ -118,7 +118,7 @@ set $key_clipboard  g
 set $lockpaper $HOME/auto-setup/wallpapers/jim_burns_pandoras_star.jpg
 
 ################################################################################
-set $default_path /home/f 
+set $default_path /home/f
 
 include bindings/basics
 include bindings/terminal.mode
@@ -132,15 +132,13 @@ include bindings/sysctl.mode
 
 include bindings/windownavigation
 include bindings/layout
-include bindings/layout.mode
-
 include bindings/windowassignment
 
 include bindings/vnc
 include bindings/virtualbox
 
 include bindings/floatingvideo
-include bindings/screencapture 
+include bindings/screencapture
 include bindings/mediakeys
 
 include behavior
