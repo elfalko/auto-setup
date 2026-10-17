@@ -5,13 +5,6 @@
 ###############################################################################
 # FIX is currently disabled, see comments in previous and next
 ###############################################################################
-set -eixo pipefail
-
-# your ports
-# xrandr -q
-INTERN="eDP1"
-OUTER1="DP1"
-OUTER2="DP2"
 
 #names for switching, and for display in i3 task bar
 SETUP_FULL="stacked"

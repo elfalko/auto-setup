@@ -8,7 +8,9 @@ bar {
     mode hide
     modifier $mod
 
-    status_command while /bin/bash ~/auto-setup/scripts/statusbar.sh; do sleep 1; done 
+    # swaybar does not natively support a system tray fully
+    # status_command while /bin/bash ~/auto-setup/scripts/statusbar.sh; do sleep 1; done 
+    status_command i3blocks -c ~/.config/i3blocks/config
 
     font pango:DejaVu Sans Mono 10
     colors {

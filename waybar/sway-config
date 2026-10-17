@@ -2,9 +2,9 @@
 
 # launches waybar at start
 bar {
+    hidden_state hide
     status_command waybar
 }
 
 # allows toggling 
 bindsym $mod+x exec killall -SIGUSR1 waybar
-exec waybar
