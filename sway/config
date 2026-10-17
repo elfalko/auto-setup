@@ -2,50 +2,50 @@
 
 ################################################################################
 # Cheat sheet
-# 
-# key   +mod   	    +mod+shift  +mod+ctrl   +mod+shift+ctl  +nothing (only if key itself was overwritten) 
 #
-# q     layout 	    kill window -           -               
+# key   +mod   	    +mod+shift  +mod+ctrl   +mod+shift+ctl  +nothing (only if key itself was overwritten)
+#
+# q     layout 	    kill window -           -               -
 # w     -           -           -           -
-# e     -           -           -           -               
-# r     -      	    reload wm   -           -               
-# t     vm          <local vm>  virtualbox  -               
+# e     -           -           -           -               -
+# r     -      	    reload wm   -           -               -
+# t     vm          <local vm>  virtualbox  -               -
 #
-# y     windows	    mv windows  -           -               
+# y     windows	    mv windows  -           -               -
 # u     downloads   -           -           -
-# i     vscode      nm-editor   -           -           
-# o     quadfox	    -           -           -              
-# p     prev ws     -           -           -              
+# i     vscode      nm-editor   -           -               -
+# o     quadfox	    -           -           -               -
+# p     prev ws     -           -           -               -
 #
-# a     parent 	    child       -           -              
-# s     -    	    -           -           -
-# d     -           -           -           -              
-# f     focus       tgl float   -           -
-# g     -           -           -           -              
+# a     parent 	    child       -           -               -
+# s     -     	    -           -           -               -
+# d     -           -           -           -               -
+# f     focus       tgl float   -           -               -
+# g     -           -           -           -               -
 #
 # h     focus ᐸ     mv ᐸ        resize ᐸ    -
-# j     focus ᐯ     mv ᐯ        resize ᐯ    -     
+# j     focus ᐯ     mv ᐯ        resize ᐯ    -
 # k     focus ᐱ     mv ᐱ        resize ᐱ    -
-# l     focus ᐳ     mv ᐳ        resize ᐳ    -      
-# ;     -           -           -           -               
+# l     focus ᐳ     mv ᐳ        resize ᐳ    -
+# ;     -           -           -           -
 #
-# z     fullscreen  -           -           -               
-# x     waybar      -           -           -               
-# c     screenshot  see shots   -           -               
-# v     scratch     mv scratch  -           -               
-# b     bluetooth   exit i3     -           -               
+# z     fullscreen  -           -           -
+# x     waybar      -           -           -
+# c     screenshot  see shots   -           -
+# v     scratch     mv scratch  -           -
+# b     bluetooth   exit wm     -           -
 
-# n     next ws     -           -           -               
-# m     mail        -           -           -               
-# ,     -           -           -           -               
-# .     -           -           -           -               
+# n     next ws     -           -           -
+# m     mail        -           -           -
+# ,     -           -           -           -
+# .     -           -           -           -
 #
 # 1-10  ws switch   mv window   resize win  mv ws to output
 # `     [         com ws        ]           k
 #
-# space app launcher-           -           -               
-# enter terminal    browser     -           -               
-# esc   -           -           -           -               
+# space app launcher-           -           -
+# enter terminal    browser     -           -
+# esc   -           -           -           -
 # mute  pavuctl     -           -           -
 # Print -           -           -           -               screenkey
 ################################################################################
@@ -58,41 +58,84 @@ set $key_left  h
 set $key_down  j
 set $key_up    k
 set $key_right l
+
+set $key_quit  q
+
 set $key_comms grave
+
 set $key_next  n
 set $key_prev  p
 set $key_vm    t
 set $key_qfox  o
 
+set $key_browser    i
+
+set $key_fullscreen f
+set $key_float      f
+
+set $key_music      g
+
+set $key_files      u
+
+set $key_screenshot c
+
+set $key_bg         z
+set $key_monitor    m
+
+set $key_scratchpad v
+set $key_sticky     s
+
+set $key_vm         t
+set $key_vnc        equal
+set $key_connect    semicolon
+
+set $key_3dp        p
+set $key_comms      grave
+
+set $key_play_pause F1
+set $key_vol_down   F2
+set $key_vol_up     F3
+set $key_vol_mute   F4
+
+set $key_light_up   F5
+set $key_light_down F6
+
+# only used for single screen, otherwise this is comms
+set $key_mail       n
+set $key_vm_ws      y
+
+set $key_reload     r
+set $cmd_reload     reload
+
 # fallback on x-terminal-emulator if there is no alacritty
-set $term [ -f /usr/bin/alacritty ] && alacritty || x-terminal-emulator
+include ../i3/bindings/basics
 set $code code
 set $mail thunderbird
 
-set $o-left   HDMI-A-1
-set $o-right  DP-1
-set $bg-left  ~/auto-setup/wallpapers/left/tron_homemode_w1920_cw1920_ch1080_cx0_cy0.jpg 
-set $bg-right ~/auto-setup/wallpapers/right/tron_homemode_w1920_cw1920_ch1080_cx1920_cy0.jpg
+# set $o-left   HDMI-A-1
+# set $o-right  DP-1
+# set $bg-left  ~/auto-setup/wallpapers/left/tron_homemode_w1920_cw1920_ch1080_cx0_cy0.jpg
+# set $bg-right ~/auto-setup/wallpapers/right/tron_homemode_w1920_cw1920_ch1080_cx1920_cy0.jpg
 
-set $lock swaylock -f -i $o-left:$bg-left -i $o-right:$bg-right -C ~/.config/sway/swaylockconfig
+# set $lock swaylock -f -i $o-left:$bg-left -i $o-right:$bg-right -C ~/.config/sway/swaylockconfig
+set $lock swaylock -f -C ~/.config/sway/swaylockconfig
 set $timelock      300
 set $timescreenoff 600
 
 set $cmd_balance_ws_fill  /bin/bash ~/auto-setup/sway/focus_free_ws.sh
-set $menu                 dmenu_path | dmenu | xargs swaymsg exec --
+set $custom_launcher      dmenu_path | dmenu | xargs swaymsg exec --
 set $inetedit             nm-connection-editor
 set $screenshot           /bin/bash ~/auto-setup/scripts/simple_grimshot.sh
 # assumes vm is called "vm"
 set $cmd_vm               virtualboxvm --startvm vm
 set $cmd_vm_menu          virtualbox
 
-set $cmd_quadfox /bin/bash ~/setup/scripts/quadfox.sh ~/setup/addresslist
-
 ### Output configuration
 # Default wallpaper in /usr/share/backgrounds/
-# output eDP-1 position 0 1080 bg /usr/share/backgrounds/mag_Topshot_final.jpg fill 
-output $o-left  position 0    0 bg $bg-left  fill 
-output $o-right position 1920 0 bg $bg-right fill 
+# output eDP-1 position 0 1080 bg /usr/share/backgrounds/mag_Topshot_final.jpg fill
+
+# output $o-left  position 0    0 bg $bg-left  fill
+# output $o-right position 1920 0 bg $bg-right fill
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -114,7 +157,7 @@ exec swayidle -w \
 # }
 
 # swaymsg -t get_inputs
-# Read `man 5 sway-input`. 
+# Read `man 5 sway-input`.
 
 # https://github.com/francma/wob
 
@@ -132,21 +175,10 @@ input * {
 
 ### Key bindings
 # Basics:
-    # Start a terminal
-    bindsym $mod+Return exec $term
-    bindsym $mod+Shift+Return exec firefox
-    bindsym $mod+Shift+i exec $inetedit 
+    bindsym $mod+Shift+$key_browser exec $inetedit
 
     bindsym $mod+$key_vm exec $cmd_vm
     bindsym $mod+ctrl+$key_vm exec $cmd_vm_menu
-    # Kill focused window
-    bindsym $mod+Shift+q kill
-
-    # Start your launcher
-    bindsym $mod+space exec $menu
-
-    # Files
-    bindsym $mod+u exec nautilus ~/Downloads
 
     # Start VSCode
     bindsym $mod+i exec $code
@@ -157,44 +189,18 @@ input * {
     bindsym $mod+m exec $mail
 
     # Drag floating windows by holding down $mod+left mouse button.
-    # Resize them with $mod+right mouse button 
+    # Resize them with $mod+right mouse button
     # Despite the name, also works for non-floating windows.
     # normal/inverse: flip buttons
     floating_modifier $mod normal
 
-    # Reload the configuration file
-    bindsym $mod+Shift+r reload
-
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'Okay, the test is over now. You win. Go back. For your cake 🎂!' -b 'Yes, exit sway' 'swaymsg exit'
 
-# Moving around:
-    # Move your focus around
-    bindsym $mod+$key_left focus left
-    bindsym $mod+$key_down focus down
-    bindsym $mod+$key_up focus up
-    bindsym $mod+$key_right focus right
-
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$key_left move left
-    bindsym $mod+Shift+$key_down move down
-    bindsym $mod+Shift+$key_up move up
-    bindsym $mod+Shift+$key_right move right
-
-    # resize with ctrl
-    bindsym $mod+Ctrl+$key_left resize shrink width 10px
-    bindsym $mod+Ctrl+$key_down resize grow height 10px
-    bindsym $mod+Ctrl+$key_up resize shrink height 10px
-    bindsym $mod+Ctrl+$key_right resize grow width 10px
-
-    # move workspaces between outputs with Ctrl+Shift
-    bindsym $mod+Control+Shift+$key_right move workspace to output right
-    bindsym $mod+Control+Shift+$key_left move workspace to output left
-    bindsym $mod+Control+Shift+$key_down move workspace to output down
-    bindsym $mod+Control+Shift+$key_up move workspace to output up
+include ../i3/bindings/windownavigation
 
 # Workspaces:
-    bindsym $mod+$key_next workspace next 
+    bindsym $mod+$key_next workspace next
     bindsym $mod+$key_prev workspace prev
 
 include ~/auto-setup/sway/monitor-2.config
@@ -203,7 +209,7 @@ include ~/auto-setup/sway/monitor-2-comms.config
 # WM screen setup
     for_window [class="VirtualBox*"] floating disable
     for_window [class="VirtualBox" title="Add Share"] floating enable
-    # dual screen 
+    # dual screen
     for_window [class="VirtualBox Machine" title=".*1"] move container to output $o-left
     for_window [class="VirtualBox Machine" title=".*2"] move container to output $o-right
 
@@ -229,19 +235,10 @@ include ~/auto-setup/sway/monitor-2-comms.config
     focus_on_window_activation smart
     smart_gaps on
 
-    # Make the current focus fullscreen
-    bindsym $mod+z fullscreen
-
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+f floating toggle
-
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+f focus mode_toggle
-
     # Move focus to the parent container
     bindsym $mod+a focus parent
 
-    bindsym $mod+escape exec $lock 
+    bindsym $mod+escape exec $lock
 
     # Move the currently focused window to the scratchpad
     bindsym $mod+Shift+v move scratchpad

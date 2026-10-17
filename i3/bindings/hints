@@ -1,0 +1,4 @@
+# hints https://github.com/AlfredoSequeida/hints?tab=readme-ov-file#installing
+set $cmd_hints exec if command -v hints>/dev/null 2>&1; then hints; else notify-send "hints not found." fi
+
+bindsym $mod+$key_hints $cmd_hints

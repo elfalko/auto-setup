@@ -13,7 +13,7 @@ bindsym $mod+Return             $cmd_term
 bindsym $mod+Shift+Return       $cmd_browser
 
 # restart i3 inplace 
-bindsym $mod+Shift+r            restart
+bindsym $mod+Shift+$key_reload  $cmd_reload
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+b            exit

@@ -61,6 +61,8 @@ set $key_down       j
 set $key_up         k
 set $key_right      l
 
+set $key_quit       q
+
 set $key_browser    i
 
 set $key_fullscreen f
@@ -96,6 +98,11 @@ set $key_light_down F6
 # only used for single screen, otherwise this is comms
 set $key_mail       n 
 set $key_vm_ws      y
+
+set $key_reload     r
+set $cmd_reload     restart
+
+set $key_hints      comma
 
 ################################################################################
 # machine specific
@@ -156,6 +163,7 @@ include bindings/mobileconnection
 include bindings/printer.mode
 include bindings/mutt
 include bindings/music
+include bindings/hints
 
 # include bindings/machines.wm390
 

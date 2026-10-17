@@ -7,7 +7,7 @@ bindsym $mod+$key_right focus right
 set $manipulation_distance 100
 set $manipulation_distance_half 50
 
-# move focused window (or floating by 30)
+# move focused window (or floating by given distance)
 bindsym $mod+Shift+$key_left  move left  $manipulation_distance
 bindsym $mod+Shift+$key_down  move down  $manipulation_distance
 bindsym $mod+Shift+$key_up    move up    $manipulation_distance
@@ -28,19 +28,18 @@ bindsym $mod+Control+Shift+$key_up    move workspace to output up
 
 # enter fullscreen mode for the focused container
 bindsym $mod+$key_fullscreen fullscreen toggle
+
+# make it global, aka appearing on all workspaces
 bindsym $mod+ctrl+shift+$key_fullscreen fullscreen global
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+$key_quit kill
 
 ## floating
 # change focus between tiling / floating windows
 bindsym $mod+shift+$key_float focus mode_toggle
+
 # toggle tiling / floating
 bindsym $mod+Ctrl+$key_float floating toggle
 
 bindsym $mod+w [urgent=latest] focus
-
-# hints https://github.com/AlfredoSequeida/hints?tab=readme-ov-file#installing
-bindsym $mod+comma exec hints
-
