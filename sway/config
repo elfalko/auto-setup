@@ -170,9 +170,8 @@ include bindings/workspaces.utility
 # bar config
 include ~/auto-setup/sway/status-config
 
-# pip install autotiling
-exec_always ~/.local/bin/autotiling
-# exec nm-applet
+exec_always autotiling
+exec nm-applet
 
 include ../i3/bindings/virtualbox
 

@@ -6,4 +6,5 @@ $PKG_MANAGER sway swaylock swayidle \
   wl-clipboard clipman \
   jq slurp grim \
   mako \
-  dmenu
+  dmenu \
+  autotiling
