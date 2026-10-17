@@ -1,8 +1,9 @@
 #!/bin/bash
 
-DIR=$1
+DIR=${1:-.}
 
-urxvt -cd $DIR || \
+kitty -d $DIR || \
+    urxvt -cd $DIR || \
     terminator --working-directory=$DIR || \
     alacritty --working-directory $DIR || \
     x-terminal-emulator --working-directory=$DIR || \

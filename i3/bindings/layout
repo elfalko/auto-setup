@@ -1,4 +1,4 @@
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+$key_window_hierarchy focus parent
 # focus the child container
-bindsym $mod+Shift+a focus child
+bindsym $mod+Shift+$key_window_hierarchy focus child

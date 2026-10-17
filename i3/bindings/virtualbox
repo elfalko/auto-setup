@@ -8,3 +8,11 @@ set $cmd_vm_menu           virtualbox
 bindsym $mod+$key_vm       exec $cmd_vm_start
 bindsym $mod+shift+$key_vm exec $cmd_vm_stop
 bindsym $mod+ctrl+$key_vm  exec $cmd_vm_menu
+
+
+# WM screen setup
+for_window [class="VirtualBox*"] floating disable
+for_window [class="VirtualBox" title="Add Share"] floating enable
+# dual screen
+for_window [class="VirtualBox Machine" title=".*1"] move container to output $o-left
+for_window [class="VirtualBox Machine" title=".*2"] move container to output $o-right

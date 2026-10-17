@@ -1,10 +1,19 @@
 # change volume or toggle mute
 # bindsym Shift+XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 150% && pkill -RTMIN+1 i3blocks 
 
-set $cmd_vol_down amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-set $cmd_vol_up amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
-set $cmd_vol_mute amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
+
 set $cmd_pctl_pause playerctl play-pause -a
+
+# Audio
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -qc 1 sset Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -qc 1 sset Master 5%-
+bindsym XF86AudioMute exec --no-startup-id amixer -qc 1 sset Master toggle && amixer -qc 1 sset Headphone unmute
+bindsym XF86AudioMicMute exec --no-startup-id amixer -qc 1 sset Mic toggle
+
+# pulse commands
+# set $cmd_vol_down amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+# set $cmd_vol_up amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+# set $cmd_vol_mute amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
 
 bindsym XF86AudioMute               exec $cmd_vol_mute
 bindsym $mod+$key_vol_mute          exec $cmd_vol_mute
@@ -28,5 +37,5 @@ bindsym $mod+XF86AudioMute          exec pavucontrol
 bindsym $mod+shift+$key_mute        exec pavucontrol 
 
 # TODO same for mic
-
-bindsym $mod+b exec bluetoothctl power on && blueman-manager || notify-send "Something went wrong with bluetoothctl power on"
+set $cmd_btctl exec bluetoothctl power on && blueman-manager || notify-send "Something went wrong with bluetoothctl power on"
+bindsym $mod+$key_bt $cmd_btctl

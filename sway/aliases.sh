@@ -1,7 +1,7 @@
 if command -v sway >/dev/null 2>&1; then
-  alias fsway="exec sway -c /home/f/auto-setup/sway/config"
+  alias fsway="exec sway -c $FAUTOSETUP/sway/config"
 
-  alias swc="$EDITOR ~/.config/sway/config"
+  alias swc="$EDITOR $FAUTOSETUP/sway/config"
   alias sgo="swaymsg -t get_outputs | jq '.[] | .name,.rect'"
   alias sgi="swaymsg -t get_inputs"
   alias sgt="swaymsg -t get_tree"

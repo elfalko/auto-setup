@@ -1,6 +1,6 @@
 # Read `man 5 sway` for a complete reference.
 
-################################################################################
+
 # Cheat sheet
 #
 # key   +mod   	    +mod+shift  +mod+ctrl   +mod+shift+ctl  +nothing (only if key itself was overwritten)
@@ -59,14 +59,19 @@ set $key_down  j
 set $key_up    k
 set $key_right l
 
-set $key_quit  q
-
-set $key_comms grave
-
 set $key_next  n
 set $key_prev  p
-set $key_vm    t
-set $key_qfox  o
+
+set $key_window_hierarchy a
+
+set $key_scratchpad v
+set $key_sticky     s
+
+set $key_rotate     r
+set $key_reload     r
+
+set $key_quit       q
+set $key_lock  escape
 
 set $key_browser    i
 
@@ -74,6 +79,8 @@ set $key_fullscreen f
 set $key_float      f
 
 set $key_music      g
+set $key_bt         b
+set $key_clipboard  g
 
 set $key_files      u
 
@@ -81,9 +88,6 @@ set $key_screenshot c
 
 set $key_bg         z
 set $key_monitor    m
-
-set $key_scratchpad v
-set $key_sticky     s
 
 set $key_vm         t
 set $key_vnc        equal
@@ -104,31 +108,23 @@ set $key_light_down F6
 set $key_mail       n
 set $key_vm_ws      y
 
-set $key_reload     r
+# set $key_hints      comma
+
 set $cmd_reload     reload
 
 # fallback on x-terminal-emulator if there is no alacritty
 include ../i3/bindings/basics
+
+# start notification first
+exec mako --default-timeout=5000 --padding=2 --margin=2 || swaynag -t warning -m 'mako could not start'
+
 set $code code
 set $mail thunderbird
 
-# set $o-left   HDMI-A-1
-# set $o-right  DP-1
-# set $bg-left  ~/auto-setup/wallpapers/left/tron_homemode_w1920_cw1920_ch1080_cx0_cy0.jpg
-# set $bg-right ~/auto-setup/wallpapers/right/tron_homemode_w1920_cw1920_ch1080_cx1920_cy0.jpg
-
-# set $lock swaylock -f -i $o-left:$bg-left -i $o-right:$bg-right -C ~/.config/sway/swaylockconfig
-set $lock swaylock -f -C ~/.config/sway/swaylockconfig
-set $timelock      300
-set $timescreenoff 600
+include lock.config
 
 set $cmd_balance_ws_fill  /bin/bash ~/auto-setup/sway/focus_free_ws.sh
 set $custom_launcher      dmenu_path | dmenu | xargs swaymsg exec --
-set $inetedit             nm-connection-editor
-set $screenshot           /bin/bash ~/auto-setup/scripts/simple_grimshot.sh
-# assumes vm is called "vm"
-set $cmd_vm               virtualboxvm --startvm vm
-set $cmd_vm_menu          virtualbox
 
 ### Output configuration
 # Default wallpaper in /usr/share/backgrounds/
@@ -139,129 +135,45 @@ set $cmd_vm_menu          virtualbox
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-### Idle configuration
-# lock after $timelock seconds
-# turn off displays after $timescreenoff seconds
-exec swayidle -w \
-         timeout $timelock "$lock" \
-         timeout $timescreenoff 'swaymsg "output * dpms off"' \
-                resume 'swaymsg "output * dpms on"' \
-         before-sleep "$lock"
-
-### Input configuration
-# input "2:7:SynPS/2_Synaptics_TouchPad" {
-#     dwt enabled
-#     tap enabled
-#     natural_scroll enabled
-#     middle_emulation enabled
-# }
-
-# swaymsg -t get_inputs
-# Read `man 5 sway-input`.
-
-# https://github.com/francma/wob
-
-#https://wiki.archlinux.org/title/Sway#Graphical_indicator_bars
-
-#also xkeyboard-config(7) l. 1100+ and sway-input(5)
-input * {
-    xkb_layout "custom"
-    # TODO add `compose:<key>`
-    xkb_options "terminate:ctrl_alt_bksp,caps:none"
-    xkb_numlock enable
-}
-
-# seat seat0 xcursor_theme Nordzy-cursors 48
+include input.config
+include ../i3/bindings/screencapture 
 
 ### Key bindings
-# Basics:
-    bindsym $mod+Shift+$key_browser exec $inetedit
 
-    bindsym $mod+$key_vm exec $cmd_vm
-    bindsym $mod+ctrl+$key_vm exec $cmd_vm_menu
-
-    # Start VSCode
-    bindsym $mod+i exec $code
-
-    # screenshot area
-    bindsym $mod+c exec $screenshot
-
-    bindsym $mod+m exec $mail
-
-    # Drag floating windows by holding down $mod+left mouse button.
-    # Resize them with $mod+right mouse button
-    # Despite the name, also works for non-floating windows.
-    # normal/inverse: flip buttons
-    floating_modifier $mod normal
-
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'Okay, the test is over now. You win. Go back. For your cake 🎂!' -b 'Yes, exit sway' 'swaymsg exit'
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Okay, the test is over now. You win. Go back. For your cake 🎂!' -b 'Yes, exit sway' 'swaymsg exit'
 
 include ../i3/bindings/windownavigation
+include ../i3/bindings/layout
 
-# Workspaces:
-    bindsym $mod+$key_next workspace next
-    bindsym $mod+$key_prev workspace prev
-
-include ~/auto-setup/sway/monitor-2.config
-include ~/auto-setup/sway/monitor-2-comms.config
-
-# WM screen setup
-    for_window [class="VirtualBox*"] floating disable
-    for_window [class="VirtualBox" title="Add Share"] floating enable
-    # dual screen
-    for_window [class="VirtualBox Machine" title=".*1"] move container to output $o-left
-    for_window [class="VirtualBox Machine" title=".*2"] move container to output $o-right
-
-
-# Wireshark
-    for_window [title="Wireshark · Open Capture File"] floating disable
-    for_window [app_id="wireshark"] floating disable
-
-# figure out what your window is
-# swaymsg -t get_tree | grep -i <name>
-
-# Quad firefox view for full control
-   bindsym $mod+$key_qfox exec $cmd_quadfox
+exec_always /bin/bash ~/auto-setup/i3/i3-multihead.sh --path ~/.config/i3-multihead/i3-multihead generate "1 2 3 4 5 6 7 8 9 0";
+include ~/.config/i3-multihead/i3-multihead.config
+exec_always /bin/bash ~/auto-setup/i3/i3-multihead.sh expand
 
 # Layout stuff:
-    # TODO test if this affects the thunderbird thing
-    workspace_auto_back_and_forth no
+# Drag floating windows by holding down $mod+left mouse button.
+# Resize them with $mod+right mouse button
+# Despite the name, also works for non-floating windows.
+# normal/inverse: flip buttons
+floating_modifier $mod normal
+workspace_auto_back_and_forth no
 
-    hide_edge_borders smart
-    default_border pixel 1
-    default_floating_border pixel 1
-    focus_follows_mouse yes
-    focus_on_window_activation smart
-    smart_gaps on
+hide_edge_borders smart
+default_border pixel 1
+default_floating_border pixel 1
+focus_follows_mouse yes
+focus_on_window_activation smart
 
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
-
-    bindsym $mod+escape exec $lock
-
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+v move scratchpad
-    bindsym $mod+v scratchpad show
-
-# Audio
-    bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -qc 1 sset Master 5%+ unmute
-    bindsym XF86AudioLowerVolume exec --no-startup-id amixer -qc 1 sset Master 5%-
-    bindsym XF86AudioMute exec --no-startup-id amixer -qc 1 sset Master toggle && amixer -qc 1 sset Headphone unmute
-    bindsym XF86AudioMicMute exec --no-startup-id amixer -qc 1 sset Mic toggle
+include bindings/mediakeys
+include bindings/workspaces.utility
 
 # bar config
-include ~/auto-setup/waybar/sway-config
-# include ~/auto-setup/sway/status-config
-
-exec wl-paste -t text --watch clipman store --no-persist
-bindsym $mod+g exec  clipman  pick
+include ~/auto-setup/sway/status-config
 
 # pip install autotiling
 exec_always ~/.local/bin/autotiling
-exec nm-applet
-exec mattermost-desktop
-exec thunderbird
-exec mako --default-timeout=4000 --padding=2 --margin=2
+# exec nm-applet
 
-include ~/setup/sway/config.d/*
+include ../i3/bindings/virtualbox
+
+include machine.secondchance

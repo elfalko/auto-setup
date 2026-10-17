@@ -61,6 +61,17 @@ set $key_down       j
 set $key_up         k
 set $key_right      l
 
+set $key_prev       Prior
+set $key_next       Next
+
+set $key_window_hierarchy a
+
+set $key_scratchpad v
+set $key_sticky     s
+
+set $key_rotate     r
+set $key_reload     r
+
 set $key_quit       q
 
 set $key_browser    i
@@ -76,9 +87,6 @@ set $key_screenshot c
 
 set $key_bg         z
 set $key_monitor    m
-
-set $key_scratchpad v
-set $key_sticky     s
 
 set $key_vm         t
 set $key_vnc        equal
@@ -99,10 +107,10 @@ set $key_light_down F6
 set $key_mail       n 
 set $key_vm_ws      y
 
-set $key_reload     r
 set $cmd_reload     restart
 
 set $key_hints      comma
+set $key_clipboard  g
 
 ################################################################################
 # machine specific
